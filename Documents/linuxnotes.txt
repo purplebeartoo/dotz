@@ -151,8 +151,9 @@ _________________
 _________________
 
 git bare:
-git init --bare $HOME/.dotz
 alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
+git clone --bare https://github.com/purplebeartoo/dotz.git $HOME/.dotz
+dg checkout
 dg config --local status.showUntrackedFiles no
 
 dg add /path/to/file
@@ -162,8 +163,6 @@ dg push git@github.com:purplebeartoo/dotz.git
 
 setup:
 https://www.atlassian.com/git/tutorials/dotfiles
-restore:
-https://cbrueggenolte.de/sammelsurium/configs/the-best-way-to-store-your-dotfiles-a-bare-git-repository/
 _________________
 
 DNS over TLS:
