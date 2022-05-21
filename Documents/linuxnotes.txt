@@ -157,8 +157,11 @@ dg config --local status.showUntrackedFiles no
 
 dg add /path/to/file
 dg commit -m "A short message"
+dg push https://github.com/purplebeartoo/dotz.git
 dg push git@github.com:purplebeartoo/dotz.git
 
+setup:
+https://www.atlassian.com/git/tutorials/dotfiles
 restore:
 https://cbrueggenolte.de/sammelsurium/configs/the-best-way-to-store-your-dotfiles-a-bare-git-repository/
 _________________
