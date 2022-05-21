@@ -1,0 +1,51 @@
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/keybindings
+
+export BAT_THEME='OneHalfDark'
+export EDITOR='$VISUAL'
+export FZF_ALT_C_COMMAND='find . -type d'
+export FZF_ALT_C_OPTS='--layout=default'
+export FZF_CTRL_T_COMMAND='find .'
+export FZF_CTRL_T_OPTS='--layout=default'
+export FZF_DEFAULT_COMMAND='find .'
+export FZF_DEFAULT_OPTS='--layout=default'
+export HOSTNAME="belladonna"
+export SUDO_EDITOR=nvim
+export VISUAL=nvim
+
+# auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # Include hidden files.
+
+# history
+HISTFILE=~/.config/zsh/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt autocd
+
+alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
+alias f='handlr open $(fzf)'
+alias ls='exa -l -g --group-directories-first --icons -t modified'
+alias lsa='exa -a -l -g --group-directories-first --icons -t modified'
+alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
+alias mg='radeontop -c'
+alias mm='mpv --no-video'
+alias mp='ncmpcpp'
+alias nt='nvim $HOME/Documents/linuxnotes.txt'
+alias rr='ranger'
+alias sc='nvim $HOME/Documents/shellscripts.sh'
+alias v='nvim'
+alias vim='nvim'
+alias vn='viewnior'
+
+eval "$(starship init zsh)"
+
+pfetch
+(cat ~/.cache/wal/sequences &)

@@ -1,0 +1,20 @@
+[Default Applications]
+application/javascript=nvim.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/x-perl=nvim.desktop;
+application/x-sh=nvim.desktop
+application/x-shellscript=nvim.desktop
+application/x-yaml=nvim.desktop;
+application/xml=nvim.desktop;
+audio/mpeg=vlc.desktop;
+image/jpeg=viewnior.desktop;
+text/*=nvim.desktop;
+
+[Added Associations]
+image/jpeg=gimp.desktop;
+image/png=gimp.desktop;viewnior.desktop;
+text/plain=nvim.desktop;
+application/x-desktop=nvim.desktop
+application/x-mozilla-bookmarks=nvim.desktop
+application/toml=nvim.desktop
+video/mp4=mpv.desktop;vlc.desktop;

@@ -1,0 +1,501 @@
+######################################################################################
+MISC VIM
+
+\%V                    - search block selection - /searchterm\%V 
+g/[^-_#. a-zA-Z0-9]    - find unacceptable hosts characters
+%s/#!/\r#!/gc          - place a new line before #!
+%s/foo/bar/gc          - find and replace with confirmation
+s/foo/bar/g            - find and replace within selection
+%s/pattern//gn         - count number of matches
+%s/\r//g               - remove new line ^M
+
+######################################################################################
+MISC MAJIK
+
+dg ls-tree --full-tree -r HEAD
+
+exa -a --bytes -l -g --group-directories-first --icons -t modified -s name
+
+escape: \^$.|?*+()[{
+
+sudo sysctl -a | grep ptrace
+
+watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""
+
+MOZ_LOG="PlatformDecoderModule:5"
+
+sudo lsof -w +c 0 /usr/lib/libhardened_malloc.so | awk '{print $1}' | sort
+
+sudo journalctl --since "2020-12-10 17:15:00"
+
+count lines recursively in a directory: wc -l ~/hosts/data/**/*
+
+sudo cryptsetup luksAddKey /dev/sda5
+sudo cryptsetup luksRemoveKey /dev/sda5
+
+burn iso to USB: sudo dd bs=4M if=input.iso of=/dev/sd<?>
+overwrite USB with random: dd if=/dev/urandom of=/dev/sdg1
+
+find lines in file1 that are not present in file2
+diff --new-line-format="" --unchanged-line-format="" <(sort file1) <(sort file2) > output
+
+list files low to high: du -h --max-depth=1 ~/hosts/data | sort -h
+
+exiftool -all= *.*
+
+find / -type d -path /timeshift -prune -o -name "firejail*" -print 2>/dev/null
+
+print files modified today: find / -mtime -1 > test
+
+find files larger than 5M: find /where -size +5M -ls
+
+find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
+
+grep --color='auto' -P -n "[\x80-\xFF]" file.name
+grep --color='auto' -P -n "[^\x00-\x7F]" file.name
+grep -H -r "texttofind" /where
+
+rsync -am --include='filename' --include='*/' --exclude='*' /to /from
+
+ps -o user $(pgrep Xorg)
+
+######################################################################################
+INSTALL & BOOT
+
+systemd-analyze blame
+dmesg | grep -i error
+
+######################################################################################
+WEBSITES
+
+https://sirokos.com/GPUAsteroids
+https://devhints.io/vim
+https://github.com/egeesin/alacritty-color-export
+
+######################################################################################
+GPG
+         
+s2k-cipher-algo AES256
+s2k-count 65011712
+s2k-digest-algo SHA512
+
+</dev/urandom tr -dc "[:print:]" | fold -w23 | head -n5
+</dev/urandom tr -dc "[:alnum:]" | fold -w30 | head -n5
+
+gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo TWOFISH --s2k-digest-algo SHA512
+gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo AES256 --s2k-digest-algo SHA512
+
+######################################################################################
+WIRESHARK
+
+sudo usermod -a -G wireshark $USER
+
+ip.host matches "64.233.180" || ip.host matches ""
+
+######################################################################################
+NEW HOST
+
+gsettings set org.gnome.desktop.peripherals.keyboard numlock-state true
+gsettings set org.gnome.shell app-picker-layout "[]"
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+_________________
+
+sudo cp ~/.config/monitors.xml /var/lib/gdm/.config
+sudo machinectl shell gdm@ /bin/bash
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+_________________
+
+sudo systemctl start NetworkManager.service
+nmcli device wifi list
+sudo nmcli device wifi connect SSID_or_BSSID password password
+sudo systemctl enable gdm.service
+
+aur: ckb-next-git gnome-shell-extension-freon-git hardened_malloc nerd-fonts-fira-code \
+paccache-hook timeshift ttf-ms-fonts 
+
+alacritty apparmor baobab bat clinfo cronie dash dconf-editor evince exa ffmpeg \
+file-roller firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters \
+gnome-control-center gnome-keyring gnome-multi-writer gnome-shell gnome-system-monitor \
+gnome-terminal gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick keepassxc \
+libmad libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa mpd nautilus \
+ncmpcpp neofetch neovim noto-fonts noto-fonts-emoji papirus-icon-theme python-pillowfight \
+python-pywal radeontop ranger reflector resolvconf ripgrep tracker ttf-dejavu ttf-liberation \
+ttf-opensans ufw viewnior vlc vulkan-icd-loader vulkan-radeon vulkan-tools wl-clipboard \
+xclip xdg-desktop-portal-gnome xdg-user-dirs zip zsh zsh-autosuggestions zsh-syntax-highlighting
+_________________
+
+chsh -s $(which zsh)
+curl -sS https://starship.rs/install.sh | sh
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+_________________
+
+git clone https://github.com/netblue30/firejail.git
+cd firejail
+./configure --prefix=/usr --enable-apparmor && make && sudo make install-strip
+_________________
+
+user icons:
+/usr/share/pixmaps/faces
+_________________
+
+ 1. /etc/pacman.conf: ParallelDownloads
+ 2. user scripts
+ 3. sudo awc
+ 4. uwc
+ 5. sudo systemctl enable bluetooth.service
+    sudo systemctl start bluetooth.service
+ 6. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
+ 7. sudo firecfg (rm dnsmasq meld)
+ 8. .local: browser, evince, keepassxc, viewnior, vlc:
+_________________
+
+git bare:
+git init --bare $HOME/.dotz
+alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
+dg config --local status.showUntrackedFiles no
+
+dg add /path/to/file
+dg commit -m "A short message"
+dg push git@github.com:purplebeartoo/dotz.git
+
+restore:
+https://cbrueggenolte.de/sammelsurium/configs/the-best-way-to-store-your-dotfiles-a-bare-git-repository/
+_________________
+
+DNS over TLS:
+sudo nvim /etc/systemd/resolved.conf
+  [Resolve]
+  DNS=
+  DNS=
+  DNS=
+  DNS=
+  DNSOverTLS=yes
+
+sudo nvim /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
+  [main]
+  dns=systemd-resolved
+  systemd-resolved=false
+
+sudo systemctl start systemd-resolved
+sudo systemctl enable systemd-resolved
+sudo systemctl restart NetworkManager
+_________________
+
+kvm:
+sudo pacman -S bridge-utils dmidecode dnsmasq iptables-nft libguestfs libvirt openbsd-netcat \
+qemu-desktop vde2 virt-manager virt-viewer
+
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+sudo systemctl status libvirtd.service
+sudo nvim /etc/libvirt/libvirtd.conf (uncomment)
+  unix_sock_group = "libvirt"
+  unix_sock_rw_perms = "0770"
+sudo usermod -a -G libvirt $(whoami)
+sudo usermod -a -G libvirt pw       
+newgrp libvirt
+sudo systemctl restart libvirtd.service
+_________________
+
+steam stuff: 
+https://github.com/GloriousEggroll/proton-ge-custom/releases
+
+flatpak override --user --env=GDK_SCALE=1 com.valvesoftware.Steam
+_________________
+
+hardened-malloc:
+keepassxc
+viewnior
+vlc
+_________________
+
+vim plugs:
+Plug 'arcticicestudio/nord-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dylanaraps/wal.vim'
+Plug 'fcpg/vim-fahrenheit'
+Plug 'lambdalisue/suda.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+________________
+
+nautilus sidebar bookmarks:
+~/.config/user-dirs.dirs
+
+######################################################################################
+NEW VM
+
+install: apparmor chromium dconf-editor evince firejail gdm git gnome-control-center \
+gnome-keyring gnome-shell gnome-system-monitor gnome-terminal gnome-themes-extra \
+gnome-tweaks imagemagick keepassxc lsof nautilus neofetch neovim noto-fonts noto-fonts-emoji \
+papirus-icon-theme python-pywal reflector ttf-dejavu ttf-liberation ttf-opensans \
+ufw viewnior wl-clipboard xclip xdg-user-dirs
+
+aur: hardened_malloc paccache-hook nerd-fonts-fira-code
+
+*** guest only! *** gsettings set org.gnome.desktop.interface enable-animations false
+_________________
+ 
+ 1. /etc/pacman.conf: ParallelDownloads
+ 2. call gpg --symmetric
+ 3. user scripts
+ 4. sudo awc
+ 5. uwc
+ 6. ~/.config/gtk-3.0/gtk.css: 
+      vte-terminal {
+      padding: 10px;
+      }
+ 7. sudo firecfg
+ 8. .local: browser, keepassxc, viewnior
+ 
+######################################################################################
+BACKUP VM
+
+su
+rsync -P /var/lib/libvirt/images/Cosmic.qcow2 /run/media/ck/sanc/kvmbackup/Cosmic.qcow2
+diff /run/media/ck/sanc/kvmbackup/Cosmic.qcow2 /var/lib/libvirt/images/Cosmic.qcow2
+cd /var/lib/libvirt/images
+echo 'Cosmic' > /run/media/ck/sanc/kvmbackup/Cosmic.xml
+virsh dumpxml Cosmic >  /run/media/ck/sanc/kvmbackup/Cosmic.xml
+
+restore vm:
+sudo -s
+virsh define --file /run/media/ck/sanc/kvmbackup/Cosmic.xml
+cp -r /run/media/ck/sanc/kvmbackup/Cosmic.qcow2 /var/lib/libvirt/images
+_________________
+
+maintenance:
+pacman -Qm (list aur packages)
+sudo systemctl --failed
+sudo journalctl -p 3 -xb
+paru -Scc
+paru -Yc
+sudo journalctl --vacuum-time=0d
+remove orphans and their configs:
+  sudo pacman -Qtdq | pacman -Rns -
+  list installed:
+  pacman -Qqe > ~/Documents/pkglist.txt
+
+######################################################################################
+REG/SED/TR
+
+There are 12 characters with special meanings: the backslash \, the caret ^, the dollar 
+sign $, the period or dot ., the vertical bar or pipe symbol |, the question mark ?, the
+asterisk or star *, the plus sign +, the opening parenthesis (, the closing parenthesis ), 
+the opening square bracket [, and the opening curly brace {, These special characters are 
+often called "metacharacters". Most of them are errors when used alone.
+
+If you want to use any of these characters as a literal in a regex, you need to escape them
+with a backslash. If you want to match 1+1=2, the correct regex is 1\+1=2. Otherwise, the 
+plus sign has a special meaning.
+
+$.*[\^                 - quote, except inside character sets ([…])
+
+'1d'                   - delete first line in a file
+'/\[[^]]*\]/d'         - delete lines containing text within brackets
+'/!/d'                 - delete lines containing an exclamation
+'/pattern to match/d'  - delete lines containing a pattern
+'/[ #]/d'              - delete lines containing a space or a hash
+'/[a-zA-Z]/!d'         - delete lines without letters
+'/\./!d'               - delele lines without a dot 
+'/^#/d'                - delete lines that begin with a hash
+'\?^/?d'               - delete lines that begin with a forward slash
+'/string$/d'           - delete lines that end with a string
+'/^$/d'                - delete empty lines
+'/^\s*$/d'             - delete empty lines with whitespace characters 
+'s/string//g'          - delete a string
+'s/[[:space:]]*#.*//'  - delete a hash, any preceding spaces, and the characters that follow it
+'s/[[:space:]]\+/ /g'  - replace all tabs and spaces with a single space
+'s/^.*toad/toad/'      - delete any characters before toad
+'s/^/0.0.0.0 /'        - prepend 0.0.0.0 to lines followed by a space
+'s/foo/bar/g'          - replace foo with bar
+[^-_#. a-zA-Z0-9]      - any character that is not a hyphen, underscore, hash, period, space, or alphanumeric
+_________________
+
+replace | with newline:
+find = \| replace = \n or cat test | tr "|" "\n" > catted
+
+######################################################################################
+#!/bin/sh
+#hostsscripts
+mkdir "$HOME"/xfer
+
+cat <<'EOF' > "$HOME"/xfer/awc
+#!/bin/sh
+#awc - admin write config
+
+#mirrors
+reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+#firejail
+groupadd firejail
+chown root:firejail /usr/bin/firejail
+chmod 4750 /usr/bin/firejail
+usermod -a -G firejail ck
+usermod -a -G firejail pw
+echo "blacklist /timeshift" > /etc/firejail/globals.local
+sed -i -e 's/# force-nonewprivs no/force-nonewprivs yes/g' /etc/firejail/firejail.config
+echo "ck
+pw" > /etc/firejail/firejail.users
+
+#grub
+sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
+sed -i -e 's/quiet/quiet module.sig_enforce=1 lsm=landlock,lockdown,yama,apparmor,bpf/g' /etc/default/grub
+grub-mkconfig -o /boot/grub/grub.cfg
+
+#misc
+echo 'MOZ_DISABLE_RDD_SANDBOX=1 firefox' > /etc/environment
+
+echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
+
+sudo ln -sfT dash /usr/bin/sh
+
+sed -i -e 's/#Color/Color/g' /etc/pacman.conf
+
+#dash pacman hook
+echo '[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = bash
+
+[Action]
+Description = Re-pointing /bin/sh symlink to dash...
+When = PostTransaction
+Exec = /usr/bin/ln -sfT dash /usr/bin/sh
+Depends = dash' > /usr/share/libalpm/hooks/dashbinsh.hook
+
+sudo mkdir /etc/systemd/coredump.conf.d
+echo '[Coredump]
+Storage=none' > /etc/systemd/coredump.conf.d/custom.conf
+
+#sysctl
+echo 'kernel.core_pattern=/dev/null' > /etc/sysctl.d/50-coredump.conf
+
+echo '# disable the kexec system call (can be used to replace the running kernel)
+kernel.kexec_load_disabled=1' > /etc/sysctl.d/99-sysctl.conf
+
+#systemctl and such
+systemctl enable apparmor.service
+sudo ufw enable
+systemctl enable ufw.service
+sudo ufw allow ssh
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/backup
+#!/bin/sh
+#backup
+ydmz="$(date +"%Y-%m-%d").tar.xz"
+cd "$HOME" || exit
+
+tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/ckb-next .config/firejail \
+  .config/mimeapps.list .config/mpd .config/mpv .config/ncmpcpp .config/nextdns \
+  .config/nvim .config/ranger .config/zsh .local/share/applications BrowserProfiles \
+  Documents Packages Pictures Playlists Videos
+
+gpg2 --symmetric "$HOME/backup-$ydmz"
+
+rm -rf "$HOME/backup-$ydmz"
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/bd
+#!/bin/sh
+#bd
+rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+echo "Browsing history deleted ;)"
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/cln
+#!/bin/bash
+#cln - copy linux notes 
+sudo cp /home/pw/Documents/linuxnotes.txt /home/ck/Downloads
+cp /home/ck/Downloads/linuxnotes.txt /home/ck
+rm -rf /home/ck/Downloads/linuxnotes.txt
+echo "Linux Notes copied."
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/cr
+#!/bin/sh
+#cr
+rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
+firejail --private-home=.mozilla /usr/bin/firefox -width 1800 -height 1600
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/dotoff
+#!/bin/sh
+#dotoff
+sudo rm -rf /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
+sudo rm -rf /etc/systemd/resolved.conf
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+sudo systemctl restart NetworkManager
+echo "DNS over TLS is disabled."
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/doton
+#!/bin/sh
+#doton  
+sudo cp "$HOME"/.config/nextdns/10-dns-systemd-resolved.conf /etc/NetworkManager/conf.d
+sudo cp "$HOME"/.config/nextdns/resolved.conf /etc/systemd
+sudo systemctl start systemd-resolved
+sudo systemctl enable systemd-resolved
+sudo systemctl restart NetworkManager
+echo "DNS over TLS is enabled."
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/kbna
+#!/bin/sh
+#kbna
+rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+firejail --private /usr/bin/firefox
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/kbns
+#!/bin/sh
+#kbns
+rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+firejail /usr/bin/firefox
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/kbps
+#!/bin/sh
+#kbps
+rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
+firejail /usr/bin/firefox -width 1800 -height 1600
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/kbyt
+#!/bin/sh
+#kbyt
+rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
+mv "$HOME"/.ytmozilla "$HOME"/.mozilla
+firejail --private-home=.mozilla /usr/bin/firefox -width 1800 -height 1300
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/np
+#!/bin/sh
+#np
+rm -rf "$HOME"/BrowserProfiles/.mozilla
+mv "$HOME"/.mozilla "$HOME"/BrowserProfiles
+cd "$HOME"/BrowserProfiles || exit
+zip -r HostProf.zip .mozilla
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/uwc
+#!/bin/sh
+#uwc - user write config
+
+#symmetric gpg
+echo "s2k-cipher-algo AES256
+s2k-count 65011712
+s2k-digest-algo SHA512" > "$HOME"/.gnupg/gpg.conf
+EOF
+
+chmod +x "$HOME"/xfer/*
+sudo chown root:root "$HOME"/xfer/*
+sudo mv "$HOME"/xfer/* /usr/local/bin
+rm -rf "$HOME"/xfer
