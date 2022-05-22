@@ -148,6 +148,7 @@ _________________
  6. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
  7. sudo firecfg (rm dnsmasq meld)
  8. .local: browser, evince, keepassxc, viewnior:
+ 9. switch windows directly Alt+Space
 _________________
 
 git bare:
