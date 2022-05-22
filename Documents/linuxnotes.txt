@@ -433,14 +433,14 @@ cat <<'EOF' > "$HOME"/xfer/kbna
 #!/bin/sh
 #kbna
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail --private /usr/bin/firefox
+firejail --private /usr/bin/firefox -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbns
 #!/bin/sh
 #kbns
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail /usr/bin/firefox
+firejail /usr/bin/firefox -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbps
