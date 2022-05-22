@@ -348,10 +348,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #misc
 echo 'MOZ_DISABLE_RDD_SANDBOX=1 firefox' > /etc/environment
-
 echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
-
 sed -i -e 's/#Color/Color/g' /etc/pacman.conf
+sed -i -e 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config
+sed -i -e 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
 sudo mkdir /etc/systemd/coredump.conf.d
 echo '[Coredump]
