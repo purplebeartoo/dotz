@@ -231,7 +231,7 @@ gnome-tweaks imagemagick keepassxc linux-headers lsof nautilus neovim noto-fonts
 noto-fonts-emoji papirus-icon-theme python-pywal reflector ttf-dejavu ttf-liberation \
 ttf-opensans ufw viewnior wl-clipboard xclip xdg-user-dirs
 
-aur: hardened_malloc paccache-hook pfetch-git nerd-fonts-fira-code
+aur: hardened_malloc pfetch-git nerd-fonts-fira-code
 
 *** guest only! *** gsettings set org.gnome.desktop.interface enable-animations false
 _________________
