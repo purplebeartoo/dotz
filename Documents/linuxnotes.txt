@@ -139,16 +139,13 @@ user icons:
 /usr/share/pixmaps/faces
 _________________
 
- 1. /etc/pacman.conf: ParallelDownloads
- 2. user scripts
- 3. sudo awc
- 4. uwc
- 5. sudo systemctl enable bluetooth.service
-    sudo systemctl start bluetooth.service
- 6. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
- 7. sudo firecfg (rm dnsmasq meld)
- 8. .local: browser, evince, keepassxc, viewnior:
- 9. switch windows directly Alt+Space
+ 1. user scripts
+ 2. sudo awc
+ 3. uwc
+ 4. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
+ 5. sudo firecfg (rm dnsmasq meld)
+ 6. .local: browser, evince, keepassxc, viewnior:
+ 7. switch windows directly Alt+Space
 _________________
 
 git bare:
@@ -239,17 +236,16 @@ aur: hardened_malloc paccache-hook pfetch-git nerd-fonts-fira-code
 *** guest only! *** gsettings set org.gnome.desktop.interface enable-animations false
 _________________
  
- 1. /etc/pacman.conf: ParallelDownloads
- 2. call gpg --symmetric
- 3. user scripts
- 4. sudo awc
- 5. uwc
- 6. ~/.config/gtk-3.0/gtk.css: 
+ 1. call gpg --symmetric
+ 2. user scripts
+ 3. sudo awc
+ 4. uwc
+ 5. ~/.config/gtk-3.0/gtk.css: 
       vte-terminal {
       padding: 10px;
       }
- 7. sudo firecfg
- 8. .local: browser, keepassxc, viewnior
+ 6. sudo firecfg
+ 7. .local: browser, keepassxc, viewnior
  
 ######################################################################################
 BACKUP VM
