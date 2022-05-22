@@ -110,7 +110,7 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 sudo systemctl enable gdm.service
 
-aur: ckb-next gnome-shell-extension-freon-git hardened_malloc nerd-fonts-fira-code \
+aur: ckb-next gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
 paccache-hook pfetch-git timeshift ttf-ms-fonts 
 
 alacritty apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller \
