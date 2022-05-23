@@ -211,6 +211,7 @@ viewnior
 _________________
 
 vim plugs:
+Plug 'EdenEast/nightfox.nvim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'dylanaraps/wal.vim'

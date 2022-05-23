@@ -1,10 +1,10 @@
+source ~/.config/zsh/keybindings
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh/keybindings
 
-export BAT_THEME='OneHalfDark'
+export BAT_THEME='base16'
 export EDITOR='$VISUAL'
 export FZF_ALT_C_COMMAND='find . -type d'
 export FZF_ALT_C_OPTS='--layout=default'
