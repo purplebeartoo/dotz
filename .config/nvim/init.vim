@@ -53,7 +53,6 @@ noremap <silent> <C-Down> :resize -3<CR>
 call plug#begin('~/.config/nvim/.vim/plugged')
 Plug 'EdenEast/nightfox.nvim'
 Plug 'junegunn/fzf.vim'
-Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 let g:suda_smart_edit = 1
