@@ -113,15 +113,16 @@ sudo systemctl enable gdm.service
 aur: ckb-next gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
 pfetch-git timeshift ttf-ms-fonts 
 
-alacritty apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller \
-firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters gnome-control-center \
-gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions gnome-system-monitor \
-gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick keepassxc libmad \
-libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa mpd mpv nautilus \
-ncmpcpp neovim noto-fonts noto-fonts-emoji papirus-icon-theme python-pillowfight \
-python-pywal radeontop ranger reflector resolvconf ripgrep tracker ttf-dejavu ttf-liberation \
-ttf-opensans ufw viewnior vulkan-icd-loader vulkan-radeon vulkan-tools wl-clipboard \
-xclip xdg-desktop-portal-gnome xdg-user-dirs zip zsh zsh-autosuggestions zsh-syntax-highlighting
+alacritty apparmor baobab bat clinfo cronie dash dconf-editor evince exa ffmpeg \
+file-roller firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters \
+gnome-control-center gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions \
+gnome-system-monitor gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick \
+keepassxc libmad libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa \
+mpd mpv nautilus ncmpcpp neovim noto-fonts noto-fonts-emoji papirus-icon-theme \
+python-pillowfight python-pywal radeontop ranger reflector resolvconf ripgrep tracker \
+ttf-dejavu ttf-liberation ttf-opensans ufw viewnior vulkan-icd-loader vulkan-radeon \
+vulkan-tools wl-clipboard xclip xdg-desktop-portal-gnome xdg-user-dirs zip zsh \
+zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
 chsh -s $(which zsh)
@@ -315,12 +316,12 @@ replace | with newline:
 find = \| replace = \n or cat test | tr "|" "\n" > catted
 
 ######################################################################################
-#!/bin/sh
+#!/bin/dash
 #hostsscripts
 mkdir "$HOME"/xfer
 
 cat <<'EOF' > "$HOME"/xfer/awc
-#!/bin/sh
+#!/bin/dash
 #awc - admin write config
 
 #mirrors
@@ -368,7 +369,7 @@ systemctl enable sshd.service
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/backup
-#!/bin/sh
+#!/bin/dash
 #backup
 ydmz="$(date +"%Y-%m-%d").tar.xz"
 cd "$HOME" || exit
@@ -384,7 +385,7 @@ rm -rf "$HOME/backup-$ydmz"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/bd
-#!/bin/sh
+#!/bin/dash
 #bd
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 echo "Browsing history deleted ;)"
@@ -400,15 +401,15 @@ echo "Linux Notes copied."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/cr
-#!/bin/sh
+#!/bin/dash
 #cr
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail --private-home=.mozilla /usr/bin/firefox -width 1800 -height 1600
+firejail --private-home=.mozilla /usr/bin/firefox -new-instance -width 1800 -height 1600
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
-#!/bin/sh
+#!/bin/dash
 #dotoff
 sudo rm -rf /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
 sudo rm -rf /etc/systemd/resolved.conf
@@ -419,7 +420,7 @@ echo "DNS over TLS is disabled."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/doton
-#!/bin/sh
+#!/bin/dash
 #doton  
 sudo cp "$HOME"/.config/nextdns/10-dns-systemd-resolved.conf /etc/NetworkManager/conf.d
 sudo cp "$HOME"/.config/nextdns/resolved.conf /etc/systemd
@@ -430,38 +431,38 @@ echo "DNS over TLS is enabled."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbna
-#!/bin/sh
+#!/bin/dash
 #kbna
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail --private /usr/bin/firefox -new-tab about:blank
+firejail --private /usr/bin/firefox -new-instance -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbns
-#!/bin/sh
+#!/bin/dash
 #kbns
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail /usr/bin/firefox -new-tab about:blank
+firejail /usr/bin/firefox -new-instance -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbps
-#!/bin/sh
+#!/bin/dash
 #kbps
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail /usr/bin/firefox -width 1800 -height 1600
+firejail /usr/bin/firefox -new-instance -width 1800 -height 1600
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbyt
-#!/bin/sh
+#!/bin/dash
 #kbyt
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
 mv "$HOME"/.ytmozilla "$HOME"/.mozilla
-firejail --private-home=.mozilla /usr/bin/firefox -width 1800 -height 1300
+firejail --private-home=.mozilla /usr/bin/firefox -new-instance -width 1800 -height 1300
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
-#!/bin/sh
+#!/bin/dash
 #np
 rm -rf "$HOME"/BrowserProfiles/.mozilla
 mv "$HOME"/.mozilla "$HOME"/BrowserProfiles
@@ -470,7 +471,7 @@ zip -r HostProf.zip .mozilla
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/uwc
-#!/bin/sh
+#!/bin/dash
 #uwc - user write config
 
 #symmetric gpg
