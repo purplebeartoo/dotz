@@ -12,7 +12,6 @@ export FZF_CTRL_T_COMMAND='find .'
 export FZF_CTRL_T_OPTS='--layout=default'
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='--layout=default'
-export PF_COL3='6'
 export SUDO_EDITOR=nvim
 export VISUAL=nvim
 

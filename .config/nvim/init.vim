@@ -53,7 +53,7 @@ noremap <silent> <C-Down> :resize -3<CR>
 call plug#begin('~/.config/nvim/.vim/plugged')
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/suda.vim'
-Plug 'fcpg/vim-fahrenheit'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
 let g:suda_smart_edit = 1
@@ -66,7 +66,7 @@ if exists('+termguicolors')
 endif
 
 set background=dark
-colorscheme fahrenheit
+colorscheme onehalfdark
 
 "vim background transparency
 hi! Normal ctermbg=NONE guibg=NONE
