@@ -16,7 +16,7 @@ export PF_COL3='6'
 export SUDO_EDITOR=nvim
 export VISUAL=nvim
 
-# auto/tab completion:
+# auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
