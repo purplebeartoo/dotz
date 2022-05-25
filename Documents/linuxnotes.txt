@@ -111,7 +111,7 @@ sudo nmcli device wifi connect SSID_or_BSSID password password
 sudo systemctl enable gdm.service
 
 aur: ckb-next gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
-pfetch-git timeshift ttf-ms-fonts 
+pfetch-git timeshift-bin ttf-ms-fonts 
 
 alacritty apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller \
 firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters gnome-control-center \
