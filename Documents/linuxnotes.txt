@@ -113,16 +113,15 @@ sudo systemctl enable gdm.service
 aur: ckb-next gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
 pfetch-git timeshift ttf-ms-fonts 
 
-alacritty apparmor baobab bat clinfo cronie dash dconf-editor evince exa ffmpeg \
-file-roller firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters \
-gnome-control-center gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions \
-gnome-system-monitor gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick \
-keepassxc libmad libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa \
-mpd mpv nautilus ncmpcpp neovim noto-fonts noto-fonts-emoji papirus-icon-theme \
-python-pillowfight python-pywal radeontop ranger reflector resolvconf ripgrep tracker \
-ttf-dejavu ttf-liberation ttf-opensans ufw viewnior vulkan-icd-loader vulkan-radeon \
-vulkan-tools wl-clipboard xclip xdg-desktop-portal-gnome xdg-user-dirs zip zsh \
-zsh-autosuggestions zsh-syntax-highlighting
+alacritty apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller \
+firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters gnome-control-center \
+gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions gnome-system-monitor \
+gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick keepassxc libmad \
+libva-mesa-driver libva-utils linux-headers lsof meld mesa mpd mpv nautilus ncmpcpp \
+neovim noto-fonts noto-fonts-emoji papirus-icon-theme python-pywal radeontop ranger \
+reflector resolvconf ripgrep tracker ttf-dejavu ttf-liberation ttf-opensans ufw \
+viewnior vulkan-icd-loader vulkan-radeon vulkan-tools wl-clipboard xclip xdg-desktop-portal-gnome \
+xdg-user-dirs zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
 chsh -s $(which zsh)
@@ -317,12 +316,12 @@ replace | with newline:
 find = \| replace = \n or cat test | tr "|" "\n" > catted
 
 ######################################################################################
-#!/bin/dash
+#!/bin/sh
 #hostsscripts
 mkdir "$HOME"/xfer
 
 cat <<'EOF' > "$HOME"/xfer/awc
-#!/bin/dash
+#!/bin/sh
 #awc - admin write config
 
 #mirrors
@@ -370,7 +369,7 @@ systemctl enable sshd.service
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/backup
-#!/bin/dash
+#!/bin/sh
 #backup
 ydmz="$(date +"%Y-%m-%d").tar.xz"
 cd "$HOME" || exit
@@ -386,14 +385,14 @@ rm -rf "$HOME/backup-$ydmz"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/bd
-#!/bin/dash
+#!/bin/sh
 #bd
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 echo "Browsing history deleted ;)"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/cln
-#!/bin/dash
+#!/bin/sh
 #cln - copy linux notes 
 sudo cp /home/pw/Documents/linuxnotes.txt /home/ck/Downloads
 cp /home/ck/Downloads/linuxnotes.txt /home/ck
@@ -402,7 +401,7 @@ echo "Linux Notes copied."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/cr
-#!/bin/dash
+#!/bin/sh
 #cr
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
@@ -410,7 +409,7 @@ firejail --private-home=.mozilla /usr/bin/firefox -new-instance -width 1800 -hei
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
-#!/bin/dash
+#!/bin/sh
 #dotoff
 sudo rm -rf /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
 sudo rm -rf /etc/systemd/resolved.conf
@@ -421,7 +420,7 @@ echo "DNS over TLS is disabled."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/doton
-#!/bin/dash
+#!/bin/sh
 #doton  
 sudo cp "$HOME"/.config/nextdns/10-dns-systemd-resolved.conf /etc/NetworkManager/conf.d
 sudo cp "$HOME"/.config/nextdns/resolved.conf /etc/systemd
@@ -432,21 +431,21 @@ echo "DNS over TLS is enabled."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbna
-#!/bin/dash
+#!/bin/sh
 #kbna
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 firejail --private /usr/bin/firefox -new-instance -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbns
-#!/bin/dash
+#!/bin/sh
 #kbns
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 firejail /usr/bin/firefox -new-instance -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbps
-#!/bin/dash
+#!/bin/sh
 #kbps
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
@@ -454,7 +453,7 @@ firejail /usr/bin/firefox -new-instance -width 1800 -height 1600
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbyt
-#!/bin/dash
+#!/bin/sh
 #kbyt
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
@@ -463,7 +462,7 @@ firejail --private-home=.mozilla /usr/bin/firefox -new-instance -width 1800 -hei
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
-#!/bin/dash
+#!/bin/sh
 #np
 rm -rf "$HOME"/BrowserProfiles/.mozilla
 mv "$HOME"/.mozilla "$HOME"/BrowserProfiles
@@ -471,8 +470,32 @@ cd "$HOME"/BrowserProfiles || exit
 zip -r HostProf.zip .mozilla
 EOF
 
+cat <<'EOF' > "$HOME"/xfer/rs
+#!/usr/bin/env bash
+#rs - ripgrep search
+
+# Switch between Ripgrep launcher mode (CTRL-R) and fzf filtering mode (CTRL-F)
+RG_PREFIX="rg --column --hidden --line-number --no-heading --color=always --smart-case "
+INITIAL_QUERY="${*:-}"
+IFS=: read -ra selected < <(
+  FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
+  fzf --ansi \
+      --color "hl:-1:underline,hl+:-1:underline:reverse" \
+      --disabled --query "$INITIAL_QUERY" \
+      --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+      --bind "ctrl-f:unbind(change,ctrl-f)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-r)" \
+      --bind "ctrl-r:unbind(ctrl-r)+change-prompt(1. ripgrep> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-f)" \
+      --prompt '1. Ripgrep> ' \
+      --delimiter : \
+      --header '╱ CTRL-R (Ripgrep mode) ╱ CTRL-F (fzf mode) ╱' \
+      --preview 'bat --color=always {1} --highlight-line {2}' \
+      --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+)
+[ -n "${selected[0]}" ] && nvim "${selected[0]}" "+${selected[1]}"
+EOF
+
 cat <<'EOF' > "$HOME"/xfer/uwc
-#!/bin/dash
+#!/bin/sh
 #uwc - user write config
 
 #symmetric gpg
