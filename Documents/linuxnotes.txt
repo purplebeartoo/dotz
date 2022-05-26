@@ -474,7 +474,7 @@ cat <<'EOF' > "$HOME"/xfer/rs
 #!/usr/bin/env bash
 #rs - ripgrep search
 
-RG_PREFIX="rg --column --hidden --line-number --no-heading --color=always --smart-case"
+RG_PREFIX="rg --color=always --column --glob=\!timeshift --hidden --line-number --no-heading --smart-case"
 INITIAL_QUERY="${*:-}"
 IFS=: read -ra selected < <(
   FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
