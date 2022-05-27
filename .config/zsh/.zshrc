@@ -27,8 +27,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 setopt autocd
+setopt rmstarsilent
 
 alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
+alias ds='rm /home/pw/.local/share/nvim/swap/*'
 alias f='handlr open $(fzf)'
 alias ls='exa -l -g --group-directories-first --icons -t modified'
 alias lsa='exa -a -l -g --group-directories-first --icons -t modified'
