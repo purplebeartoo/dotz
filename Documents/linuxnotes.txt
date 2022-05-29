@@ -212,12 +212,10 @@ _________________
 vim plugs:
 Plug 'EdenEast/nightfox.nvim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'fcpg/vim-fahrenheit'
-Plug 'lambdalisue/suda.vim'
+Plug 'mangeshrex/everblush.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
 ________________
 
 nautilus sidebar bookmarks:
