@@ -52,7 +52,6 @@ noremap <silent> <C-Down> :resize -3<CR>
 "plugins
 call plug#begin('~/.config/nvim/.vim/plugged')
 Plug 'EdenEast/nightfox.nvim'
-Plug 'mangeshrex/everblush.vim'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
