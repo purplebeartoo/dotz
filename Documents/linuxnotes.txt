@@ -109,8 +109,11 @@ sudo systemctl start NetworkManager.service
 nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 sudo systemctl enable gdm.service
+_________________
 
-aur: ckb-next gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
+github: ckb-next 
+
+aur: gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
 pfetch-git timeshift-bin ttf-ms-fonts 
 
 alacritty apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller \
@@ -374,8 +377,8 @@ cd "$HOME" || exit
 
 tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/ckb-next .config/firejail \
   .config/mimeapps.list .config/mpd .config/mpv .config/ncmpcpp .config/nextdns \
-  .config/nvim .config/ranger .config/zsh .dotz .local/share/applications .ssh \
-  BrowserProfiles Documents Packages Pictures Playlists Videos
+  .config/nvim .config/ranger .config/starship.toml .config/zsh .dotz .local/share/applications \
+  .ssh BrowserProfiles Documents Packages Pictures Playlists Videos
 
 gpg2 --symmetric "$HOME/backup-$ydmz"
 
