@@ -345,7 +345,7 @@ sed -i -e 's/quiet/quiet module.sig_enforce=1 lsm=landlock,lockdown,yama,apparmo
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #misc
-echo 'MOZ_DISABLE_RDD_SANDBOX=1 firefox' > /etc/environment
+echo 'MOZ_ENABLE_WAYLAND=1 firefox' > /etc/environment
 echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 sed -i -e 's/#Color/Color/g' /etc/pacman.conf
 sed -i -e 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config
