@@ -346,6 +346,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #misc
 echo 'MOZ_ENABLE_WAYLAND=1 firefox' > /etc/environment
+echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
 echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 sed -i -e 's/#Color/Color/g' /etc/pacman.conf
 sed -i -e 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config
@@ -406,7 +407,7 @@ cat <<'EOF' > "$HOME"/xfer/cr
 #cr
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail --private-home=.mozilla /usr/bin/firefox -new-instance -width 1800 -height 1600
+firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance -width 1800 -height 1600
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
@@ -435,14 +436,14 @@ cat <<'EOF' > "$HOME"/xfer/kbna
 #!/bin/sh
 #kbna
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail --private /usr/bin/firefox -new-instance -new-tab about:blank
+firejail --private /usr/bin/firefox-nightly -new-instance -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbns
 #!/bin/sh
 #kbns
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail /usr/bin/firefox -new-instance -new-tab about:blank
+firejail /usr/bin/firefox-nightly -new-instance -new-tab about:blank
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbps
@@ -450,7 +451,7 @@ cat <<'EOF' > "$HOME"/xfer/kbps
 #kbps
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail /usr/bin/firefox -new-instance -width 1800 -height 1600
+firejail /usr/bin/firefox-nightly -new-instance -width 1800 -height 1600
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbyt
@@ -459,7 +460,7 @@ cat <<'EOF' > "$HOME"/xfer/kbyt
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
 mv "$HOME"/.ytmozilla "$HOME"/.mozilla
-firejail --private-home=.mozilla /usr/bin/firefox -new-instance -width 1800 -height 1300
+firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance -width 1800 -height 1300
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
