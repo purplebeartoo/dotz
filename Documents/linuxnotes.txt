@@ -116,15 +116,15 @@ github: ckb-next
 aur: gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
 pfetch-git timeshift-bin ttf-ms-fonts 
 
-alacritty apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller \
-firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters gnome-control-center \
-gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions gnome-system-monitor \
-gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick keepassxc libmad \
-libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa mpd mpv nautilus \
-ncmpcpp neovim noto-fonts noto-fonts-emoji papirus-icon-theme python-pywal radeontop \
-ranger reflector resolvconf ripgrep tracker ttf-dejavu ttf-liberation ttf-opensans \
-ufw viewnior vulkan-icd-loader vulkan-radeon vulkan-tools wl-clipboard xclip xdg-desktop-portal-gnome \
-xdg-user-dirs zip zsh zsh-autosuggestions zsh-syntax-highlighting
+alacritty apparmor baobab bat clinfo cronie dconf-editor eog evince exa ffmpeg \
+file-roller firejail flatpak fzf gdm gimp git gnome-calculator gnome-characters \
+gnome-control-center gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions \
+gnome-system-monitor gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick \
+keepassxc libmad libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa \
+mpd mpv nautilus ncmpcpp neovim noto-fonts noto-fonts-emoji papirus-icon-theme \
+python-pywal radeontop ranger reflector resolvconf ripgrep tracker ttf-dejavu ttf-liberation \
+ttf-opensans ufw vulkan-icd-loader vulkan-radeon vulkan-tools wl-clipboard xclip \
+xdg-desktop-portal-gnome xdg-user-dirs zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
 chsh -s $(which zsh)
@@ -147,7 +147,7 @@ _________________
  3. uwc
  4. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
  5. sudo firecfg (rm dnsmasq meld)
- 6. .local: browser, evince, keepassxc, viewnior:
+ 6. .local: browser, evince, keepassxc
  7. switch windows directly Alt+Space
 _________________
 
@@ -209,7 +209,6 @@ _________________
 
 hardened-malloc:
 keepassxc
-viewnior
 _________________
 
 vim plugs:
@@ -227,11 +226,11 @@ nautilus sidebar bookmarks:
 ######################################################################################
 NEW VM
 
-install: apparmor chromium dconf-editor evince firejail gdm git gnome-control-center \
+install: apparmor chromium dconf-editor eom evince firejail gdm git gnome-control-center \
 gnome-keyring gnome-shell gnome-system-monitor gnome-terminal gnome-themes-extra \
 gnome-tweaks imagemagick keepassxc linux-headers lsof nautilus neovim noto-fonts \
 noto-fonts-emoji papirus-icon-theme python-pywal reflector ttf-dejavu ttf-liberation \
-ttf-opensans ufw viewnior wl-clipboard xclip xdg-user-dirs
+ttf-opensans ufw wl-clipboard xclip xdg-user-dirs
 
 aur: hardened_malloc pfetch-git nerd-fonts-fira-code
 
@@ -247,7 +246,7 @@ _________________
       padding: 10px;
       }
  6. sudo firecfg
- 7. .local: browser, keepassxc, viewnior
+ 7. .local: browser, keepassxc
  
 ######################################################################################
 BACKUP VM
