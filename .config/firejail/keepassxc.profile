@@ -34,8 +34,9 @@ include disable-xdg.inc
 
 # You can enable whitelisting for keepassxc by adding the below to your keepassxc.local.
 # If you do, you MUST store your database under ${HOME}/Documents/KeePassXC/foo.kdbx.
-#mkdir ${HOME}/Documents/KeePassXC
-#whitelist ${HOME}/Documents/KeePassXC
+#ck#
+mkdir ${HOME}/Downloads
+whitelist ${HOME}/Downloads
 # Needed for KeePassXC-Browser.
 #mkdir ${HOME}/.config/BraveSoftware/Brave-Browser/NativeMessagingHosts
 #mkfile ${HOME}/.config/BraveSoftware/Brave-Browser/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json
@@ -55,12 +56,12 @@ include disable-xdg.inc
 #mkdir ${HOME}/.mozilla/native-messaging-hosts
 #mkfile ${HOME}/.mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
 #whitelist ${HOME}/.mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
-#mkdir ${HOME}/.cache/keepassxc
-#mkdir ${HOME}/.config/keepassxc
-#whitelist ${HOME}/.cache/keepassxc
-#whitelist ${HOME}/.config/keepassxc
-#whitelist ${HOME}/.config/KeePassXCrc
-#include whitelist-common.inc
+mkdir ${HOME}/.cache/keepassxc
+mkdir ${HOME}/.config/keepassxc
+whitelist ${HOME}/.cache/keepassxc
+whitelist ${HOME}/.config/keepassxc
+whitelist ${HOME}/.config/KeePassXCrc
+include whitelist-common.inc
 
 whitelist /usr/share/keepassxc
 include whitelist-run-common.inc
