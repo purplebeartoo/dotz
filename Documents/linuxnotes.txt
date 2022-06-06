@@ -151,6 +151,10 @@ _________________
  7. switch windows directly Alt+Space
 _________________
 
+systemctl start --user mpd.service
+systemctl enable --user mpd.service
+_________________
+
 git bare:
 alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
 git clone --bare https://github.com/purplebeartoo/dotz.git $HOME/.dotz
@@ -375,7 +379,7 @@ cat <<'EOF' > "$HOME"/xfer/backup
 ydmz="$(date +"%Y-%m-%d").tar.xz"
 cd "$HOME" || exit
 
-tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/ckb-next .config/firejail \
+tar -cjvf "$HOME/backup-$ydmz" .config/ckb-next .config/firejail .config/foot \
   .config/mimeapps.list .config/mpd .config/mpv .config/ncmpcpp .config/nextdns \
   .config/nvim .config/ranger .config/starship.toml .config/zsh .dotz .local/share/applications \
   BrowserProfiles Documents Packages Pictures Playlists Videos
