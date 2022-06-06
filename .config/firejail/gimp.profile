@@ -1,4 +1,4 @@
-# Firejail profile for gimp
+# CK's Firejail profile for gimp
 # Description: GNU Image Manipulation Program
 
 # Persistent local customizations
