@@ -57,8 +57,6 @@ grep -H -r "texttofind" /where
 
 rsync -am --include='filename' --include='*/' --exclude='*' /to /from
 
-ps -o user $(pgrep Xorg)
-
 ######################################################################################
 INSTALL & BOOT
 
@@ -230,7 +228,7 @@ nautilus sidebar bookmarks:
 ######################################################################################
 NEW VM
 
-install: apparmor chromium dconf-editor eom evince firejail gdm git gnome-control-center \
+install: apparmor chromium dconf-editor eog evince firejail gdm git gnome-control-center \
 gnome-keyring gnome-shell gnome-system-monitor gnome-terminal gnome-themes-extra \
 gnome-tweaks imagemagick keepassxc linux-headers lsof nautilus neovim noto-fonts \
 noto-fonts-emoji papirus-icon-theme python-pywal reflector ttf-dejavu ttf-liberation \
@@ -246,11 +244,11 @@ _________________
  3. sudo awc
  4. uwc
  5. ~/.config/gtk-3.0/gtk.css: 
-      vte-terminal {
+    vte-terminal {
       padding: 10px;
-      }
+    }
  6. sudo firecfg
- 7. .local: browser, keepassxc
+ 7. browser, .local, keepassxc
  
 ######################################################################################
 BACKUP VM
