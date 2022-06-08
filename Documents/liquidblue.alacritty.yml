@@ -1,0 +1,63 @@
+window:
+  padding:
+    x: 12
+    y: 12
+  position:
+    x: 0
+    y: 0
+  decorations: none
+  startup_mode: Windowed
+  dimensions:
+    columns: 100
+    lines: 30
+  opacity: 0.96
+
+cursor:
+  style: 
+    shape: Block
+    blinking: On
+    blink_interval: 750
+
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+  bold:
+    family: FiraCode Nerd Font
+    style: Bold
+  italic:
+    family: FiraCode Nerd Font
+    style: Italic
+  bold_italic:
+    family: FiraCode Nerd Font
+    style: Bold Italic
+  size: 11
+  offset:
+    x: 0
+    y: 0
+
+colors:
+  primary:
+    background: '#0c1118'
+    foreground: '#d5a2cb'
+  cursor:
+    text:       '#0c060e'
+    cursor:     '#d5a2cb'
+  normal:
+    black:      '#0c060e'
+    red:        '#C0373F'
+    green:      '#A14D29'
+    yellow:     '#E65821'
+    blue:       '#A05A61'
+    magenta:    '#F3935E'
+    cyan:       '#786A88'
+    white:      '#d5a2cb'
+  bright:
+    black:      '#95718e'
+    red:        '#C0373F'
+    green:      '#A14D29'
+    yellow:     '#E65821'
+    blue:       '#A05A61'
+    magenta:    '#F3935E'
+    cyan:       '#786A88'
+    white:      '#d5a2cb'
