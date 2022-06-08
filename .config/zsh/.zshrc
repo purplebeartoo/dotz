@@ -43,6 +43,7 @@ alias rr='ranger'
 alias sc='nvim $HOME/Documents/shellscripts.sh'
 alias v='nvim'
 alias vim='nvim'
+alias vn='viewnior'
 
 eval "$(starship init zsh)"
 
