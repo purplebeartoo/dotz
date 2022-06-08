@@ -11,6 +11,7 @@ export FZF_CTRL_T_COMMAND='find .'
 export FZF_CTRL_T_OPTS='--layout=default'
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='--layout=default'
+export LESSHISTFILE=-
 export SUDO_EDITOR=nvim
 export VISUAL=nvim
 
@@ -36,7 +37,6 @@ alias ls='exa -l -g --group-directories-first --icons -t modified'
 alias lsa='exa -a -l -g --group-directories-first --icons -t modified'
 alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
 alias mg='radeontop -c'
-alias mm='mpv --no-video'
 alias mp='ncmpcpp'
 alias nt='nvim $HOME/Documents/linuxnotes.txt'
 alias rr='ranger'
