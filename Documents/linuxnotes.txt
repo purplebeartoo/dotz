@@ -145,7 +145,7 @@ _________________
  3. uwc
  4. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
  5. sudo firecfg (rm dnsmasq meld)
- 6. .local: firefox evince keepassxc 
+ 6. .local: firefox evince keepassxc mpv
  7. switch windows directly Alt+Space
 _________________
 
