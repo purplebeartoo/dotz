@@ -145,7 +145,7 @@ _________________
  3. uwc
  4. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
  5. sudo firecfg (rm dnsmasq meld)
- 6. .local: firefox mpv evince keepassxc 
+ 6. .local: firefox evince keepassxc 
  7. switch windows directly Alt+Space
 _________________
 
@@ -378,8 +378,8 @@ ydmz="$(date +"%Y-%m-%d").tar.xz"
 cd "$HOME" || exit
 
 tar -cjvf "$HOME/backup-$ydmz" .config/ckb-next .config/firejail .config/foot \
-  .config/mimeapps.list .config/mpd .config/ncmpcpp .config/nextdns .config/nvim \
-  .config/ranger .config/starship.toml .config/zsh .dotz .local/share/applications \
+  .config/mimeapps.list .config/mpd .config/mpv .config/ncmpcpp .config/nextdns \
+  .config/nvim .config/ranger .config/starship.toml .config/zsh .dotz .local/share/applications \
   BrowserProfiles Documents Packages Pictures Playlists Videos
 
 gpg2 --symmetric "$HOME/backup-$ydmz"
