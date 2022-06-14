@@ -42,7 +42,6 @@ alias nt='nvim $HOME/Documents/linuxnotes.txt'
 alias rr='ranger'
 alias sc='nvim $HOME/Documents/shellscripts.sh'
 alias v='nvim'
-alias vim='nvim'
 
 eval "$(starship init zsh)"
 
