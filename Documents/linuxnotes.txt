@@ -95,16 +95,6 @@ ip.host matches "64.233.180" || ip.host matches ""
 ######################################################################################
 NEW HOST
 
-gsettings set org.gnome.desktop.peripherals.keyboard numlock-state true
-gsettings set org.gnome.shell app-picker-layout "[]"
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-_________________
-
-sudo cp ~/.config/monitors.xml /var/lib/gdm/.config
-sudo machinectl shell gdm@ /bin/bash
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-_________________
-
 sudo systemctl start NetworkManager.service
 nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
@@ -113,18 +103,29 @@ _________________
 
 github: ckb-next 
 
-aur: gnome-shell-extension-freon hardened_malloc nerd-fonts-fira-code \
-pfetch-git timeshift-bin ttf-ms-fonts 
+aur: hardened_malloc nerd-fonts-fira-code pfetch-git picom-jonaburg-git timeshift-bin \
+ttf-ms-fonts 
 
-apparmor baobab bat clinfo cronie dconf-editor evince exa ffmpeg file-roller firejail \
-flatpak foot fzf gdm gimp git gnome-calculator gnome-characters gnome-control-center \
-gnome-keyring gnome-multi-writer gnome-shell gnome-shell-extensions gnome-system-monitor \
-gnome-themes-extra gnome-tweaks gparted handlr htop imagemagick imv keepassxc libmad \
-libva-mesa-driver libva-utils linux-headers lsof man-db meld mesa mpd nautilus \
-ncmpcpp neovim noto-fonts noto-fonts-emoji papirus-icon-theme python-pywal radeontop \
-ranger reflector resolvconf ripgrep tracker ttf-dejavu ttf-liberation ttf-opensans \
-ufw vlc wl-clipboard xclip xdg-desktop-portal-gnome xdg-user-dirs zip zsh zsh-autosuggestions \
-zsh-syntax-highlighting
+alacritty apparmor ckb-next cmus-git cronie exa firefox-nightly firejail fzf gimp \
+git gvfs handlr hardened_malloc htop imagemagick imv keepassxc linux-headers man-db \
+meld mpv mupdf neovim nerd-fonts-fira-code nitrogen noto-fonts noto-fonts-emoji \
+numlockx pfetch-git python-pywal radeontop ranger reflector ripgrep timeshift ttf-dejavu \
+ttf-liberation ttf-ms-fonts ttf-opensans udisks2 ufw unzip xclip xdg-user-dirs \
+zip zsh zsh-autosuggestions zsh-syntax-highlighting
+
+kvm:
+sudo pacman -S bridge-utils dmidecode dnsmasq iptables-nft libguestfs libvirt openbsd-netcat \
+qemu-desktop vde2 virt-manager virt-viewer
+
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+sudo systemctl status libvirtd.service
+sudo nvim /etc/libvirt/libvirtd.conf (uncomment)
+  unix_sock_group = "libvirt"
+  unix_sock_rw_perms = "0770"
+sudo usermod -a -G libvirt $(whoami)
+newgrp libvirt
+sudo systemctl restart libvirtd.service
 _________________
 
 chsh -s $(which zsh)
@@ -133,26 +134,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 _________________
 
-git clone https://github.com/netblue30/firejail.git
-cd firejail
-./configure --prefix=/usr --enable-apparmor && make && sudo make install-strip
-_________________
-
-user icons:
-/usr/share/pixmaps/faces
-_________________
-
  1. user scripts
  2. sudo awc
  3. uwc
- 4. dconf: /org/gnome/desktop/wm/keybindings/move-to-center ['<Alt><Control>C']  
- 5. sudo firecfg (rm dnsmasq meld)
- 6. .local: firefox evince keepassxc vlc
- 7. switch windows directly Alt+Space
-_________________
-
-systemctl start --user mpd.service
-systemctl enable --user mpd.service
+ 4. .local: firefox keepassxc
+ 5. DOT
+ 6. sudo firecfg (rm dnsmasq imv meld)
 _________________
 
 git bare:
@@ -165,9 +152,6 @@ dg add /path/to/file
 dg commit -m "A short message"
 dg push https://github.com/purplebeartoo/dotz.git
 dg push git@github.com:purplebeartoo/dotz.git
-
-setup:
-https://www.atlassian.com/git/tutorials/dotfiles
 _________________
 
 DNS over TLS:
@@ -189,22 +173,6 @@ sudo systemctl enable systemd-resolved
 sudo systemctl restart NetworkManager
 _________________
 
-kvm:
-sudo pacman -S bridge-utils dmidecode dnsmasq iptables-nft libguestfs libvirt openbsd-netcat \
-qemu-desktop vde2 virt-manager virt-viewer
-
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
-sudo systemctl status libvirtd.service
-sudo nvim /etc/libvirt/libvirtd.conf (uncomment)
-  unix_sock_group = "libvirt"
-  unix_sock_rw_perms = "0770"
-sudo usermod -a -G libvirt $(whoami)
-sudo usermod -a -G libvirt pw       
-newgrp libvirt
-sudo systemctl restart libvirtd.service
-_________________
-
 steam stuff: 
 https://github.com/GloriousEggroll/proton-ge-custom/releases
 
@@ -222,13 +190,20 @@ Plug 'dylanaraps/wal.vim'
 Plug 'fcpg/vim-fahrenheit'
 Plug 'mangeshrex/everblush.vim'
 Plug 'scrooloose/nerdtree'
-________________
-
-nautilus sidebar bookmarks:
-~/.config/user-dirs.dirs
 
 ######################################################################################
 NEW VM
+
+gsettings set org.gnome.desktop.interface enable-animations false
+gsettings set org.gnome.desktop.peripherals.keyboard numlock-state true
+gsettings set org.gnome.shell app-picker-layout "[]"
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+_________________
+
+sudo cp ~/.config/monitors.xml /var/lib/gdm/.config
+sudo machinectl shell gdm@ /bin/bash
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+_________________
 
 install: apparmor chromium dconf-editor evince firejail gdm git gnome-control-center \
 gnome-keyring gnome-shell gnome-system-monitor gnome-terminal gnome-themes-extra \
@@ -237,10 +212,16 @@ noto-fonts-emoji papirus-icon-theme python-pywal reflector ttf-dejavu ttf-libera
 ttf-opensans ufw wl-clipboard xclip xdg-user-dirs
 
 aur: hardened_malloc pfetch-git nerd-fonts-fira-code
-
-*** guest only! *** gsettings set org.gnome.desktop.interface enable-animations false
 _________________
- 
+
+user icons:
+/usr/share/pixmaps/faces
+_________________
+
+nautilus sidebar bookmarks:
+~/.config/user-dirs.dirs
+_________________
+
  1. call gpg --symmetric
  2. user scripts
  3. sudo awc
@@ -336,11 +317,9 @@ groupadd firejail
 chown root:firejail /usr/bin/firejail
 chmod 4750 /usr/bin/firejail
 usermod -a -G firejail ck
-usermod -a -G firejail pw
 echo "blacklist /timeshift" > /etc/firejail/globals.local
 sed -i -e 's/# force-nonewprivs no/force-nonewprivs yes/g' /etc/firejail/firejail.config
-echo "ck
-pw" > /etc/firejail/firejail.users
+echo "ck" > /etc/firejail/firejail.users
 
 #grub
 sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
@@ -348,7 +327,6 @@ sed -i -e 's/quiet/quiet module.sig_enforce=1 lsm=landlock,lockdown,yama,apparmo
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #misc
-echo 'MOZ_ENABLE_WAYLAND=1 firefox' > /etc/environment
 echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
 echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 sed -i -e 's/#Color/Color/g' /etc/pacman.conf
@@ -379,10 +357,11 @@ cat <<'EOF' > "$HOME"/xfer/backup
 ydmz="$(date +"%Y-%m-%d").tar.xz"
 cd "$HOME" || exit
 
-tar -cjvf "$HOME/backup-$ydmz" .config/ckb-next .config/firejail .config/foot \
-  .config/mimeapps.list .config/mpd .config/ncmpcpp .config/nextdns .config/nvim \
-  .config/ranger .config/starship.toml .config/vlc .config/zsh .dotz .local/share/applications \
-  BrowserProfiles Documents Packages Pictures Playlists Videos
+tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/awesome .config/ckb-next \
+  .config/cmus .config/firejail .config/mimeapps.list .config/mpv .config/nextdns \
+  .config/nitrogen .config/nvim .config/picom .config/ranger .config/starship.toml \
+  .config/zsh .dotz .local/share/applications BrowserProfiles Documents Packages \
+  Pictures Playlists Videos
 
 gpg2 --symmetric "$HOME/backup-$ydmz"
 
@@ -396,21 +375,12 @@ rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 echo "Browsing history deleted ;)"
 EOF
 
-cat <<'EOF' > "$HOME"/xfer/cln
-#!/bin/sh
-#cln - copy linux notes 
-sudo cp /home/pw/Documents/linuxnotes.txt /home/ck/Downloads
-cp /home/ck/Downloads/linuxnotes.txt /home/ck
-rm -rf /home/ck/Downloads/linuxnotes.txt
-echo "Linux Notes copied."
-EOF
-
 cat <<'EOF' > "$HOME"/xfer/cr
 #!/bin/sh
 #cr
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance -width 1800 -height 1600
+firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
@@ -454,7 +424,7 @@ cat <<'EOF' > "$HOME"/xfer/kbps
 #kbps
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail /usr/bin/firefox-nightly -new-instance -width 1800 -height 1600
+firejail /usr/bin/firefox-nightly -new-instance
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbyt
@@ -463,7 +433,7 @@ cat <<'EOF' > "$HOME"/xfer/kbyt
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
 mv "$HOME"/.ytmozilla "$HOME"/.mozilla
-firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance -width 1800 -height 1300
+firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
