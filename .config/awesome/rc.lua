@@ -233,7 +233,11 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    -- My Bindings
+
+-- Screenshot
+   awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
+
+-- My Bindings
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("pcmanfm") end),
 
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
