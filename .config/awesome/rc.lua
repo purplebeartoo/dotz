@@ -570,7 +570,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
-awful.spawn.with_shell("/usr/local/bin/sckbn")
+awful.spawn.with_shell("ckb-next -b")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("numlockx")
 awful.spawn.with_shell("nm-applet")
