@@ -260,7 +260,7 @@ globalkeys = gears.table.join(
 
 -- My Bindings
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("pcmanfm") end),
-
+    awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
