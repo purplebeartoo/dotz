@@ -215,6 +215,8 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -227,12 +229,15 @@ awful.screen.connect_for_each_screen(function(s)
             s.mytaglist,
             s.mypromptbox,
         },
+
+
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
+            logout_menu_widget(),
             s.mylayoutbox,
         },
     }
