@@ -375,6 +375,13 @@ rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 echo "Browsing history deleted ;)"
 EOF
 
+cat <<'EOF' > "$HOME"/xfer/cm
+#!/bin/sh
+#cm - cmus
+firejail --env=LD_PRELOAD='/usr/lib/libhardened_malloc.so' cmus
+EOF
+
+
 cat <<'EOF' > "$HOME"/xfer/cr
 #!/bin/sh
 #cr
