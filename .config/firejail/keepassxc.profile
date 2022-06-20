@@ -82,7 +82,6 @@ noroot
 nosound
 notv
 novideo
-protocol unix
 seccomp !name_to_handle_at
 seccomp.block-secondary
 shell none
