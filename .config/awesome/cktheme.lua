@@ -13,6 +13,9 @@ local theme = {}
 
 theme.font          = "sans 8"
 
+theme.xbackground = "#e0e0e0"
+theme.xforeground = "#0c1118"
+
 theme.bg_normal     = "#0C1118"
 theme.bg_focus      = "#343537"
 theme.bg_urgent     = "#ff0000"
@@ -118,10 +121,12 @@ theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
 -- Generate Awesome icon:
+--theme.awesome_icon = theme_assets.awesome_icon(
+--    theme.menu_height, theme.bg_focus, theme.fg_focus
+--)
 theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.bg_focus, theme.fg_focus
-)
-
+    theme.menu_height, theme.xbackground, theme.xforeground
+    )
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
