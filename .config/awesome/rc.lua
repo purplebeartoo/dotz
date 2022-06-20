@@ -109,9 +109,25 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+mytextclock = awful.widget.textclock(" %a %b %d, %l:%M%P ")
+local cw = calendar_widget({
+    theme = 'dark',
+    placement = 'top_center',
+    start_sunday = true,
+    radius = 8,
+-- with customized next/previous (see table above)
+    previous_month_button = 1,
+    next_month_button = 3,
+})
+mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -192,7 +208,6 @@ awful.screen.connect_for_each_screen(function(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons
     }
-
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
