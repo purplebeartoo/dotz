@@ -230,7 +230,6 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
             s.mypromptbox,
         },
 
-
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
