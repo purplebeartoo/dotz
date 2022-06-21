@@ -360,8 +360,8 @@ cd "$HOME" || exit
 tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/awesome .config/ckb-next \
   .config/cmus .config/firejail .config/mimeapps.list .config/mpv .config/nextdns \
   .config/nitrogen .config/nvim .config/picom .config/ranger .config/starship.toml \
-  .config/zsh .dotz .local/share/applications BrowserProfiles Documents Packages \
-  Pictures Playlists Videos
+  .config/sxhkd .config/zsh .dotz .local/share/applications BrowserProfiles Documents \
+  Packages Pictures Playlists Videos
 
 gpg2 --symmetric "$HOME/backup-$ydmz"
 
