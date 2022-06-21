@@ -593,11 +593,12 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
-awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
+awful.spawn.with_shell("/usr/local/bin/assxhkd")
 awful.spawn.with_shell("ckb-next -b")
 awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("numlockx")
 awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("numlockx")
+awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 
 client.connect_signal("focus", function(c) c.border_color = "#FF0000" end)
 -- }}}
