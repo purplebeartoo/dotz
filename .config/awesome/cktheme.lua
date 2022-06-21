@@ -13,8 +13,8 @@ local theme = {}
 
 theme.font          = "sans 8"
 
-theme.xbackground = "#e0e0e0"
-theme.xforeground = "#0c1118"
+theme.xbackground = "#286bb8"
+theme.xforeground = "#000000"
 
 theme.bg_normal     = "#0C1118"
 theme.bg_focus      = "#343537"
