@@ -258,8 +258,10 @@ globalkeys = gears.table.join(
    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
 
 -- My Bindings
-    awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("pcmanfm") end),
-    awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end),
+    awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("pcmanfm") end,
+              {description = "file manager", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end,
+              {description = "music player", group = "launcher"}),    
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
