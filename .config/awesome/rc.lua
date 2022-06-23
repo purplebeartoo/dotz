@@ -257,6 +257,10 @@ globalkeys = gears.table.join(
 -- Screenshot
    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
 
+-- Lockscreen
+    awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("i3lock -e --color=000000") end,
+              {description = "lock screen", group = "screen"}),    
+
 -- My Bindings
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("pcmanfm") end,
               {description = "file manager", group = "launcher"}),
