@@ -262,8 +262,6 @@ globalkeys = gears.table.join(
               {description = "lock screen", group = "screen"}),    
 
 -- My Bindings
-    awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("pcmanfm") end,
-              {description = "file manager", group = "launcher"}),
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end,
               {description = "music player", group = "launcher"}),    
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
