@@ -338,6 +338,20 @@ sudo mkdir /etc/systemd/coredump.conf.d
 echo '[Coredump]
 Storage=none' > /etc/systemd/coredump.conf.d/custom.conf
 
+#systemd
+echo "[Unit]
+Description=Lock X session using xsecurelock
+After=suspend.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/%i/.Xauthority
+ExecStart=/usr/bin/xsecurelock auth_pam_x11 saver_blank
+
+[Install]
+WantedBy=suspend.target" > /usr/lib/systemd/system/xsecurelock@.service
+
 #sysctl
 echo 'kernel.core_pattern=/dev/null' > /etc/sysctl.d/50-coredump.conf
 
@@ -350,6 +364,7 @@ sudo ufw enable
 systemctl enable ufw.service
 sudo ufw allow ssh
 systemctl enable sshd.service
+systemctl enable xsecurelock@ck.service
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/backup
