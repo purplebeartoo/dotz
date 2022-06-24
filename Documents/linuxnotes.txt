@@ -108,11 +108,11 @@ aur: hardened_malloc nerd-fonts-fira-code pfetch-git picom-jonaburg-git timeshif
 ttf-ms-fonts 
 
 alacritty apparmor ckb-next cmus-git cronie exa firefox-nightly firejail fzf gimp \
-git gvfs handlr hardened_malloc htop imagemagick i3lock imv keepassxc linux-headers \
-man-db meld mpv mupdf neovim nerd-fonts-fira-code nitrogen noto-fonts noto-fonts-emoji \
+git gvfs handlr hardened_malloc htop imagemagick imv keepassxc linux-headers man-db \
+meld mpv mupdf neovim nerd-fonts-fira-code nitrogen noto-fonts noto-fonts-emoji \
 numlockx pfetch-git python-pywal radeontop ranger reflector ripgrep sxhkd timeshift\
-ttf-dejavu ttf-liberation ttf-ms-fonts ttf-opensans udisks2 ufw unzip xautolock \
-xclip xdg-user-dirs zip zsh zsh-autosuggestions zsh-syntax-highlighting
+ttf-dejavu ttf-liberation ttf-ms-fonts ttf-opensans udisks2 ufw unzip xclip xdg-user-dirs \
+xss-lock xsecurelock zip zsh zsh-autosuggestions zsh-syntax-highlighting
 
 kvm:
 sudo pacman -S bridge-utils dmidecode dnsmasq iptables-nft libguestfs libvirt openbsd-netcat \
@@ -442,6 +442,13 @@ rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
 mv "$HOME"/.ytmozilla "$HOME"/.mozilla
 firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/locker
+#!/bin/sh
+#locker
+xautolock -time 10 -locker "i3lock -e -c 000000" -notify 30 -notifier 'xset dpms force off' &
+xautolock -time 15 -locker "systemctl suspend" &
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
