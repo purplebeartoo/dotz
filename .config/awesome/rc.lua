@@ -218,7 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 31 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -258,7 +258,7 @@ globalkeys = gears.table.join(
    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
 
 -- Lockscreen
-    awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("i3lock -e --color=000000") end,
+    awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("xsecurelock") end,
               {description = "lock screen", group = "screen"}),    
 
 -- My Bindings
