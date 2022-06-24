@@ -447,8 +447,8 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/locker
 #!/bin/sh
 #locker
-xautolock -time 10 -locker "i3lock -e -c 000000" -notify 30 -notifier 'xset dpms force off' &
-xautolock -time 15 -locker "systemctl suspend" &
+xset s 600 30
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
