@@ -41,6 +41,7 @@ alias nt='nvim $HOME/Documents/linuxnotes.txt'
 alias pm='mpv --no-video'
 alias rr='ranger'
 alias sc='nvim $HOME/Documents/shellscripts.sh'
+alias tp='watch -n 1 sensors'
 alias v='nvim'
 
 eval "$(starship init zsh)"
