@@ -102,9 +102,7 @@ sudo nmcli device wifi connect SSID_or_BSSID password password
 sudo systemctl enable gdm.service
 _________________
 
-github: ckb-next 
-
-aur: cmus-git hardened_malloc nerd-fonts-fira-code nordic-darker-theme paru-bin pfetch-git \
+aur: ckb-next cmus-git hardened_malloc nerd-fonts-fira-code nordic-darker-theme paru-bin pfetch-git \
 picom-jonaburg-git timeshift-bin ttf-ms-fonts 
 
 alacritty apparmor cronie exa firefox-nightly firejail fzf gcompris-qt gimp git \
