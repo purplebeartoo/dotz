@@ -255,7 +255,7 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
 
 -- Screenshot
-   awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
+   awful.key({ }, "Print", function () awful.util.spawn("scrot -q 100 -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
 
 -- Lockscreen
     awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("xsecurelock") end,
