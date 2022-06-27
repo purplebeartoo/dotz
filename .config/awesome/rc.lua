@@ -502,6 +502,7 @@ awful.rules.rules = {
         class = {
           "Arandr",
           "Blueman-manager",
+          "Galculator",
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
