@@ -172,6 +172,10 @@ sudo systemctl enable systemd-resolved
 sudo systemctl restart NetworkManager
 _________________
 
+firefox light theme with dark system theme, create:
+ui.systemUsesDarkTheme (Number) with value 0
+_________________
+
 steam stuff: 
 https://github.com/GloriousEggroll/proton-ge-custom/releases
 
