@@ -401,7 +401,7 @@ cat <<'EOF' > "$HOME"/xfer/cr
 #cr
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance
+firejail --private-home=.mozilla,.config /usr/bin/firefox-nightly -new-instance
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
@@ -454,7 +454,7 @@ cat <<'EOF' > "$HOME"/xfer/kbyt
 rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
 cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
 mv "$HOME"/.ytmozilla "$HOME"/.mozilla
-firejail --private-home=.mozilla /usr/bin/firefox-nightly -new-instance
+firejail --private-home=.mozilla,.config /usr/bin/firefox-nightly -new-instance
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/locker
