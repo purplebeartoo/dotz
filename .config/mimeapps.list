@@ -14,10 +14,7 @@ application/xhtml+xml=userapp-Nightly-Z0ZNO1.desktop
 application/xml=nvim.desktop;
 audio/mpeg=vlc.desktop;
 text/*=nvim.desktop;
-text/html=userapp-Nightly-Z0ZNO1.desktop
 x-scheme-handler/chrome=userapp-Nightly-Z0ZNO1.desktop
-x-scheme-handler/http=userapp-Nightly-Z0ZNO1.desktop
-x-scheme-handler/https=userapp-Nightly-Z0ZNO1.desktop
 
 [Added Associations]
 application/toml=nvim.desktop
