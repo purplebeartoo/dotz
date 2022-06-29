@@ -105,9 +105,9 @@ _________________
 aur: ckb-next cmus-git hardened_malloc nerd-fonts-fira-code nordic-darker-theme paru-bin pfetch-git \
 picom-jonaburg-git timeshift-bin ttf-ms-fonts 
 
-alacritty apparmor cronie exa firefox-nightly firejail fzf galculator gcompris-qt \
-gimp git gvfs handlr htop imagemagick imv keepassxc linux-headers lxappearance \
-man-db meld mpv mupdf neovim nitrogen noto-fonts noto-fonts-emoji numlockx pcmanfm-gtk3 \
+alacritty apparmor chromium cronie exa firejail fzf galculator gcompris-qt gimp \
+git gvfs handlr htop imagemagick imv keepassxc linux-headers lxappearance man-db \
+meld mpv mupdf neovim nitrogen noto-fonts noto-fonts-emoji numlockx pcmanfm-gtk3 \
 python-pywal radeontop ranger reflector ripgrep scrot sxhkd ttf-dejavu ttf-liberation \
 ttf-opensans udisks2 ufw unzip xclip xdg-user-dirs xss-lock xsecurelock zip zsh \
 zsh-autosuggestions zsh-syntax-highlighting
@@ -136,7 +136,7 @@ _________________
  1. user scripts
  2. sudo awc
  3. uwc
- 4. .local: firefox keepassxc
+ 4. .local: keepassxc
  5. DOT
  6. sudo firecfg (rm dnsmasq imv meld)
 _________________
@@ -389,7 +389,7 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/bd
 #!/bin/sh
 #bd
-rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
+rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
 echo "Browsing history deleted ;)"
 EOF
 
@@ -403,9 +403,9 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/cr
 #!/bin/sh
 #cr
-rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail --private-home=.mozilla,.config /usr/bin/firefox-nightly -new-instance
+rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
+cp -r "$HOME"/BrowserProfiles/chromium "$HOME"/.config
+firejail --private-home=.config /usr/bin/chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
@@ -433,32 +433,31 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/kbna
 #!/bin/sh
 #kbna
-rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail --private /usr/bin/firefox-nightly -new-instance -new-tab about:blank
+rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
+firejail --private /usr/bin/chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbns
 #!/bin/sh
 #kbns
-rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-firejail /usr/bin/firefox-nightly -new-instance -new-tab about:blank
+rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
+firejail /usr/bin/chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbps
 #!/bin/sh
 #kbps
-rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-cp -r "$HOME"/BrowserProfiles/.mozilla "$HOME"
-firejail /usr/bin/firefox-nightly -new-instance
+rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
+cp -r "$HOME"/BrowserProfiles/chromium "$HOME"/.config
+firejail /usr/bin/chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/kbyt
 #!/bin/sh
 #kbyt
-rm -rf "$HOME"/.cache/mozilla "$HOME"/.mozilla
-cp -r "$HOME"/BrowserProfiles/.ytmozilla "$HOME"
-mv "$HOME"/.ytmozilla "$HOME"/.mozilla
-firejail --private-home=.mozilla,.config /usr/bin/firefox-nightly -new-instance
+rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
+cp -r "$HOME"/BrowserProfiles/ytchromium "$HOME"/.config/chromium
+firejail --private-home=.config /usr/bin/chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/locker
@@ -471,10 +470,10 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/np
 #!/bin/sh
 #np
-rm -rf "$HOME"/BrowserProfiles/.mozilla
-mv "$HOME"/.mozilla "$HOME"/BrowserProfiles
+rm -rf "$HOME"/BrowserProfiles/chromium
+mv "$HOME"/.config/chromium "$HOME"/BrowserProfiles
 cd "$HOME"/BrowserProfiles || exit
-zip -r HostProf.zip .mozilla
+zip -r HostProf.zip chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/rs

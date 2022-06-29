@@ -1,38 +1,26 @@
 [Default Applications]
 application/javascript=nvim.desktop;
 application/pdf=org.gnome.Evince.desktop;
-application/x-extension-htm=userapp-Nightly-Z0ZNO1.desktop
-application/x-extension-html=userapp-Nightly-Z0ZNO1.desktop
-application/x-extension-shtml=userapp-Nightly-Z0ZNO1.desktop
-application/x-extension-xht=userapp-Nightly-Z0ZNO1.desktop
-application/x-extension-xhtml=userapp-Nightly-Z0ZNO1.desktop
 application/x-perl=nvim.desktop;
 application/x-sh=nvim.desktop
 application/x-shellscript=nvim.desktop
 application/x-yaml=nvim.desktop;
-application/xhtml+xml=userapp-Nightly-Z0ZNO1.desktop
 application/xml=nvim.desktop;
 audio/mpeg=vlc.desktop;
 text/*=nvim.desktop;
-x-scheme-handler/chrome=userapp-Nightly-Z0ZNO1.desktop
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
 
 [Added Associations]
 application/toml=nvim.desktop
 application/x-desktop=nvim.desktop
-application/x-extension-htm=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-application/x-extension-html=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-application/x-extension-shtml=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-application/x-extension-xht=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-application/x-extension-xhtml=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-application/x-mozilla-bookmarks=nvim.desktop
-application/xhtml+xml=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
 image/jpeg=imv-folder.desktop;gimp.desktop;
 image/png=imv-folder.desktop;gimp.desktop;
 text/html=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
 text/plain=nvim.desktop;
 video/mp4=vlc.desktop;
-x-scheme-handler/chrome=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-x-scheme-handler/http=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
-x-scheme-handler/https=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
 image/gif=imv-folder.desktop;
 application/pdf=mupdf.desktop;
