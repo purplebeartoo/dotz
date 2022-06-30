@@ -99,7 +99,6 @@ NEW HOST
 sudo systemctl start NetworkManager.service
 nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
-sudo systemctl enable gdm.service
 _________________
 
 aur: ckb-next cmus-git hardened_malloc nerd-fonts-fira-code nordic-darker-theme paru-bin pfetch-git \
@@ -196,6 +195,11 @@ Plug 'scrooloose/nerdtree'
 
 ######################################################################################
 NEW VM
+
+sudo systemctl start NetworkManager.service
+nmcli device wifi list
+sudo nmcli device wifi connect SSID_or_BSSID password password
+sudo systemctl enable gdm.service
 
 gsettings set org.gnome.desktop.interface enable-animations false
 gsettings set org.gnome.desktop.peripherals.keyboard numlock-state true
