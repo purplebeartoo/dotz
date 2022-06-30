@@ -1,6 +1,6 @@
 [Default Applications]
 application/javascript=nvim.desktop;
-application/pdf=mupd.desktop;
+application/pdf=mupdf.desktop;
 application/x-perl=nvim.desktop;
 application/x-sh=nvim.desktop;
 application/x-shellscript=nvim.desktop;
