@@ -606,5 +606,5 @@ awful.spawn.with_shell("numlockx")
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("/usr/local/bin/locker")
 
-client.connect_signal("focus", function(c) c.border_color = "#FF0000" end)
+client.connect_signal("focus", function(c) c.border_color = "#FE0000" end)
 -- }}}
