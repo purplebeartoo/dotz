@@ -1,26 +1,26 @@
 [Default Applications]
 application/javascript=nvim.desktop;
-application/pdf=org.gnome.Evince.desktop;
+application/pdf=mupd.desktop;
 application/x-perl=nvim.desktop;
-application/x-sh=nvim.desktop
-application/x-shellscript=nvim.desktop
+application/x-sh=nvim.desktop;
+application/x-shellscript=nvim.desktop;
 application/x-yaml=nvim.desktop;
 application/xml=nvim.desktop;
-audio/mpeg=vlc.desktop;
+audio/mpeg=mpv.desktop;
 text/*=nvim.desktop;
-text/html=chromium.desktop
-x-scheme-handler/http=chromium.desktop
-x-scheme-handler/https=chromium.desktop
-x-scheme-handler/about=chromium.desktop
-x-scheme-handler/unknown=chromium.desktop
+text/html=chromium.desktop;
+x-scheme-handler/http=chromium.desktop;
+x-scheme-handler/https=chromium.desktop;
+x-scheme-handler/about=chromium.desktop;
+x-scheme-handler/unknown=chromium.desktop;
 
 [Added Associations]
-application/toml=nvim.desktop
-application/x-desktop=nvim.desktop
+application/toml=nvim.desktop;
+application/x-desktop=nvim.desktop;
 image/jpeg=imv-folder.desktop;gimp.desktop;
 image/png=imv-folder.desktop;gimp.desktop;
-text/html=userapp-Nightly-ZE2DN1.desktop;userapp-Nightly-Z0ZNO1.desktop;
+text/html=chromium.desktop;
 text/plain=nvim.desktop;
-video/mp4=vlc.desktop;
+video/mp4=mpv.desktop;
 image/gif=imv-folder.desktop;
 application/pdf=mupdf.desktop;
