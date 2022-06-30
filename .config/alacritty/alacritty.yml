@@ -39,10 +39,10 @@ font:
 colors:
   primary:
     background: '#0c1118'
-    foreground: '#82cde7'
+    foreground: '#a9cfed'
   cursor:
     text:       '#0c1118'
-    cursor:     '#82cde7'
+    cursor:     '#a9cfed'
   normal:
     black:      '#0c1118'
     red:        '#F15915'
@@ -51,7 +51,7 @@ colors:
     blue:       '#286BB8'
     magenta:    '#BB5EA3'
     cyan:       '#039BDF'
-    white:      '#82cde7'
+    white:      '#a9cfed'
   bright:
     black:      '#5b8fa1'
     red:        '#F15915'
