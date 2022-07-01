@@ -101,7 +101,7 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-aur: ckb-next cmus-git hardened_malloc nerd-fonts-fira-code paru-bin pfetch-git \
+aur: ckb-next cmus-git hardened_malloc ly nerd-fonts-fira-code paru-bin pfetch-git \
 picom-jonaburg-git timeshift-bin ttf-ms-fonts unigine-superposition
 
 alacritty apparmor chromium cronie exa firejail fzf galculator gcompris-qt gimp \
