@@ -134,7 +134,7 @@ _________________
 
  1. user scripts
  2. sudo awc
- 3. uwc
+ 3. uwc then reboot to enable sound
  4. .local: keepassxc
  5. DOT
  6. sudo firecfg (rm dnsmasq imv meld)
@@ -512,6 +512,12 @@ cat <<'EOF' > "$HOME"/xfer/uwc
 echo "s2k-cipher-algo AES256
 s2k-count 65011712
 s2k-digest-algo SHA512" > "$HOME"/.gnupg/gpg.conf
+
+#systemctl user
+systemctl --user enable pipewire-pulse
+systemctl --user enable wireplumber
+systemctl --user enable pipewire.socket
+systemctl --user enable pipewire-pulse.socket
 EOF
 
 chmod +x "$HOME"/xfer/*
