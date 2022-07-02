@@ -461,7 +461,7 @@ cat <<'EOF' > "$HOME"/xfer/kbyt
 #kbyt
 rm -rf "$HOME"/.cache/chromium "$HOME"/.config/chromium
 cp -r "$HOME"/BrowserProfiles/ytchromium "$HOME"/.config/chromium
-firejail --private-home=.config /usr/bin/chromium
+firejail /usr/bin/chromium
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/locker
