@@ -39,6 +39,7 @@ include whitelist-usr-share-common.inc
 include whitelist-var-common.inc
 
 # Add the next line to your chromium-common.local if your kernel allows unprivileged userns clone.
+#ck#
 include chromium-common-hardened.inc.profile
 
 apparmor
