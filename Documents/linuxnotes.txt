@@ -1,4 +1,4 @@
-/#####################################################################################
+######################################################################################
 MISC VIM
 
 \%V                    - search block selection - /searchterm\%V 
@@ -379,9 +379,9 @@ cat <<'EOF' > "$HOME"/xfer/backup
 ydmz="$(date +"%Y-%m-%d").tar.xz"
 cd "$HOME" || exit
 
-tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/awesome .config/ckb-next \
-  .config/cmus .config/firejail .config/mimeapps.list .config/mpv .config/nextdns \
-  .config/nitrogen .config/nvim .config/picom .config/ranger .config/starship.toml \
+tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/awesome .config/chromium-flags.conf \
+  .config/ckb-next   .config/cmus .config/firejail .config/mimeapps.list .config/mpv \
+  .config/nextdns .config/nitrogen .config/nvim .config/picom .config/ranger .config/starship.toml \
   .config/sxhkd .config/zsh .dotz .local/share/applications BrowserProfiles Documents \
   Packages Pictures Playlists Videos
 
