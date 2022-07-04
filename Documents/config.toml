@@ -1,0 +1,7 @@
+[terminal]
+vt = 1
+
+[default_session]
+#command = 'tuigreet --greeting "Access is restricted to authorized personnel only." --time --remember --cmd startx'
+command = 'tuigreet --greeting "Login to merge with AI computers and become a cyborg slave of Satan." --time --remember --cmd startx'
+user = "greeter"
