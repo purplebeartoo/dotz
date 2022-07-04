@@ -264,7 +264,9 @@ globalkeys = gears.table.join(
 -- My Bindings
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end,
               {description = "music player", group = "launcher"}),    
-    awful.key({ modkey, "Control" }, "y", function () awful.util.spawn("youtube-music") end,
+   awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("virt-manager") end,
+              {description = "virt-manager", group = "launcher"}),
+   awful.key({ modkey, "Control" }, "y", function () awful.util.spawn("youtube-music") end,
               {description = "youtube-music", group = "launcher"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
