@@ -102,11 +102,11 @@ sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
 aur: ckb-next cmus-git hardened_malloc nerd-fonts-fira-code paru-bin pfetch-git \
-picom-jonaburg-git timeshift-bin ttf-ms-fonts unigine-superposition youtube-music-bin
+picom-jonaburg-git popsicle timeshift-bin ttf-ms-fonts unigine-superposition youtube-music-bin
 
 alacritty apparmor chromium cronie exa firejail fzf galculator gcompris-qt gimp \
-git gvfs handlr htop imagemagick imv keepassxc linux-headers lxappearance man-db \
-meld mpv mupdf neovim nitrogen noto-fonts noto-fonts-emoji numlockx pcmanfm-gtk3 \
+git gparted gvfs handlr htop imagemagick imv keepassxc linux-headers lxappearance lxsession-gtk3 \
+man-db meld mpv mupdf neovim nitrogen noto-fonts noto-fonts-emoji numlockx pcmanfm-gtk3 \
 polkit radeontop ranger reflector ripgrep scrot sxhkd ttf-dejavu ttf-liberation \
 ttf-opensans udisks2 ufw unzip xclip xdg-user-dirs xss-lock xsecurelock zip zsh \
 zsh-autosuggestions zsh-syntax-highlighting
