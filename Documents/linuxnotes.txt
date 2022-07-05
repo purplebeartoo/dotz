@@ -140,7 +140,7 @@ _________________
  5. DOT
  6. config /etc/logrotate.conf
  7. copy logout-menu.lua
- 8. sudo firecfg (rm dnsmasq imv meld)
+ 8. sudo firecfg (rm dnsmasq meld)
 _________________
 
 git bare:
