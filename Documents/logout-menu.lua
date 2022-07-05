@@ -51,7 +51,7 @@ local function worker(user_args)
 
     local font = args.font or beautiful.font
 
-    local onlogout = args.onlogout or function () awesome.quit() end
+    local onlogout = args.onlogout or function () awful.spawn.with_shell("pkill -KILL -u ck") end
     local onlock = args.onlock or function() awful.spawn.with_shell("xsecurelock") end
     local onreboot = args.onreboot or function() awful.spawn.with_shell("reboot") end
     local onsuspend = args.onsuspend or function() awful.spawn.with_shell("systemctl suspend") end
