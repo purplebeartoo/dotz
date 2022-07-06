@@ -1,7 +1,0 @@
-# Change volume
-super + {u,d}
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
-
-# Change volume, chunky
-super + shift + {u,d}
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
