@@ -110,7 +110,7 @@ git gparted gvfs handlr htop imagemagick imv keepassxc linux-headers logrotate \
 lxappearance lxsession-gtk3 man-db meld mpv mupdf neovim nitrogen noto-fonts \
 noto-fonts-emoji numlockx pcmanfm-gtk3 radeontop ranger reflector ripgrep scrot \
 sxhkd ttf-dejavu ttf-liberation ttf-opensans udisks2 ufw unzip xclip xdg-user-dirs \
-xss-lock xsecurelock zip zsh zsh-autosuggestions zsh-syntax-highlighting
+xautolock xsecurelock zip zsh zsh-autosuggestions zsh-syntax-highlighting
 
 kvm:
 sudo pacman -S bridge-utils dmidecode dnsmasq iptables-nft libguestfs libvirt openbsd-netcat \
@@ -470,8 +470,7 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/locker
 #!/bin/sh
 #locker
-xset s 600 30
-xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
+xautolock -time 10 -locker 'xsecurelock' -notify 15 -notifier "notify-send -u critical 'Screen will lock in 15 seconds'" -detectsleep -killtime 15 -killer "systemctl suspend"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
