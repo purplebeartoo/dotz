@@ -107,7 +107,7 @@ youtube-music-bin
 
 alacritty apparmor chromium cronie exa firejail fzf galculator gcompris-qt gimp \
 git gparted gvfs handlr htop imagemagick imv keepassxc linux-headers logrotate \
-lxappearance lxsession-gtk3 man-db meld mpv mupdf neovim nitrogen noto-fonts \
+lxappearance lxsession-gtk3 man-db meld mpv mupdf neovim noto-fonts \
 noto-fonts-emoji numlockx pcmanfm-gtk3 radeontop ranger reflector ripgrep scrot \
 ttf-dejavu ttf-liberation ttf-opensans udisks2 ufw unzip xclip xdg-user-dirs \
 xautolock xsecurelock zip zsh zsh-autosuggestions zsh-syntax-highlighting
@@ -384,7 +384,7 @@ cd "$HOME" || exit
 
 tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/awesome .config/chromium-flags.conf \
   .config/ckb-next   .config/cmus .config/firejail .config/mimeapps.list .config/mpv \
-  .config/nextdns .config/nitrogen .config/nvim .config/picom .config/ranger .config/starship.toml \
+  .config/nextdns .config/nvim .config/picom .config/ranger .config/starship.toml \
   .config/zsh .dotz .local/share/applications BrowserProfiles Documents Packages \
   Pictures Playlists Videos
 
