@@ -262,11 +262,19 @@ globalkeys = gears.table.join(
               {description = "lock screen", group = "screen"}),    
 
 -- My Bindings
+    awful.key({modkey, "Shift"    }, "u", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
+              {description = "Volume Up 10%",      group = "awesome"}),
+    awful.key({modkey, "Shift"    }, "d", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
+              {description = "Volume Down 10%", group = "awesome"}),   
+    awful.key({modkey,            }, "u", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end,
+              {description = "Volume Up 2%",      group = "awesome"}),
+    awful.key({modkey,            }, "d", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") end,
+              {description = "Volume Down 2%", group = "awesome"}),     
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end,
               {description = "music player", group = "launcher"}),    
-   awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("virt-manager") end,
+    awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("virt-manager") end,
               {description = "virt-manager", group = "launcher"}),
-   awful.key({ modkey, "Control" }, "y", function () awful.util.spawn("youtube-music") end,
+    awful.key({ modkey, "Control" }, "y", function () awful.util.spawn("youtube-music") end,
               {description = "youtube-music", group = "launcher"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -276,7 +284,6 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
-
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -601,7 +608,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
-awful.spawn.with_shell("/usr/local/bin/assxhkd")
 awful.spawn.with_shell("ckb-next -b")
 awful.spawn.with_shell("lxsession")
 awful.spawn.with_shell("nitrogen --restore")
