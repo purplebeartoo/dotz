@@ -215,7 +215,7 @@ sudo machinectl shell gdm@ /bin/bash
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 _________________
 
-install: apparmor chromium dconf-editor evince firejail gdm git gnome-control-center \
+apparmor chromium dconf-editor evince firejail gdm git gnome-control-center \
 gnome-keyring gnome-shell gnome-system-monitor gnome-terminal gnome-themes-extra \
 gnome-tweaks imagemagick imv keepassxc linux-headers lsof nautilus neovim noto-fonts \
 noto-fonts-emoji papirus-icon-theme python-pywal reflector ttf-dejavu ttf-liberation \
