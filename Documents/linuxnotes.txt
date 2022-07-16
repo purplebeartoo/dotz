@@ -110,7 +110,7 @@ youtube-music-bin
 alacritty apparmor chromium cronie exa firejail fzf galculator gcompris-qt gimp \
 git gparted gvfs handlr htop imagemagick imv keepassxc linux-headers logrotate \
 lxappearance lxsession-gtk3 man-db meld mpv mupdf neovim noto-fonts \
-noto-fonts-emoji numlockx papirus-icon-theme pcmanfm-gtk3 radeontop ranger reflector \
+noto-fonts-emoji ntp numlockx papirus-icon-theme pcmanfm-gtk3 radeontop ranger reflector \
 ripgrep scrot ttf-dejavu ttf-liberation ttf-opensans udisks2 ueberzug ufw unzip \
 xclip xdg-user-dirs xautolock xsecurelock zip zsh zsh-autosuggestions zsh-syntax-highlighting
 
@@ -359,6 +359,7 @@ kernel.kexec_load_disabled=1' > /etc/sysctl.d/99-sysctl.conf
 sudo ufw allow ssh
 sudo ufw enable
 systemctl enable apparmor.service
+systemctl enable ntpd.service
 systemctl enable sshd.service
 systemctl enable ufw.service
 EOF
