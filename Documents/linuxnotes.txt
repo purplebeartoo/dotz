@@ -373,7 +373,7 @@ tar -cjvf "$HOME/backup-$ydmz" .config/alacritty .config/awesome .config/chromiu
   .config/ckb-next .config/cmus .config/firejail .config/gtk-3.0 .config/libfm \
   .config/mimeapps.list   .config/mpv .config/nextdns .config/nvim .config/picom \
   .config/ranger .config/starship.toml .config/zsh .dotz .local/share/applications \
-  BrowserProfiles Documents Packages Pictures Playlists Videos
+  .Xresources BrowserProfiles Documents Packages Pictures Playlists Videos
 
 gpg2 --symmetric "$HOME/backup-$ydmz"
 
