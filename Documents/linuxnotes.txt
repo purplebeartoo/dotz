@@ -455,7 +455,7 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/locker
 #!/bin/sh
 #locker
-xautolock -time 10 -locker 'xsecurelock' -notify 15 -notifier "notify-send -u critical 'Screen will lock in 15 seconds'" -detectsleep -killtime 15 -killer "systemctl suspend"
+xautolock -time 5 -locker 'xsecurelock' -notify 15 -notifier "notify-send -u critical 'Screen will lock in 15 seconds'" -detectsleep -killtime 10 -killer "systemctl suspend"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/np
