@@ -12,6 +12,8 @@ s/foo/bar/g            - find and replace within selection
 ######################################################################################
 MISC MAJIK
 
+xprop for window name
+
 dg ls-tree --full-tree -r HEAD
 
 sudo libinput list-devices
