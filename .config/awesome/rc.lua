@@ -262,6 +262,8 @@ globalkeys = gears.table.join(
               {description = "lock screen", group = "screen"}),    
 
 -- My Bindings
+    awful.key({modkey, "Shift"    }, "a", function () awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
+              {description = "Volume Up 10%",      group = "awesome"}), 
     awful.key({modkey, "Shift"    }, "u", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
               {description = "Volume Up 10%",      group = "awesome"}),
     awful.key({modkey, "Shift"    }, "d", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
