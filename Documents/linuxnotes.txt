@@ -470,6 +470,7 @@ EOF
 
 cat <<'EOF' > "$HOME"/xfer/rs
 #!/usr/bin/env bash
+#https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
 #rs - ripgrep search
 
 RG_PREFIX="rg --color=always --column --glob=\!timeshift --hidden --line-number --no-heading --smart-case"
