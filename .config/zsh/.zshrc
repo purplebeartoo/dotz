@@ -46,4 +46,4 @@ alias v='nvim'
 
 eval "$(starship init zsh)"
 
-pfetch
+cutefetch --bunny
