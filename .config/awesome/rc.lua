@@ -254,14 +254,18 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
+-- My Bindings
 -- Screenshot
     awful.key({ }, "Print", function () awful.util.spawn("scrot -q 100 -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
-
 -- Lockscreen
     awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("xsecurelock") end,
               {description = "lock screen", group = "screen"}),    
-
--- My Bindings
+-- Scratchpads
+    awful.key({modkey,            }, "e", function () awful.spawn("tdrop -am -w 40% -y 10% -x 30% --number=1 alacritty") end,
+              {description = "Scratchpad 1",      group = "launcher"}),   
+    awful.key({modkey, "Shift"    }, "e", function () awful.spawn("tdrop -am -w 40% -y 10% -x 30% --number=2 alacritty") end,
+              {description = "Scratchpad 2",      group = "launcher"}),
+-- Volume
     awful.key({modkey, "Shift"    }, "a", function () awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
               {description = "Volume Up 10%",      group = "awesome"}), 
     awful.key({modkey, "Shift"    }, "u", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
@@ -272,12 +276,16 @@ globalkeys = gears.table.join(
               {description = "Volume Up 2%",      group = "awesome"}),
     awful.key({modkey,            }, "d", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") end,
               {description = "Volume Down 2%", group = "awesome"}),     
+-- Cmus
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn("alacritty -e cm") end,
               {description = "music player", group = "launcher"}),    
+-- Virt Manager
     awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("virt-manager") end,
               {description = "virt-manager", group = "launcher"}),
+-- YouTube Music
     awful.key({ modkey, "Control" }, "y", function () awful.util.spawn("youtube-music") end,
               {description = "youtube-music", group = "launcher"}),
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
