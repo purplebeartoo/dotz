@@ -8,8 +8,8 @@ window:
   decorations: none
   startup_mode: Windowed
   dimensions:
-    columns: 100
-    lines: 30
+    columns: 137
+    lines: 41
   opacity: 0.96
 
 cursor:
