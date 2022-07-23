@@ -260,11 +260,6 @@ globalkeys = gears.table.join(
 -- Lockscreen
     awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("xsecurelock") end,
               {description = "lock screen", group = "screen"}),    
--- Scratchpads
-    awful.key({modkey,            }, "e", function () awful.spawn("tdrop -am -w 40% -y 10% -x 30% --number=1 alacritty") end,
-              {description = "Scratchpad 1",      group = "launcher"}),   
-    awful.key({modkey, "Shift"    }, "e", function () awful.spawn("tdrop -am -w 40% -y 10% -x 30% --number=2 alacritty") end,
-              {description = "Scratchpad 2",      group = "launcher"}),
 -- Volume
     awful.key({modkey, "Shift"    }, "a", function () awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
               {description = "Volume Up 10%",      group = "awesome"}), 
