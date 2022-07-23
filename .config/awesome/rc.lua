@@ -17,7 +17,17 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 -- require("awful.hotkeys_popup.keys")
-
+-- Quake
+local lain = require("lain")
+my_dropdown = lain.util.quake({
+  app = "alacritty",
+  argname = '--class %s',
+  name = 'mydropdown',
+  height = 0.5,
+  width = 0.5,
+  followtag = true,
+  visible = false
+})
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -257,6 +267,8 @@ globalkeys = gears.table.join(
 -- My Bindings
 -- Screenshot
     awful.key({ }, "Print", function () awful.util.spawn("scrot -q 100 -e 'mv $f ~/screenshots/ 2>/dev/null'", false) end),
+-- Quake
+   awful.key({}, "F12", nil, function () my_dropdown:toggle() end),
 -- Lockscreen
     awful.key({ modkey, "Control" }, "x", function () awful.util.spawn_with_shell("xsecurelock") end,
               {description = "lock screen", group = "screen"}),    
