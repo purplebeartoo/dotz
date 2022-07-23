@@ -106,8 +106,8 @@ sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
 aur: chromium-extension-web-store ckb-next cmus-git flat-remix-gtk hardened_malloc \
-nerd-fonts-fira-code paru-bin picom-jonaburg-git popsicle tdrop-git timeshift-bin \
-ttf-ms-fonts unigine-superposition youtube-music-bin 
+nerd-fonts-fira-code paru-bin picom-jonaburg-git popsicle timeshift-bin ttf-ms-fonts \
+unigine-superposition youtube-music-bin 
 
 alacritty apparmor chromium cronie exa firejail fzf galculator gcompris-qt gimp \
 git gparted gvfs handlr htop imv keepassxc linux-headers logrotate lxappearance \
