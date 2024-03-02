@@ -1,0 +1,13 @@
+[Context]
+shared=!ipc
+sockets=!pulseaudio;!fallback-x11;!x11
+filesystems=xdg-documents;xdg-download;!home;!host
+
+[Environment]
+GTK_THEME=Catppuccin-Mocha-Standard-Blue-Dark
+
+[Session Bus Policy]
+org.gnome.SessionManager=none
+org.gtk.vfs.*=none
+org.gnome.SettingsDaemon.MediaKeys=none
+org.freedesktop.FileManager1=none

@@ -1,0 +1,8 @@
+[Context]
+shared=!ipc
+sockets=!cups;!pcsc;!x11
+features=!devel
+
+[Session Bus Policy]
+org.freedesktop.ScreenSaver=none
+org.gnome.SessionManager=none

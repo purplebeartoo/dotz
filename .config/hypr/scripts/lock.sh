@@ -1,0 +1,29 @@
+#!/bin/sh
+swaylock \
+  --image ~/Pictures/Wallpapers/background.jpg \
+  --clock \
+  --hide-keyboard-layout \
+  --indicator \
+  --indicator-radius 100 \
+  --indicator-thickness 7 \
+  --effect-blur 7x5 \
+  --effect-vignette 0.5:0.5 \
+  --ring-color cba6f7 \
+  --ring-ver-color b4befe \
+  --ring-wrong-color 89b4fa \
+  --ring-clear-color a6e3a1 \
+  --key-hl-color 1e1e2e \
+  --bs-hl-color 000000 \
+  --text-color 11111b \
+  --text-caps-lock-color 11111b \
+  --line-color 00000000 \
+  --line-ver-color 00000000 \
+  --line-wrong-color  89b4fa\
+  --line-clear-color 00000000 \
+  --separator-color 00000000 \
+  --inside-color cba6f7 \
+  --inside-ver-color b4befe\
+  --inside-wrong-color 89b4fa \
+  --inside-clear-color a6e3a1 \
+  --grace 2 \
+  --fade-in 0.1

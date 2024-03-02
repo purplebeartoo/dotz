@@ -1,0 +1,23 @@
+[Default Applications]
+application/javascript=nvim.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/x-perl=nvim.desktop;
+application/x-sh=nvim.desktop;
+application/x-shellscript=nvim.desktop;
+application/x-yaml=nvim.desktop;
+application/xml=nvim.desktop;
+image/jpeg=imv-dir.desktop
+text/*=nvim.desktop;
+text/html=nvim.desktop
+
+[Added Associations]
+application/octet-stream=nvim.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/toml=nvim.desktop;
+application/x-desktop=nvim.desktop;
+application/yaml=nvim.desktop;
+image/gif=imv-folder.desktop;
+image/jpeg=imv-folder.desktop;gimp.desktop;imv-dir.desktop;
+image/png=imv-dir.desktop;gimp.desktop;
+text/plain=nvim.desktop;
+video/x-matroska=io.mpv.Mpv.desktop;
