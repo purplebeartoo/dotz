@@ -1,6 +1,3 @@
-
-2024-03-07 kvantum 1.0.10-3 works
-
 ######################################################################################
 MISC VIM
 
@@ -113,16 +110,16 @@ aur: catppuccin-gtk-theme-mocha checkupdates-with-aur ckb-next clipman gputest \
 kvantum-theme-catppuccin-git pfetch-rs-bin pipes.sh python-pulsectl swaylock-effects \
 tela-circle-icon-theme-dracula ttf-ms-fonts
 
-main: alacritty alsa-utils apparmor arch-audit base-devel bat btop cmus compsize cronie \
-dconf-editor duf dunst eza fd ffmpeg firejail flatpak fuzzel fzf galculator \
+main: alacritty alsa-utils apparmor arch-audit base-devel bat btop cmus compsize \
+cronie dconf-editor duf dunst eza fd ffmpeg firejail flatpak fuzzel fzf galculator \
 gawk git gnome-disk-utility gparted grim gvfs handlr hyprland hyprlang hyprpaper \
-imv inotify-tools keepassxc kvantum libva-mesa-driver linux-headers logrotate man-db \
-meld mesa ncurses nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji \
-pam-u2f pavucontrol perl-image-exiftool playerctl polkit-gnome qt5-wayland qt6-wayland \
-radeontop ranger reflector ripgrep rsync slurp starship swayidle timeshift ttf-dejavu \
-ttf-firacode-nerd ttf-liberation ttf-opensans tumbler ufw unzip vulkan-radeon waybar \
-wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdgpu \
-zip zsh zsh-autosuggestions zsh-syntax-highlighting
+imv inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver linux-headers \
+logrotate man-db meld mesa ncurses nemo neovim nm-connection-editor noto-fonts \
+noto-fonts-emoji pam-u2f pavucontrol perl-image-exiftool playerctl polkit-gnome \
+qt5-wayland qt6-wayland radeontop ranger reflector ripgrep rsync slurp starship \
+swayidle timeshift ttf-dejavu ttf-firacode-nerd ttf-liberation ttf-opensans tumbler \
+ufw unzip vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+xdg-user-dirs xf86-video-amdgpu zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
  
  1. /boot/loader/entries/***/linux.conf: quiet module.sig_enforce=1 lsm=landlock,lockdown,yama,integrity,apparmor,bpf
