@@ -24,12 +24,13 @@
         "show-special": true
     },
     "clock": {
-        "format": "{: %a, %d %b, %I:%M %p}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "format": " {:%a, %b %d, %I:%M %p}",
+        "format-alt": "{:%A, %B %d, %Y (%R)} ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "year",
             "mode-mon-col": 3,
+            "weeks-pos": "right",
             "on-scroll": 1,
             "on-click-right": "mode",
             "format": {
