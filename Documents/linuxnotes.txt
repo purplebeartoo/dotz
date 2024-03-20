@@ -20,6 +20,9 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
+nmcli -p device
+mcli device disconnect device
+
 sudo cryptsetup luksDump /dev/nvme0n1p2
 
 sudo btrfs fi usage /mnt
