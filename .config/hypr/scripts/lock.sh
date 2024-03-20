@@ -1,6 +1,6 @@
 #!/bin/sh
 swaylock \
-  --image ~/Pictures/Wallpapers/background.jpg \
+  --image ~/Pictures/Wallpapers/tiedye.jpg \
   --clock \
   --hide-keyboard-layout \
   --indicator \
