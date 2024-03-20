@@ -134,6 +134,7 @@ _________________
     sudo firecfg
  8. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
+ 9. papirus-folders -C cat-mocha-mauve --theme Papirus-Dark
 _________________
 
 git bare:
