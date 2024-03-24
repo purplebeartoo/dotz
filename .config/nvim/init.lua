@@ -116,7 +116,6 @@ packer.startup(
             auto_install = false,
             highlight = {
                 enable = true,
-                disable = { "bash", "css" }
             },
         }
     end
