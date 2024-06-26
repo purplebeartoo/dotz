@@ -1,0 +1,8 @@
+[Context]
+shared=!ipc;!network
+sockets=!pulseaudio;!x11
+devices=!all
+filesystems=!xdg-pictures;xdg-download
+
+[Session Bus Policy]
+org.gnome.SessionManager=none
