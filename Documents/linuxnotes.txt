@@ -7,6 +7,10 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
+nmcli c up wg0
+
+sudo systemctl restart NetworkManager
+
 modprobe -c | grep 'blacklist\|install'
 cat /sys/kernel/security/lockdown
 
@@ -153,16 +157,6 @@ _________________
 
 Searx:
 https://searx.be
-_________________
-
-vpn:
-rename .conf to wg0.conf
-sudo nmcli connection import type wireguard file /home/ck/Downloads/wg0.conf
-reboot
-nmcli c up wg0
-
-nmcli con show --active 
-nmcli radio wifi off
 _________________
 
 gmic: normalize brightness
