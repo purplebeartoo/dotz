@@ -8,6 +8,7 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
 modprobe -c | grep 'blacklist\|install'
+cat /sys/kernel/security/lockdown
 
 sudo cryptsetup luksDump /dev/nvme0n1p2
 
@@ -303,6 +304,12 @@ mkdir /home/ck/.themes
 cp -r /usr/share/themes/Catppuccin-Mocha-Standard-Mauve-Dark /home/ck/.themes/Catppuccin-Mocha-Standard-Mauve-Dark
 chown -R ck:ck /home/ck/.themes
 flatpak override --filesystem=/home/ck/.themes
+
+echo '[Settings]
+gtk-icon-theme-name = Tela-circle-dracula-dark 
+gtk-cursor-theme-name = BreezeX-RosePine-Linux
+gtk-theme-name = Catppuccin-Mocha-Standard-Mauve-Dark
+gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/backup
