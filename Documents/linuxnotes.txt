@@ -131,7 +131,8 @@ _________________
  6. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/interface/cursor-theme/BreezeX-RosePine-Linux
- 7. harden
+ 7. transfer music
+ 7. Harden
 _________________
 
 git bare:
