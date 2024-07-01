@@ -7,7 +7,6 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
-nmcli c up wg0
 
 sudo systemctl restart NetworkManager
 
@@ -93,6 +92,7 @@ s2k-digest-algo SHA512
 
 </dev/random tr -dc "[:print:]" | fold -w23 | head -n10
 </dev/random tr -dc "[:alnum:]" | fold -w30 | head -n10
+</dev/random tr -dc "1-6" | fold -w5 | head -n9
 
 gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo TWOFISH --s2k-digest-algo SHA512
 gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo AES256 --s2k-digest-algo SHA512
@@ -131,8 +131,9 @@ _________________
  6. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/interface/cursor-theme/BreezeX-RosePine-Linux
- 7. transfer music
- 7. Harden
+ 7. decyrpt nextdns
+    doton
+ 8. Harden
 _________________
 
 git bare:
@@ -159,6 +160,12 @@ _________________
 
 Searx:
 https://searx.be
+_________________
+
+vpn:
+sudo nmcli connection import type wireguard file /home/ck/Downloads/wg0.conf
+nmcli c up wg0
+sudo nmcli connection delete wg0
 _________________
 
 gmic: normalize brightness
@@ -356,6 +363,26 @@ else
 fi
 EOF
 
+cat <<'EOF' > "$HOME"/xfer/dotoff
+#!/bin/bash
+#dotoff
+sudo rm -rf /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
+sudo rm -rf /etc/systemd/resolved.conf
+sudo systemctl disable systemd-resolved --now
+sudo systemctl restart NetworkManager
+echo "DNS over TLS is disabled."
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/doton
+#!/bin/bash
+#doton  
+sudo cp "$HOME"/.config/nextdns/10-dns-systemd-resolved.conf /etc/NetworkManager/conf.d
+sudo cp "$HOME"/.config/nextdns/resolved.conf /etc/systemd
+sudo systemctl enable systemd-resolved --now
+sudo systemctl restart NetworkManager
+echo "DNS over TLS is enabled."
+EOF
+
 cat <<'EOF' > "$HOME"/xfer/rs
 #!/usr/bin/env bash
 #https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
@@ -406,7 +433,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
 cp "$HOME"/Downloads/.config/ranger/bookmarks "$HOME"/.config/ranger
 
 #sync
-rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus} "$HOME"/.config
+rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
 rsync -a "$HOME"/Downloads/.local/share/fonts "$HOME"/.local/share
 rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME"
 rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
@@ -418,6 +445,9 @@ echo "s2k-cipher-algo AES256
 s2k-count 65011712
 s2k-digest-algo SHA512" > "$HOME"/.gnupg/gpg.conf
 
+echo "pinentry-program /usr/bin/pinentry-gnome3
+min-passphrase-nonalpha = 0" > "$HOME"/.gnupg/gpg-agent.conf 
+ 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" >> "$HOME"/.config/ranger/rc.conf
