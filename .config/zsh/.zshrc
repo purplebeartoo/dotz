@@ -8,9 +8,10 @@ export FZF_ALT_C_COMMAND="fd -H --type d"
 export FZF_ALT_C_OPTS="--height 100%"
 export FZF_CTRL_T_COMMAND="fd -H --type f"
 export FZF_DEFAULT_COMMAND="fd -H --type f"
-export FZF_DEFAULT_OPTS="--color=bg+:#313244,bg:#1e1e2e,hl:#cba6f7,spinner:#f5e0dc \
-    --color=fg:#cdd6f4,header:#cba6f7,info:#89b4fa,pointer:#f5e0dc \
-    --color=fg+:#cdd6f4,hl+:#cba6f7,marker:#f5e0dc,prompt:#89b4fa \
+export FZF_DEFAULT_OPTS="\
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 
     --layout=default"
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
