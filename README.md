@@ -1,2 +1,0 @@
-# dotz
-Configs and such.
