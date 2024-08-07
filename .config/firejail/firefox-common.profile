@@ -76,5 +76,4 @@ blacklist ${PATH}/wget2
 dbus-user none
 dbus-system none
 
-#ck#
-restrict-namespaces
+#restrict-namespaces
