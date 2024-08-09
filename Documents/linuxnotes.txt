@@ -302,7 +302,7 @@ sed -i -e '
   s/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 
 #symlink
-ln -s /usr/bin/kitty /usr/bin/xterm
+ln -s /usr/bin/foot /usr/bin/xterm
 
 #theming
 mkdir /home/ck/.themes
