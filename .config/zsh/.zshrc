@@ -62,14 +62,21 @@ alias f='handlr open $(fzf) && exit'
 alias ls="eza -l -g --hyperlink --group-directories-first --icons -t modified"
 alias lsa="eza -a -l -g --hyperlink --group-directories-first --icons -t modified"
 alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
-alias n.="nvim ."
 alias nt="nvim $HOME/Documents/linuxnotes.txt"
 alias pp="pipes.sh -p 9 -t 0 -r 20000 -c 1 -c 2 -c 3 -c 4 -c 5 -c 6 -c 7"
 alias sc="nvim $HOME/Documents/shellscripts.sh"
 alias tp="watch -n 1 sensors"
 alias ud="paru -Syu"
 alias v="nvim"
-alias yy="yazi"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 if [[ "$(tty)" =~ "/pts/" ]]; then
     eval "$(starship init zsh)"
