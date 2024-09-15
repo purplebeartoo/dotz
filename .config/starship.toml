@@ -1,0 +1,178 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](surface0)\
+$os\
+$username\
+[](bg:teal fg:surface0)\
+$directory\
+[](fg:teal bg:yellow)\
+$git_branch\
+$git_status\
+[](fg:yellow bg:maroon)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:maroon bg:blue)\
+$docker_context\
+[](fg:blue bg:peach)\
+$time\
+[ ](fg:peach)\
+$line_break$character"""
+
+palette = 'catppuccin_mocha'
+
+[palettes.catppuccin_mocha]
+base = "#1e1e2e"
+blue = "#89b4fa"
+crust = "#11111b"
+flamingo = "#f2cdcd"
+green = "#a6e3a1"
+lavender = "#b4befe"
+mantle = "#181825"
+maroon = "#eba0ac"
+mauve = "#cba6f7"
+overlay0 = "#6c7086"
+overlay1 = "#7f849c"
+overlay2 = "#9399b2"
+peach = "#fab387"
+pink = "#f5c2e7"
+red = "#f38ba8"
+rosewater = "#f5e0dc"
+sapphire = "#74c7ec"
+sky = "#89dceb"
+subtext0 = "#a6adc8"
+subtext1 = "#bac2de"
+surface0 = "#313244"
+surface1 = "#45475a"
+surface2 = "#585b70"
+teal = "#94e2d5"
+text = "#cdd6f4"
+yellow = "#f9e2af"
+
+[os]
+disabled = false
+style = "bg:surface0 fg:text"
+
+[os.symbols]
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Fedora = "󰣛"
+Gentoo = "󰣨"
+Linux = "󰌽"
+Macos = ""
+Manjaro = ""
+Mint = "󰣭"
+Raspbian = "󰐿"
+RedHatEnterprise = "󱄛"
+Redhat = "󱄛"
+SUSE = ""
+Ubuntu = "󰕈"
+Windows = "󰍲"
+
+[username]
+show_always = true
+style_user = "bg:surface0 fg:text"
+style_root = "bg:surface0 fg:text"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:mantle bg:teal"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol $branch ](fg:base bg:yellow)]($style)'
+
+[git_status]
+style = "bg:maroon"
+format = '[[($all_status$ahead_behind )](fg:base bg:yellow)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[c]
+symbol = " "
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[php]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[java]
+symbol = " "
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[python]
+symbol = ""
+style = "bg:maroon"
+format = '[[ $symbol( $version) ](fg:base bg:maroon)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:mantle"
+format = '[[ $symbol( $context) ](fg:yellow bg:base)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:teal"
+format = '[[  $time ](fg:mantle bg:peach)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[ ](bold fg:teal)'
+error_symbol = '[ ](bold fg:red)'
+vimcmd_symbol = '[](bold fg:teal)'
+vimcmd_replace_one_symbol = '[](bold fg:blue)'
+vimcmd_replace_symbol = '[](bold fg:blue'
+vimcmd_visual_symbol = '[](bold fg:blue)'
