@@ -430,8 +430,6 @@ cat <<'EOF' > "$HOME"/xfer/uwc
 gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Mauve-Dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
 
-cp "$HOME"/Downloads/.config/ranger/bookmarks "$HOME"/.config/ranger
-
 #sync
 rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
 rsync -a "$HOME"/Downloads/.local/share/fonts "$HOME"/.local/share
@@ -446,8 +444,6 @@ chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-echo "default_linemode devicons" >> "$HOME"/.config/ranger/rc.conf
 EOF
 
 chmod +x "$HOME"/xfer/*
