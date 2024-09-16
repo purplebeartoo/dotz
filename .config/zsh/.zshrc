@@ -17,7 +17,6 @@ export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
 export LESSHISTFILE=-
 export MANROFFOPT=-c
-export RANGER_DEVICONS_SEPARATOR="  "
 export SUDO_EDITOR="nvim"
 export TERM="kitty"
 export VISUAL="nvim"
