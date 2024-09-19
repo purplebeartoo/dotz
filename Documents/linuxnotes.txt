@@ -7,7 +7,10 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
+nmcli radio wifi off
 sudo systemctl restart NetworkManager
+
+nvim reformat columns: %!column -t 
 
 grep -i upgraded /var/log/pacman.log
 
