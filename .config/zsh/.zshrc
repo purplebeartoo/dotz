@@ -69,7 +69,7 @@ alias tp="watch -n 1 sensors"
 alias ud="paru -Syu"
 alias v="nvim"
 
-function y() {
+function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
