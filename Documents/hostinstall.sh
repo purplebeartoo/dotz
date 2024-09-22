@@ -6,6 +6,8 @@ sudo pacman -S age alsa-utils apparmor base-devel bat brightnessctl btop cmus cr
 echo "Pacman packages installed."
 
 # flatpaks
+flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 # flatpak install -y --user --noninteractive flathub io.gitlab.adhami3310.Impression
 # flatpak install -y --user --noninteractive flathub flathub org.gimp.GIMP
 # flatpak install -y --user --noninteractive flathub flathub org.gimp.GIMP.Plugin.GMic
@@ -14,8 +16,7 @@ flatpak install -y --user --noninteractive flathub flathub io.mpv.Mpv
 flatpak install -y --user --noninteractive flathub flathub org.gnome.Evince
 flatpak install -y --user --noninteractive flathub-beta org.gimp.GIMP
 flatpak install -y --user --noninteractive flathub-beta org.gimp.GIMP.Plugin.GMic
-flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --user flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+
 echo "Flatpak installations complete."
 
 # Hyprland from source
