@@ -436,8 +436,9 @@ gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
 #sync
 rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
 rsync -a "$HOME"/Downloads/.local/share/fonts "$HOME"/.local/share
-rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME"
+rsync -a "$HOME"/Downloads/{.ssh,Packages,Pictures,Playlists,Videos} "$HOME"
 rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
+rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfiles "$HOME" 
 
 bat cache --build
 
