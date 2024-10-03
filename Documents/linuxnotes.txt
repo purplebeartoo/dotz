@@ -110,7 +110,7 @@ _________________
 
 catppuccin-gtk-theme-mocha
 
-aur: checkupdates-with-aur clipman kvantum-theme-catppuccin-git pipes.sh python-pulsectl \
+aur: checkupdates-with-aur kvantum-theme-catppuccin-git pipes.sh python-pulsectl \
 rose-pine-cursor rose-pine-hyprcursor tela-circle-icon-theme-dracula ttf-indieflower
 
 main: age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
