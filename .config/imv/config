@@ -1,2 +1,6 @@
 [options]
 background = #1E1E2E
+
+[binds]
+# Rotate Clockwise by 90 degrees
+<Ctrl+r> = rotate by 90

@@ -224,6 +224,10 @@ newgrp libvirt
 sudo systemctl restart libvirtd.service
 _________________
 
+image orientation
+paru -S fbida
+exiftran -ai *.jpg
+_________________
 backup vm
 
 sudo -s
