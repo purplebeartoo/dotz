@@ -240,7 +240,9 @@ user_pref("browser.privatebrowsing.autostart", true);
 user_pref("browser.tabs.maxOpenBeforeWarn", 35);
 user_pref("browser.translations.enable", false);
 user_pref("dom.security.https_only_mode", true); 
+user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("signon.rememberSignons", false);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
