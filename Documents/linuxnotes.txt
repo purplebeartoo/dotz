@@ -329,7 +329,7 @@ cat <<'EOF' > "$HOME"/xfer/backup
 ymdz="$(date +"%Y-%m-%d").tar.zst"
 cd "$HOME" || exit
 
-tar -I 'zstdmt --fast=10' -vcf "$HOME"/backup-"$ymdz" .config .local/share/flatpak/overrides \
+tar -I 'zstdmt --fast=10' -vcf "$HOME"/backup-"$ymdz" .config .gnupg .local/share/flatpak/overrides \
   .local/share/fonts .ssh BrowserProfiles Documents Packages Pictures Playlists Videos
 
 age -e -p -o "$HOME"/backup-"$ymdz".age "$HOME"/backup-"$ymdz"
@@ -447,10 +447,11 @@ rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfile
 bat cache --build
 
 mkdir "$HOME"/.gnupg
-echo "pinentry-program /usr/bin/pinentry-gnome3" > "$HOME"/.gnupg/gpg-agent.conf
+rsync -a "$HOME"/Downloads/.gnupg/g* "$HOME"/.gnupg
 chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
 
+rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 EOF
 
