@@ -74,3 +74,5 @@ end
 
 -- load plugins from specifications
 lazy.setup("plugins")
+
+vim.cmd[[colorscheme tokyonight]]

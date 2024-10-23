@@ -1,15 +1,15 @@
 #waybar {
-  background-color: #1e1e2e;
+  background-color: #24283b;
   border-radius: 8px;
-  color: #cba6f7;
+  color: #bba9f7;
   font-family: monospace;
   font-size: 14px;
   font-weight: bold;
 }
 
 tooltip {
-  background-color: #1e1e2e;
-  color: #cdd6f4;
+  background-color: #24283b;
+  color: #c0caf5;
 }
 
 .modules-left {
@@ -19,7 +19,7 @@ tooltip {
 
 .modules-center {
   margin: 4px 0px;
-  padding: 0px 8px;
+ padding: 0px 8px;
 }
 
 
@@ -29,26 +29,26 @@ tooltip {
 }
 
 #workspaces button {
-  color: #cba6f7;
+  color: #bb9af7;
   margin: 2px 0px;
   padding: 0px 4px;
 }
 
 #workspaces button.active {
-  color: #f38ba8;
+  color: #c53b53;
 }
 
 #workspaces button.focused {
-  color: #a6e3a1;
+  color: #c3e88d;
 }
 
 #workspaces button:hover {
-  color: #a6e3a1;
+  color: #c3e88d;
 }
 
 #workspaces button.urgent {
-  background-color: #f38ba8;
-  color: #11111b;
+  background-color: #c53b53;
+  color: #1f2335;
 }
 
 #clock,
@@ -67,41 +67,42 @@ tooltip {
 }
 
 #clock {
-  color: #fab387;
+  color: #ff9e64;
 }
 
 #idle_inhibitor {
-  color: #f2cdcd;
+  color: #b4f9f8;
 }
 
 #custom-updates {
-  color: #eba0ac;
+  color: #ff757f;
 }
 
 #keyboard-state {
-  color: #b4befe;
+  color: #7aa2f7;
 }
 
 #network {
-  color: #cba6f7;
+  color: #9d7cd8;
+    ;
 }
 
 #temperature {
-  color: #74c7ec;
+  color: #41a6b5;
 }
 
 #disk {
-  color: #f38ba8;
+  color: #c53b53;
 }
 
 #cpu {
-  color: #89b4fa;
+  color: #a9b1d6;
 }
 
 #memory {
-  color: #a6e3a1;
+  color: #4fd6be;
 }
 
 #pulseaudio {
-  color: #f9e2af;
+  color: #ffc777;
 }

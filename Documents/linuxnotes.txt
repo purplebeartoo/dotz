@@ -108,10 +108,8 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-catppuccin-gtk-theme-mocha
-
-aur: checkupdates-with-aur kvantum-theme-catppuccin-git pipes.sh python-pulsectl \
-rose-pine-cursor rose-pine-hyprcursor tela-circle-icon-theme-dracula ttf-indieflower
+aur: checkupdates-with-aur pipes.sh python-pulsectl rose-pine-cursor rose-pine-hyprcursor \
+tela-circle-icon-theme-dracula ttf-indieflower
 
 main: age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
 dunst eza fastfetch fd ffmpeg firefox firejail flatpak fuzzel fzf galculator gcr \
@@ -312,14 +310,14 @@ ln -s /usr/bin/kitty /usr/bin/xterm
 
 #theming
 mkdir /home/ck/.themes
-cp -r /usr/share/themes/Catppuccin-Mocha-Standard-Mauve-Dark /home/ck/.themes/Catppuccin-Mocha-Standard-Mauve-Dark
+cp -r /usr/share/themes/Tokyonight-Dark /home/ck/.themes/Tokonight-Dark
 chown -R ck:ck /home/ck/.themes
 flatpak override --filesystem=/home/ck/.themes
 
 echo '[Settings]
 gtk-icon-theme-name = Tela-circle-dracula-dark 
 gtk-cursor-theme-name = BreezeX-RosePine-Linux
-gtk-theme-name = Catppuccin-Mocha-Standard-Mauve-Dark
+gtk-theme-name = Tokyonight-Dark
 gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
 EOF
 
@@ -434,7 +432,6 @@ cat <<'EOF' > "$HOME"/xfer/uwc
 #!/bin/bash
 #uwc - user write config
 
-gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Mauve-Dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
 
 #sync
