@@ -2,7 +2,7 @@
 # hostinstall
 
 # core
-sudo pacman -S age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg firefox firejail flatpak fuzzel fzf galculator gcr git grim gvfs handlr hypridle hyprlang hyprlock hyprpaper imagemagick imv inotify-tools keepassxc kitty kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji pam-u2f pavucontrol pciutils perl-image-exiftool playerctl polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rsync slurp starship thunar timeshift ttf-dejavu ttf-jetbrains-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
+sudo pacman -S age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg firefox firejail flatpak fuzzel fzf galculator gcr git grim gvfs handlr hypridle hyprlang hyprlock hyprpaper imagemagick imv inotify-tools keepassxc kitty kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa neovim nm-connection-editor noto-fonts noto-fonts-emoji pam-u2f papirus-icon-theme pavucontrol pciutils perl-image-exiftool playerctl polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rsync slurp starship thunar timeshift ttf-dejavu ttf-jetbrains-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 echo "Pacman packages installed."
 
 # flatpaks
