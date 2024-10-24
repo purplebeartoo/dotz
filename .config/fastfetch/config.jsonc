@@ -1,16 +1,44 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "color": {"1": "red"},
-        "type": "small"
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/Pictures/Icons/livedead.jpg",
+    "type": "kitty",
+    "width": 15,
+    "padding": {
+      "right": 2
+    }
+  },
+  "modules": [
+    {
+      "type": "os",
+      "keyColor": "yellow"
     },
-    "modules": [
-        "os",
-        "kernel",
-        "packages",
-        "wm",
-        "cpu",
-        "gpu",
-        "memory"
-    ]
+    {
+      "type": "kernel",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "packages",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wm",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "cpu",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "gpu",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "os",
+      "keyColor": "yellow"
+    }
+  ]
 }
+
+
+

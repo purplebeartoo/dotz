@@ -71,7 +71,7 @@ tooltip {
 }
 
 #idle_inhibitor {
-  color: #b4f9f8;
+  color: #c3e88d;
 }
 
 #custom-updates {
@@ -96,13 +96,13 @@ tooltip {
 }
 
 #cpu {
-  color: #a9b1d6;
+  color: #7dcfff;
 }
 
 #memory {
-  color: #4fd6be;
+  color: #ffc777;
 }
 
 #pulseaudio {
-  color: #ffc777;
+  color: #4fd6be;
 }

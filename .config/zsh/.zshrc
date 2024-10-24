@@ -5,26 +5,26 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export FZF_ALT_C_COMMAND="fd -H --type d"
-export FZF_ALT_C_OPTS="--height 100%"
 export FZF_CTRL_T_COMMAND="fd -H --type f"
 export FZF_DEFAULT_COMMAND="fd -H --type f"
 export FZF_DEFAULT_OPTS="\
-    --color=bg+:#283457 \
-    --color=bg:#16161e \
-    --color=border:#27a1b9 \
+    --color=bg+:#1f2335 \
+    --color=bg:#1f2335 \
+    --color=border:#41a6b5 \
     --color=fg:#c0caf5 \
-    --color=gutter:#16161e \
+    --color=gutter:#1f2335 \
     --color=header:#ff9e64 \
-    --color=hl+:#2ac3de \
-    --color=hl:#2ac3de \
-    --color=info:#545c7e \
-    --color=marker:#ff007c \
-    --color=pointer:#ff007c \
-    --color=prompt:#2ac3de \
+    --color=hl+:#41a6b5 \
+    --color=hl:#41a6b5 \
+    --color=info:#565f89 \
+    --color=marker:#c53b53 \
+    --color=pointer:#c53b53 \
+    --color=prompt:#41a6b5 \
     --color=query:#c0caf5:regular \
-    --color=scrollbar:#27a1b9 \
+    --color=scrollbar:#41a6b5 \
     --color=separator:#ff9e64 \
-    --color=spinner:#ff007c \
+    --color=spinner:#c53b53 \
+    --height 75% \
     --layout=default"
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
@@ -52,7 +52,9 @@ compinit
 _comp_options+=(globdots) # Include hidden files.
 
 HISTFILE=$HOME/.config/zsh/.zsh_history
-HISTSIZE=500
+HISTSIZE=5000
+SAVEHIST=5000
+
 setopt autocd
 setopt extendedglob
 setopt hist_expire_dups_first
