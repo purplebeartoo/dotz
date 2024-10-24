@@ -108,19 +108,19 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-aur: checkupdates-with-aur papirus-folders pipes.sh python-pulsectl rose-pine-cursor rose-pine-hyprcursor \
+aur: checkupdates-with-aur pipes.sh python-pulsectl rose-pine-cursor rose-pine-hyprcursor \
 ttf-indieflower
 
 main: age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
 dunst eza fastfetch fd ffmpeg firefox firejail flatpak fuzzel fzf galculator gcr \
 git grim gvfs handlr hypridle hyprlang hyprlock hyprpaper imagemagick imv inotify-tools \
 keepassxc kitty kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate \
-luarocks man-db meld mesa neovim nm-connection-editor noto-fonts noto-fonts-emoji \
-pam-u2f papirus-icon-theme pavucontrol pciutils perl-image-exiftool playerctl polkit-gnome \
-python-pillow qt5-wayland qt6-wayland reflector ripgrep rsync slurp starship thunar \
-timeshift ttf-dejavu ttf-jetbrains-mono tumbler ufw unzip usbguard usbutils vulkan-radeon \
-waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs \
-xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
+luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji \
+pam-u2f pavucontrol pciutils perl-image-exiftool playerctl polkit-gnome python-pillow \
+qt5-wayland qt6-wayland reflector ripgrep rsync slurp starship timeshift ttf-dejavu \
+ttf-jetbrains-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wl-clipboard \
+xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdgpu \
+yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
  
  1. gtk-theme
@@ -313,10 +313,9 @@ mkdir /home/ck/.themes
 cp -r /usr/share/themes/Tokyonight-Dark /home/ck/.themes/Tokonight-Dark
 chown -R ck:ck /home/ck/.themes
 flatpak override --filesystem=/home/ck/.themes
-papirus-folders -C cyan --theme Papirus-Dark
 
 echo '[Settings]
-gtk-icon-theme-name = Papirus-Dark
+gtk-icon-theme-name = Tokyonight-Dark
 gtk-cursor-theme-name = BreezeX-RosePine-Linux
 gtk-theme-name = Tokyonight-Dark
 gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
@@ -433,7 +432,7 @@ cat <<'EOF' > "$HOME"/xfer/uwc
 #!/bin/bash
 #uwc - user write config
 
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Tokyonight-Dark'
 
 #sync
 rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
