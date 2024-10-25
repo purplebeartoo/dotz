@@ -108,8 +108,8 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-aur: checkupdates-with-aur pipes.sh python-pulsectl rose-pine-cursor rose-pine-hyprcursor \
-ttf-indieflower
+aur: checkupdates-with-aur midnight-gtk-theme-git pipes.sh python-pulsectl rose-pine-cursor rose-pine-hyprcursor \
+ttf-indieflower yaru-colors-icon-theme 
 
 main: age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
 dunst eza fastfetch fd ffmpeg firefox firejail flatpak fuzzel fzf galculator gcr \
@@ -123,17 +123,16 @@ xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdg
 yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
  
- 1. gtk-theme
- 2. user scripts
- 3. *uwc THEN awc*
- 4. TSInstall hyprlang
- 5. chsh -s $(which zsh)
- 6. /org/cinnamon/desktop/privacy
+ 1. user scripts
+ 2. *uwc THEN awc*
+ 3. TSInstall hyprlang
+ 4. chsh -s $(which zsh)
+ 5. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
     /org/gnome/desktop/interface/cursor-theme/BreezeX-RosePine-Linux
- 7. doton   
- 8. harden
+ 6. doton   
+ 7. harden
 _________________
 
 git bare:
@@ -310,14 +309,14 @@ ln -s /usr/bin/kitty /usr/bin/xterm
 
 #theming
 mkdir /home/ck/.themes
-cp -r /usr/share/themes/Tokyonight-Dark /home/ck/.themes/Tokonight-Dark
+cp -r /usr/share/themes/Midnight-NightOrange /home/ck/.themes/Midnight-NightOrange
 chown -R ck:ck /home/ck/.themes
 flatpak override --filesystem=/home/ck/.themes
 
 echo '[Settings]
-gtk-icon-theme-name = Tokyonight-Dark
+gtk-icon-theme-name = Yaru-Red 
 gtk-cursor-theme-name = BreezeX-RosePine-Linux
-gtk-theme-name = Tokyonight-Dark
+gtk-theme-name = Midnight-NightOrange
 gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
 EOF
 
@@ -432,7 +431,7 @@ cat <<'EOF' > "$HOME"/xfer/uwc
 #!/bin/bash
 #uwc - user write config
 
-gsettings set org.gnome.desktop.interface icon-theme 'Tokyonight-Dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Yaru-Red'
 
 #sync
 rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
