@@ -1,5 +1,6 @@
 #waybar {
   background-color: #282a36;
+  border: 2px solid #ff5555;
   border-radius: 8px;
   color: #bd93f9;
   font-family: monospace;
