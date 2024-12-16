@@ -66,7 +66,6 @@ alias lsa="eza -a -l -g --hyperlink --group-directories-first --icons -t modifie
 alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
 alias mpv='io.mpv.Mpv'
 alias nt="nvim $HOME/Documents/linuxnotes.txt"
-alias pp="pipes.sh -p 9 -t 0 -r 20000 -c 1 -c 2 -c 3 -c 4 -c 5 -c 6 -c 7"
 alias sc="nvim $HOME/Documents/shellscripts.sh"
 alias tp="watch -n 1 sensors"
 alias ud="paru -Syu"
