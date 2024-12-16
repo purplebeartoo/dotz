@@ -110,8 +110,8 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-brave-bin checkupdates-with-aur dracula-gtk-theme kvantum-theme-dracula-git pipes.sh \
-python-pulsectl rose-pine-cursor rose-pine-hyprcursor ttf-indieflower 
+brave-bin checkupdates-with-aur dracula-gtk-theme kvantum-theme-dracula-git python-pulsectl \
+rose-pine-cursor rose-pine-hyprcursor ttf-indieflower 
 
 age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
 dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr git grim \
