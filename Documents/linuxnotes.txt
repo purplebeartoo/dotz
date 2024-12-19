@@ -179,10 +179,6 @@ chrome://password-manager/settings
 _________________
 
 firefox:
-Calm Pastel 3
-Happy Halloween - Pumpkin Cat
-Blue stary night
-
 light theme with dark system theme, create:
 ui.systemUsesDarkTheme (Number) with value 0
 
