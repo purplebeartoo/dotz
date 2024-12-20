@@ -273,7 +273,7 @@ $.*[\^                 - quote, except inside character sets ([…])
 \%V                    - search block selection - /searchterm\%V 
 
 replace | with newline:
-find = \| replace = \n or cat test | tr "|" "\n" > catted
+cat test | tr "|" "\n" > catted
 
 ######################################################################################
 #!/bin/env bash
