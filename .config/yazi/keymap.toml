@@ -124,10 +124,20 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "g", "a" ],       run = "cd ~/.local/state/nvim/swap", desc = "Go to the swap directory" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",                desc = "Go to the .config directory" },
+	{ on = [ "g", "d" ],       run = "cd ~/Documents",              desc = "Go to the Documents directory" },
+	{ on = [ "g", "e" ],       run = "cd /etc",                     desc = "Go to the /etc directory" },
+	{ on = [ "g", "h" ],       run = "cd ~",                        desc = "Go to the Home directory" },
+	{ on = [ "g", "l" ],       run = "cd ~/.local",                 desc = "Go to the .local directory" },
+	{ on = [ "g", "n" ],       run = "cd ~/.config/nvim",           desc = "Go to the nvim directory" },
+	{ on = [ "g", "o" ],       run = "cd ~/Downloads",              desc = "Go to the Downloads directory" },
+	{ on = [ "g", "p" ],       run = "cd ~/Pictures",               desc = "Go to the Pictures directory" },
+	{ on = [ "g", "s" ],       run = "cd ~/Pictures/ScreenShots",   desc = "Go to the ScreenShots directory" },
+	{ on = [ "g", "t" ],       run = "cd ~/.local/share/Trash",     desc = "Go to the Trash directory" },
+	{ on = [ "g", "v" ],       run = "cd ~/Videos",                 desc = "Go to the Videos directory" },
+	{ on = [ "g", "y" ],       run = "cd ~/.config/yazi",           desc = "Go to the yazi directory" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive",            desc = "Go to a directory interactively" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
