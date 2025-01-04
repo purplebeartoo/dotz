@@ -1,0 +1,460 @@
+######################################################################################
+MISC MAJIK
+
+escape: \^$.|?*+()[{
+
+sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
+
+gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
+
+nmcli radio wifi off
+sudo systemctl restart NetworkManager
+
+nvim reformat columns: %!column -t 
+
+grep -i upgraded /var/log/pacman.log
+
+cat /proc/cmdline
+cat /sys/kernel/security/lockdown
+grep . /sys/devices/system/cpu/vulnerabilities/*
+modprobe -c | grep 'blacklist\|install'
+sudo sysctl -a | grep ptrace
+
+sudo cryptsetup luksDump /dev/nvme0n1p2
+
+sudo btrfs fi usage /mnt
+
+sudo cryptsetup luksDump /dev/nvme0n1p2  | grep "Version\|KDF"
+
+paru -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
+
+dg ls-tree --full-tree -r HEAD > ~/Documents/git-bare-tracked-"$(date +"%Y%m%d").txt"
+
+sudo -E timeshift-gtk
+
+pacman -Qq | wc -l
+
+MOZ_LOG="FFmpegVideo:5"
+
+sudo libinput list-devices
+
+eza -a --bytes -l -g --group-directories-first --icons -t modified -s name
+
+sudo journalctl --since "2020-12-10 17:15:00"
+
+count lines recursively in a directory: wc -l ~/path
+
+sudo cryptsetup luksAddKey /dev/sda5
+sudo cryptsetup luksRemoveKey /dev/sda5
+
+burn iso to USB: sudo dd bs=4M if=input.iso of=/dev/sd<?>
+overwrite USB with random: dd if=/dev/urandom of=/dev/sdg1
+
+find lines in file1 that are not present in file2
+diff --new-line-format="" --unchanged-line-format="" <(sort file1) <(sort file2) > output
+
+du -h --max-depth=1 ~/ | sort -h
+
+exiftool -all= *.*
+exiftool -r -gps:all= directory
+exiftool -r "-gps*="  directory
+
+list packages by install/unpdate date: expac --timefmt='%F %T' '%l %n' | sort -n
+
+print files modified today: find / -mtime -1 > test
+
+find files larger than 5M: find /where -size +5M -ls
+
+find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
+
+grep --color='auto' -P -n "[\x80-\xFF]" file.name
+grep --color='auto' -P -n "[^\x00-\x7F]" file.name
+grep -H -r "texttofind" /where
+
+vimiv --slideshow --slideshow-delay 3 ~/Pictures/202408-202501/*.jpg(om) ~/Pictures/202402-202407/*.jpg(om) ~/Pictures/202308-202401/*.jpg(om)
+
+echo /var/log/messages*        # usual lexicographic order
+echo /var/log/messages*(On)    # reverse lexicographic order
+echo /var/log/messages*(om)    # reverse chronological order (ascending mtime)
+echo /var/log/messages*(Om)    # chronological order order (descending mtime)
+
+######################################################################################
+WEBSITES
+
+https://devhints.io/vim
+https://github.com/yokoffing/NextDNS-Config
+https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+
+######################################################################################
+GPG
+         
+s2k-cipher-algo AES256
+s2k-count 65011712
+s2k-digest-algo SHA512
+
+gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo TWOFISH --s2k-digest-algo SHA512
+gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo AES256 --s2k-digest-algo SHA512
+
+######################################################################################
+RNG
+
+</dev/random tr -dc "[:print:]" | fold -w26 | head -n10
+</dev/random tr -dc "[:alnum:]" | fold -w30 | head -n10
+</dev/random tr -dc "1-6" | fold -w6 | head -n10
+
+######################################################################################
+NEW HOST
+
+sudo systemctl start NetworkManager.service
+nmcli device wifi list
+sudo nmcli device wifi connect SSID_or_BSSID password password
+_________________
+
+brave-bin checkupdates-with-aur dracula-gtk-theme kvantum-theme-dracula-git otf-apple-fonts \
+rose-pine-cursor rose-pine-hyprcursor
+
+age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
+dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr ghostty \
+git grim gvfs handlr hypridle hyprlang hyprlock hyprpaper imagemagick inotify-tools \
+keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate \
+luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji \
+pam-u2f pavucontrol pciutils perl-image-exiftool playerctl polkit-gnome python-pillow \
+qt5-wayland qt6-wayland reflector ripgrep rsync slurp starship tela-circle-icon-theme-dracula \
+timeshift ttf-cascadia-code-nerd ttf-dejavu tumbler ufw unzip usbguard usbutils vimiv \
+vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
+_________________
+ 
+ 1. user scripts
+ 2. *uwc THEN awc*
+ 3. TSInstall hyprlang
+ 4. chsh -s $(which zsh)
+ 5. /org/cinnamon/desktop/privacy
+    /org/gnome/desktop/privacy 
+    /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
+ 6. doton   
+ 7. harden.sh
+_________________
+
+git bare:
+alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
+git clone --bare https://github.com/purplebeartoo/dotz.git $HOME/.dotz
+dg checkout
+dg config --local status.showUntrackedFiles no
+
+dg add /path/to/file
+dg commit -m "A short message"
+dg push https://github.com/purplebeartoo/dotz.git
+dg push git@github.com:purplebeartoo/dotz.git
+_________________
+
+usbguard:
+sudo usbguard list-devices -b #list blocked
+sudo usbguard allow-device {device_ID} #temporarily allow
+sudo usbguard allow-device {device_ID} -p #permanently allow
+_________________
+lua formatting:
+stylua (rm tabs)
+_________________
+
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+_________________
+
+Searx:
+https://searx.be
+_________________
+
+vpn:
+sudo nmcli connection import type wireguard file /home/ck/Downloads/wg0.conf
+nmcli c up wg0
+sudo nmcli connection delete wg0
+_________________
+
+gmic: normalize brightness
+_________________
+
+chromium
+chrome://password-manager/settings
+_________________
+
+firefox:
+light theme with dark system theme, create:
+ui.systemUsesDarkTheme (Number) with value 0
+
+browser.compactmode.show
+browser.search.serpEventTelemetryCategorization.enabled
+browser.tabs.tabmanager.enabled
+browser.translations.enable
+browser.urlbar.suggest.trending
+extensions.pocket.enabled
+media.ffmpeg.vaapi.enabled
+browser.tabs.maxOpenBeforeWarn
+
+*toolkit.legacyUserProfileCustomizations.stylesheets
+_________________
+
+maintenance:
+pacman -Qtdq | pacman -Rns -
+pacman -Qqd | pacman -Rsu -
+sudo journalctl --vacuum-time=1m
+
+pacman -Qm (list aur packages)
+sudo systemctl --failed
+sudo journalctl -p 3 -xb
+pacman -Qqe > ~/Documents/pkglist-"$(date +"%Y%m%d")"
+
+######################################################################################
+KVM
+
+sudo pacman -S bridge-utils dmidecode dnsmasq iptables-nft libguestfs libvirt openbsd-netcat \
+qemu-desktop vde2 virt-manager virt-viewer
+
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+sudo systemctl status libvirtd.service
+sudo nvim /etc/libvirt/libvirtd.conf (uncomment)
+  unix_sock_group = "libvirt"
+  unix_sock_rw_perms = "0770"
+sudo usermod -a -G libvirt $(whoami)
+newgrp libvirt
+sudo systemctl restart libvirtd.service
+_________________
+
+image orientation
+paru -S fbida
+exiftran -ai *.jpg
+_________________
+
+backup vm:
+sudo -s
+rsync -P /var/lib/libvirt/images/Cosmic.qcow2 /run/media/ck/sanc/kvmbackup/Cosmic.qcow2
+diff /run/media/ck/sanc/kvmbackup/Cosmic.qcow2 /var/lib/libvirt/images/Cosmic.qcow2
+cd /var/lib/libvirt/images
+echo 'Cosmic' > /run/media/ck/sanc/kvmbackup/Cosmic.xml
+virsh dumpxml Cosmic >  /run/media/ck/sanc/kvmbackup/Cosmic.xml
+
+restore vm:
+sudo -s
+virsh define --file /run/media/ck/sanc/kvmbackup/Cosmic.xml
+cp -r /run/media/ck/sanc/kvmbackup/Cosmic.qcow2 /var/lib/libvirt/images
+
+######################################################################################
+REG/SED/TR
+
+[^-_#. a-zA-Z0-9]      - any character that is not a hyphen, underscore, hash, period, space, or alphanumeric
+%s/pattern//gn         - count number of matches
+'/\./!d'               - delete lines without a dot 
+'s/[[:space:]]*#.*//'  - delete a hash, any preceding spaces, and the characters that follow it
+'s/^.*toad/toad/'      - delete any characters before toad
+'s/string//g'          - delete a string
+'/^$/d'                - delete empty lines
+'/^\s*$/d'             - delete empty lines with whitespace characters 
+'1d'                   - delete first line in a file
+'/!/d'                 - delete lines containing an exclamation
+'/[ #]/d'              - delete lines containing a space or a hash
+ '/^f$/d'              - delete lines containing only an f
+'/\[[^]]*\]/d'         - delete lines containing text within brackets
+'\?^/?d'               - delete lines that begin with a forward slash
+'/^#/d'                - delete lines that begin with a hash
+'/string$/d'           - delete lines that end with a string
+'/[a-zA-Z]/!d'         - delete lines without letters
+%s/foo/bar/gc          - find and replace with confirmation
+s/foo/bar/g            - find and replace within selection
+g/[^-_#. a-zA-Z0-9]    - find unacceptable hosts characters
+'/pattern to match/d'  - delete lines containing a pattern
+%s/#!/\r#!/gc          - place a new line before #!
+'s/^/0.0.0.0 /'        - prepend 0.0.0.0 to lines followed by a space
+$.*[\^                 - quote, except inside character sets ([…])
+%s/\r//g               - remove new line ^M
+'s/[[:space:]]\+/ /g'  - replace all tabs and spaces with a single space
+'s/foo/bar/g'          - replace foo with bar
+'%s/\t/  /g'           - replace tab with 2 spaces
+\%V                    - search block selection - /searchterm\%V 
+
+replace | with newline:
+cat test | tr "|" "\n" > catted
+
+######################################################################################
+#!/bin/env bash
+#hostsscripts
+mkdir "$HOME"/xfer
+
+cat <<'EOF' > "$HOME"/xfer/awc
+#!/bin/env bash
+#awc - admin write config
+
+#mirrors
+reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+#limit logs
+cp /etc/systemd/journald.conf /etc/systemd/journald.conf.old
+sed -i -e 's/#SystemMaxUse=/SystemMaxUse=100M/' /etc/systemd/journald.conf
+cp /etc/logrotate.conf /etc/logrotate.conf.old
+sed -i -e 's/rotate 4/rotate 2/' /etc/logrotate.conf
+
+#misc
+cp /etc/security/pam_env.conf /etc/security/pam_env.conf.old
+echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
+echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
+usermod -a -G input ck
+
+#pacman
+cp /etc/pacman.conf /etc/pacman.conf.old
+sed -i -e '
+  s/#Color/Color/
+  s/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+
+#symlink
+ln -s /usr/bin/ghostty /usr/bin/xterm
+
+#theming
+mkdir /home/ck/.themes
+cp -r /usr/share/themes/Dracula /home/ck/.themes/Dracula
+chown -R ck:ck /home/ck/.themes
+flatpak override --filesystem=/home/ck/.themes
+
+echo '[Settings]
+gtk-icon-theme-name = Tela-circle-dracula-dark
+gtk-cursor-theme-name = BreezeX-RosePine-Linux
+gtk-theme-name = Dracula
+gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/backup
+#!/bin/env bash
+#backup
+cd "$HOME" || exit
+backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
+
+tar -I 'zstdmt --fast=10' -vcf "$backup_file" .config .gnupg .local/share/flatpak/overrides \
+  .ssh BrowserProfiles Documents Packages Pictures Playlists Videos
+
+age -e -p -o "$backup_file".age "$backup_file"
+
+rm -rf "$backup_file"
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/ctc
+#!/bin/env bash
+#ctc - copy to control
+cpth=$HOME/.cache/BraveSoftware
+dpth=$HOME/BrowserProfiles
+rpth=$HOME/BrowserProfiles/BraveSoftware
+spth=$HOME/.config/BraveSoftware
+
+if [ -d "$spth" ]; then
+  rm -rf "$cpth" "$rpth"
+  cp -r "$spth" "$dpth"
+  echo "Brave profiles copied to control."
+else
+  echo "Source directory not present!"
+fi
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/dap
+#!/bin/env bash
+#dap - delete active profile
+cpth=$HOME/.cache/BraveSoftware
+dpth=$HOME/.config
+rpth=$HOME/.config/BraveSoftware
+spth=$HOME/BrowserProfiles/BraveSoftware
+
+if [ -d "$spth" ]; then
+  rm -rf "$cpth" "$rpth"
+  cp -r "$spth" "$dpth"
+  echo "Active Brave profiles deleted."
+else
+  echo "Source directory not present!"
+fi
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/dotoff
+#!/bin/env bash
+#dotoff
+sudo rm -rf /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
+sudo rm -rf /etc/systemd/resolved.conf
+sudo systemctl disable systemd-resolved --now
+sudo systemctl restart NetworkManager
+echo "DNS over TLS is disabled."
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/doton
+#!/bin/env bash
+#doton  
+sudo cp "$HOME"/.config/nextdns/10-dns-systemd-resolved.conf /etc/NetworkManager/conf.d
+sudo cp "$HOME"/.config/nextdns/resolved.conf /etc/systemd
+sudo systemctl enable systemd-resolved --now
+sudo systemctl restart NetworkManager
+echo "DNS over TLS is enabled."
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/rs
+#!/usr/bin/env bash
+#https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
+#rs - ripgrep search
+RG_PREFIX="rg --color=always --column --glob=\!timeshift --glob=\!.var --hidden --line-number --no-heading --smart-case"
+INITIAL_QUERY="${*:-}"
+: | fzf --ansi --disabled --query "$INITIAL_QUERY" \
+    --bind "start:reload:$RG_PREFIX {q}" \
+    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+    --delimiter : \
+    --preview 'bat --color=always {1} --highlight-line {2}' \
+    --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+    --bind 'enter:become(nvim {1} +{2})'
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/rup
+#!/bin/env bash
+#rup - remove unneeded packages
+pacman -Qtdq | pacman -Rns -
+pacman -Qqd | pacman -Rsu -
+echo "Unneeded Packages Removed ;)"
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/sbk
+#!/bin/env bash
+#sbk - sync backup
+destinations=(
+  "/run/media/ck/sanc"
+  "/run/media/ck/san3"
+  "/home/ck/Downloads/"
+)
+
+source="$HOME/backup-$(date +"%Y-%m-%d").tar.zst.age"
+
+for destination in "${destinations[@]}"; do
+  cp -a "$source" "$destination"
+done
+
+rm "$source"
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/uwc
+#!/bin/env bash
+#uwc - user write config
+
+gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Dracula' 
+
+#sync
+rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
+rsync -a "$HOME"/Downloads/{.ssh,Packages,Pictures,Playlists,Videos} "$HOME"
+rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
+rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfiles "$HOME" 
+
+bat cache --build
+
+mkdir "$HOME"/.gnupg
+rsync -a "$HOME"/Downloads/.gnupg/g* "$HOME"/.gnupg
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
+
+rsync -a "$HOME"/Downloads/.config/{bat,btop,cmus,nextdns} "$HOME"/.config
+systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
+EOF
+
+chmod +x "$HOME"/xfer/*
+sudo chown root:root "$HOME"/xfer/*
+sudo mv "$HOME"/xfer/* /usr/local/bin
+rm -rf "$HOME"/xfer

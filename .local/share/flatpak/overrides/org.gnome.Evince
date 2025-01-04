@@ -1,0 +1,10 @@
+[Context]
+shared=!ipc
+sockets=!pulseaudio;!fallback-x11;!x11
+filesystems=xdg-download;xdg-documents;!home;!host
+
+[Session Bus Policy]
+org.gnome.SessionManager=none
+org.gtk.vfs.*=none
+org.freedesktop.FileManager1=none
+org.gnome.SettingsDaemon.MediaKeys=none
