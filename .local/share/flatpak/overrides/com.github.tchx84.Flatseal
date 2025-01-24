@@ -1,2 +1,5 @@
+[Context]
+sockets=!fallback-x11;!x11
+
 [Environment]
 ICON_THEME=
