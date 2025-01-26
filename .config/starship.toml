@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](visual)\
+[█](visual)\
 $os\
 $username\
 [](bg:red fg:visual)\
@@ -23,7 +23,7 @@ $python\
 $docker_confg\
 [](fg:pink bg:purple)\
 $time\
-[ ](fg:purple)\
+[](fg:purple)\
 $line_break$character"""
 
 palette = 'dracula'
