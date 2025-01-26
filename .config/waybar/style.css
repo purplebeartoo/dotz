@@ -8,7 +8,7 @@
 }
 
 window#waybar {  
-  background: transparent;
+  background: #282a36;
 }
 
 tooltip {
@@ -21,23 +21,10 @@ tooltip label {
   padding: 2px;
 }
 
-.modules-left {
-  background: #282a36; 
-  padding-right: 8px;
-}
-
-.modules-center {
-  background: #282a36;
-}
-
-.modules-right {
-  background: #282a36;
-}
-
 #workspaces button {
   background: #282a36;
   color: #bd93f9;
-  margin: 3px 10px;
+  margin: 5px 10px;
 }
 
 #workspaces button.active {
@@ -72,7 +59,7 @@ tooltip label {
 #cpu,
 #memory,
 #pulseaudio {
-  margin: 3px 12px;
+  margin: 5px 15px 5px 10px;
 }
 
 #clock {
