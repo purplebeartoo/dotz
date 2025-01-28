@@ -161,6 +161,13 @@ lua formatting:
 stylua (rm tabs)
 _________________
 
+Ollama:
+sudo curl -fsSL https://ollama.com/install.sh | sh
+sudo systemctl enable --now ollama.service
+ollama run deepseek-r1:7b
+_________________
+
+Grub:
 sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 _________________
