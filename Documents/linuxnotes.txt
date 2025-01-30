@@ -123,7 +123,7 @@ xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosugg
 zsh-syntax-highlighting
 _________________
 
- 1. cp backup
+ 1. backup
  2. git checkout
  3. utility scripts
  4. *uwc THEN awc*
@@ -161,7 +161,7 @@ lua formatting:
 stylua (rm tabs)
 _________________
 
-Ollama:
+ollama:
 sudo systemctl enable --now ollama.service
 ollama run deepseek-r1:7b
 _________________
@@ -171,7 +171,7 @@ sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 _________________
 
-Searx:
+searx:
 https://searx.be
 _________________
 
@@ -286,12 +286,12 @@ replace | with newline:
 cat test | tr "|" "\n" > catted
 
 ######################################################################################
-#!/bin/env bash
+#!/usr/bin/env bash
 # Utility scripts
 mkdir "$HOME"/xfer
 
 cat <<'EOF' > "$HOME"/xfer/awc
-#!/bin/env bash
+#!/usr/bin/env bash
 # Admin write config
 # Mirrors
 reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
@@ -331,8 +331,10 @@ gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/backup
-#!/bin/env bash
+#!/usr/bin/env bash
 # Backup
+backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
+
 directories=(
   ".config"
   ".gnupg"
@@ -345,8 +347,6 @@ directories=(
   "Playlists"
   "Videos"
 )
-
-backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
 
 cd "$HOME" || exit
 
@@ -363,7 +363,7 @@ rm -rf "$backup_file"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/ctc
-#!/bin/env bash
+#!/usr/bin/env bash
 # Copy to control
 cpth=$HOME/.cache/BraveSoftware
 dpth=$HOME/BrowserProfiles
@@ -380,7 +380,7 @@ fi
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dap
-#!/bin/env bash
+#!/usr/bin/env bash
 # Delete active profile
 cpth=$HOME/.cache/BraveSoftware
 dpth=$HOME/.config
@@ -397,7 +397,7 @@ fi
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/dotoff
-#!/bin/env bash
+#!/usr/bin/env bash
 # DOT off
 sudo rm -rf /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
 sudo rm -rf /etc/systemd/resolved.conf
@@ -407,7 +407,7 @@ echo "DNS over TLS is disabled."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/doton
-#!/bin/env bash
+#!/usr/bin/env bash
 # DOT on  
 sudo cp "$HOME"/.config/nextdns/10-dns-systemd-resolved.conf /etc/NetworkManager/conf.d
 sudo cp "$HOME"/.config/nextdns/resolved.conf /etc/systemd
@@ -432,7 +432,7 @@ fzf --ansi --disabled --query "$INITIAL_QUERY" \
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/rup
-#!/bin/env bash
+#!/usr/bin/env bash
 # Remove unneeded packages
 pacman -Qtdq | pacman -Rns -
 pacman -Qqd | pacman -Rsu -
@@ -440,8 +440,18 @@ echo "Unneeded Packages Removed ;)"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/sbk
-#!/bin/env bash
+#!/usr/bin/env bash
 # Sync backup
+backup_source="$HOME/backup-$(date +"%Y-%m-%d").tar.zst.age"
+
+backup_destinations=(
+  "/run/media/ck/sanc"
+  "/run/media/ck/san3"
+  "/home/ck/Downloads/"
+)
+
+exit_code=$?
+
 sync_backup() {
   local source_file="$1"
   shift
@@ -451,29 +461,35 @@ sync_backup() {
     echo "Source file $source_file does not exist."
     exit 1
   fi
-
+  
   for dest in "${destinations[@]}"; do
+    if [[ ! -d "$dest" ]]; then
+      echo "Destination directory $dest does not exist."
+      exit 1
+    fi
+
     echo "Copying $source_file to $dest"
     cp -a "$source_file" "$dest"
+    if [[ $exit_code -ne 0 ]]; then
+      echo "Failed to copy $source_file to $dest"
+      exit 1
+    fi
   done
 
   rm "$source_file"
-  echo "Source file $source_file has been deleted."
+  if [[ $exit_code -eq 0 ]]; then
+    echo "Source file $source_file has been deleted."
+  else
+    echo "Failed to delete source file $source_file."
+    exit 1
+  fi
 }
-
-backup_destinations=(
-  "/run/media/ck/sanc"
-  "/run/media/ck/san3"
-  "/home/ck/Downloads/"
-)
-
-backup_source="$HOME/backup-$(date +"%Y-%m-%d").tar.zst.age"
 
 sync_backup "$backup_source" "${backup_destinations[@]}"
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/uwc
-#!/bin/env bash
+#!/usr/bin/env bash
 # User write config
 gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Dracula' 
