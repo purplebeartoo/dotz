@@ -4,7 +4,6 @@ cursor-invert-fg-bg = true
 cursor-style-blink = false
 
 # Fonts
-adjust-cell-height = 1
 font-family = "CaskaydiaCove Nerd Font"
 font-size = 11
 
