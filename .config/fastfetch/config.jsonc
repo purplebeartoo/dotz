@@ -3,7 +3,7 @@
   "logo": {
     "source": "~/Pictures/Icons/livedead.jpg",
     "type": "kitty",
-    "width": 15,
+    "width": 14,
     "padding": {
       "right": 2
     }
@@ -32,7 +32,7 @@
     {
       "type": "gpu",
       "keyColor": "red"
-    },
+    }, 
     {
       "type": "memory",
       "keyColor": "red"
