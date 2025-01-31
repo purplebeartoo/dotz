@@ -450,8 +450,6 @@ backup_destinations=(
   "/home/ck/Downloads/"
 )
 
-exit_code=$?
-
 sync_backup() {
   local source_file="$1"
   shift
@@ -461,7 +459,7 @@ sync_backup() {
     echo "Source file $source_file does not exist."
     exit 1
   fi
-  
+
   for dest in "${destinations[@]}"; do
     if [[ ! -d "$dest" ]]; then
       echo "Destination directory $dest does not exist."
@@ -470,6 +468,7 @@ sync_backup() {
 
     echo "Copying $source_file to $dest"
     cp -a "$source_file" "$dest"
+    exit_code=$?
     if [[ $exit_code -ne 0 ]]; then
       echo "Failed to copy $source_file to $dest"
       exit 1
@@ -477,6 +476,7 @@ sync_backup() {
   done
 
   rm "$source_file"
+  exit_code=$?
   if [[ $exit_code -eq 0 ]]; then
     echo "Source file $source_file has been deleted."
   else
