@@ -447,7 +447,7 @@ backup_source="$HOME/backup-$(date +"%Y-%m-%d").tar.zst.age"
 backup_destinations=(
   "/run/media/ck/sanc"
   "/run/media/ck/san3"
-  "/home/ck/Downloads/"
+  "/home/ck/Downloads"
 )
 
 sync_backup() {
@@ -486,6 +486,7 @@ sync_backup() {
 }
 
 sync_backup "$backup_source" "${backup_destinations[@]}"
+echo "Backup sync complete."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/uwc
