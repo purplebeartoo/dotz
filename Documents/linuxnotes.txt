@@ -350,6 +350,7 @@ directories=(
 
 cd "$HOME" || exit
 
+# Check source directories
 for dir in "${directories[@]}"; do
   if [ ! -d "$dir" ]; then
     echo "Warning: Directory $dir does not exist."
@@ -357,9 +358,18 @@ for dir in "${directories[@]}"; do
   fi
 done
 
-tar -I 'zstdmt --fast=10' -vcf "$backup_file" "${directories[@]}"
+# Create backup
+if ! tar -I 'zstdmt --fast=10' -vcf "$backup_file" "${directories[@]}"; then
+  echo "Error: Failed to create tar archive."
+  exit 1
+fi
+
+# Encrypt backup
 age -e -p -o "$backup_file".age "$backup_file"
+
+# Remove unencrypted backup
 rm -rf "$backup_file"
+echo "Backup complete."
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/ctc
@@ -450,22 +460,26 @@ backup_destinations=(
   "/home/ck/Downloads"
 )
 
+# Sync function
 sync_backup() {
   local source_file="$1"
   shift
   local destinations=("$@")
 
+# Check source directories  
   if [[ ! -f "$source_file" ]]; then
     echo "Source file $source_file does not exist."
     exit 1
   fi
 
+# Check destinations
   for dest in "${destinations[@]}"; do
     if [[ ! -d "$dest" ]]; then
       echo "Destination directory $dest does not exist."
       exit 1
     fi
 
+# Copy
     echo "Copying $source_file to $dest"
     cp -a "$source_file" "$dest"
     exit_code=$?
@@ -475,6 +489,7 @@ sync_backup() {
     fi
   done
 
+# Remove source file
   rm "$source_file"
   exit_code=$?
   if [[ $exit_code -eq 0 ]]; then
