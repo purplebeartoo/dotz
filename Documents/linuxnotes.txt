@@ -477,7 +477,7 @@ sync_backup() {
   shift
   local destinations=("$@")
 
-# Check source directories  
+# Check source file 
   if [[ ! -f "$source_file" ]]; then
     echo "Source file $source_file does not exist."
     exit 1
