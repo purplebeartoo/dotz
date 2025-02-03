@@ -5,6 +5,10 @@ escape: \^$.|?*+()[{
 
 sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
+sudo kill -9 pid
+
+ollama ps
+
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
 nmcli radio wifi off
