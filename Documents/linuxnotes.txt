@@ -473,9 +473,9 @@ backup_destinations=(
 
 # Sync function
 sync_backup() {
-  local source_file="$1"
+  source_file="$1"
   shift
-  local destinations=("$@")
+  destinations=("$@")
 
 # Check source file 
   if [[ ! -f "$source_file" ]]; then
