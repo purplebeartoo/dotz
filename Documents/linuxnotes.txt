@@ -8,6 +8,7 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 sudo kill -9 pid
 
 ollama ps
+ollama stop deepseek-r1:7b
 
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
@@ -352,7 +353,8 @@ directories=(
   "Videos"
 )
 
-cd "$HOME" || exit
+# Go home
+cd "$HOME" || { echo "Error: Failed to change directory to $HOME"; exit 1; }
 
 # Check source directories
 for dir in "${directories[@]}"; do
@@ -369,10 +371,15 @@ if ! tar -I 'zstdmt --fast=10' -vcf "$backup_file" "${directories[@]}"; then
 fi
 
 # Encrypt backup
-age -e -p -o "$backup_file".age "$backup_file"
+if ! age -e -p -o "${backup_file}.age" "$backup_file"; then
+  echo "Error: Failed to encrypt the backup."
+  rm "$backup_file"
+  exit 1
+fi
 
 # Remove unencrypted backup
-rm -rf "$backup_file"
+rm "$backup_file"
+
 echo "Backup complete."
 EOF
 
