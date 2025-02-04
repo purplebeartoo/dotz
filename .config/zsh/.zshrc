@@ -71,6 +71,8 @@ alias sc="nvim $HOME/Documents/utilityscripts.sh"
 alias tp="watch -n 1 sensors"
 alias ud="paru -Syu"
 alias v="nvim"
+alias wf="nmcli radio wifi off"
+alias wo="nmcli radio wifi on"
 
 function rr() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
