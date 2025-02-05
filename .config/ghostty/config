@@ -20,6 +20,5 @@ background = #282a36
 # Windows
 gtk-tabs-location = bottom
 window-decoration = false
-window-padding-x = 12
-window-padding-y = 12,0
-window-padding-balance = true
+window-padding-x = 11
+window-padding-y = 11,9
