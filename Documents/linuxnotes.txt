@@ -5,10 +5,13 @@ escape: \^$.|?*+()[{
 
 sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
+dg ls-tree --full-tree -r HEAD > ~/Documents/git-bare-tracked-"$(date +"%Y%m%d").txt"
+pacman -Qqe > ~/Documents/pkglist-"$(date +"%Y%m%d")"
+paru -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
+
 sudo kill -9 pid
 
-ollama ps
-ollama stop deepseek-r1:7b
+nvim sort by the 12th column  :sort f /\v^(.{-},){12}/
 
 gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
 
@@ -30,10 +33,6 @@ sudo cryptsetup luksDump /dev/nvme0n1p2
 sudo btrfs fi usage /mnt
 
 sudo cryptsetup luksDump /dev/nvme0n1p2  | grep "Version\|KDF"
-
-paru -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
-
-dg ls-tree --full-tree -r HEAD > ~/Documents/git-bare-tracked-"$(date +"%Y%m%d").txt"
 
 sudo -E timeshift-gtk
 
@@ -120,11 +119,11 @@ dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr ghostty
 git grim gvfs handlr hypridle hyprland hyprlang hyprlock hyprpaper imagemagick \
 inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers \
 logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts \
-noto-fonts-emoji ollama-rocm pam-u2f pavucontrol pciutils perl-image-exiftool playerctl \
-polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib \
-rsync slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd \
-ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard \
-usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+noto-fonts-emoji pam-u2f pavucontrol pciutils perl-image-exiftool playerctl \
+polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rsync slurp \
+starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd ttf-dejavu \
+ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils \
+vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
 xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
@@ -164,11 +163,6 @@ _________________
 
 lua formatting:
 stylua (rm tabs)
-_________________
-
-ollama:
-sudo systemctl enable --now ollama.service
-ollama run deepseek-r1:7b
 _________________
 
 Grub:
@@ -217,7 +211,6 @@ sudo journalctl --vacuum-time=1m
 pacman -Qm (list aur packages)
 sudo systemctl --failed
 sudo journalctl -p 3 -xb
-pacman -Qqe > ~/Documents/pkglist-"$(date +"%Y%m%d")"
 
 ######################################################################################
 KVM

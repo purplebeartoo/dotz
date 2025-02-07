@@ -60,7 +60,6 @@ alias ad="age -d -o"
 alias ae="age -e -p -o"
 alias cat="bat -p"
 alias dg="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
-alias ds="firejail --private --apparmor ollama run deepseek-r1:7b --verbose"
 alias f='handlr open $(fzf) && exit'
 alias ls="eza -l -g --hyperlink --group-directories-first --icons -t modified"
 alias lsa="eza -a -l -g --hyperlink --group-directories-first --icons -t modified"
