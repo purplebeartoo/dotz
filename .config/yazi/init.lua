@@ -12,4 +12,4 @@ function Linemode:size_and_mtime()
   return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
 
-require("no-status"):setup()
+require("yaziline"):setup()
