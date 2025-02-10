@@ -314,7 +314,7 @@ sed -i -e '
   s/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 
 # Symlink
-ln -s /usr/bin/ghostty /usr/bin/xterm
+ln -s /usr/bin/kitty /usr/bin/xterm
 
 # Theming
 mkdir /home/ck/.themes
