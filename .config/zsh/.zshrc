@@ -31,7 +31,7 @@ export LC_ALL="en_US.UTF-8"
 export LESSHISTFILE=-
 export MANPAGER="nvim +Man!"
 export SUDO_EDITOR="nvim"
-export TERM="ghostty"
+export TERM="kitty"
 export VISUAL="nvim"
 
 # auto/tab completion:

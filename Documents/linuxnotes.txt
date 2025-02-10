@@ -116,9 +116,9 @@ sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
 age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
-dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr ghostty \
-git grim gvfs handlr hypridle hyprland hyprlang hyprlock hyprpaper imagemagick \
-inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers \
+dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr git grim \
+gvfs handlr hypridle hyprland hyprlang hyprlock hyprpaper imagemagick inotify-tools \
+keepassxc kitty kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers \
 logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts \
 noto-fonts-emoji pam-u2f pavucontrol pciutils perl-image-exiftool playerctl \
 polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib \
