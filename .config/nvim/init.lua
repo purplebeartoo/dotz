@@ -16,7 +16,6 @@ opt("b", "smartindent", true) -- Insert indents automatically
 opt("b", "tabstop", indent) -- Number of spaces tabs count for
 opt("o", "clipboard", "unnamedplus") -- Set clipboard registers
 opt("o", "cursorline", true) -- Show cursor line
-opt("o", "guicursor", "i:hor20") -- Insert mode horizontal cursor
 opt("o", "ignorecase", true) -- Ignore case
 opt("o", "mouse", "a") -- All modes
 opt("o", "shortmess", "I") -- Disable intro message
