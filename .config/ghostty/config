@@ -21,5 +21,4 @@ background = #282a36
 gtk-tabs-location = bottom
 window-decoration = false
 window-padding-x = 11
-window-padding-y = 11
-window-padding-balance = true
+window-padding-y = 10
