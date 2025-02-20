@@ -21,7 +21,7 @@ flatpak install -y --user --noninteractive flathub-beta org.gimp.GIMP
 echo "Flatpak installations complete."
 
 # AUR
-# paru -S brave-bin dracula-gtk-theme kvantum-theme-dracula-git otf-apple-fonts rose-pine-cursor rose-pine-hyprcursor waybar-module-pacman-updates-git
+# paru -S brave-bin dracula-gtk-theme otf-apple-fonts rose-pine-cursor rose-pine-hyprcursor waybar-module-pacman-updates-git
 
 # Hyprland from source
 # paru -S ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git hyprgraphics-git aquamarine-git hyprland-qtutils-git re2 glaze 
