@@ -517,7 +517,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 
 # Sync
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus
-rsync -a "$HOME"/Downloads/.config/nextdns "$HOME"/.config
+rsync -a "$HOME"/Downloads/.config/{Kvantum,nextdns} "$HOME"/.config
 rsync -a "$HOME"/Downloads/{.ssh,Packages,Pictures,Playlists,Videos} "$HOME"
 rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
 rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfiles "$HOME" 
