@@ -471,20 +471,20 @@ sync_backup() {
   shift
   destinations=("$@")
 
-# Check source file 
+  # Check source file
   if [[ ! -f "$source_file" ]]; then
     echo "Source file $source_file does not exist."
     exit 1
   fi
 
-# Check destinations
+  # Check destinations
   for dest in "${destinations[@]}"; do
     if [[ ! -d "$dest" ]]; then
       echo "Destination directory $dest does not exist."
       exit 1
     fi
 
-# Copy
+    # Copy
     echo "Copying $source_file to $dest"
     cp -a "$source_file" "$dest"
     exit_code=$?
@@ -494,7 +494,7 @@ sync_backup() {
     fi
   done
 
-# Remove source file
+  # Remove source file
   rm "$source_file"
   exit_code=$?
   if [[ $exit_code -eq 0 ]]; then
