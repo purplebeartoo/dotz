@@ -22,7 +22,7 @@ noblacklist ${HOME}/.cache/BraveSoftware
 noblacklist ${HOME}/.config/BraveSoftware
 noblacklist ${HOME}/.config/brave
 noblacklist ${HOME}/.config/brave-flags.conf
-# Brave uses gpg for built-in password manager
+# brave uses gpg for built-in password manager
 noblacklist ${HOME}/.gnupg
 
 mkdir ${HOME}/.cache/BraveSoftware

@@ -15,7 +15,6 @@ noblacklist ${HOME}/.keepassxc
 noblacklist ${DOCUMENTS}
 
 # Allow browser profiles, required for browser integration.
-
 # ck #
 #noblacklist ${HOME}/.config/BraveSoftware
 #noblacklist ${HOME}/.config/chromium
