@@ -115,16 +115,16 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
-dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr ghostty \
-git grim gvfs handlr hypridle hyprland hyprlang hyprlock hyprpaper imagemagick \
-inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers \
-logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts \
-noto-fonts-emoji pam-u2f pavucontrol pciutils perl-image-exiftool playerctl \
-polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib \
-rsync slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd \
-ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard \
-usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+age alsa-utils base-devel bat brightnessctl btop cmus cronie dconf-editor dunst \
+eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim gvfs \
+handlr hypridle hyprland hyprlang hyprlock hyprpaper imagemagick inotify-tools \
+keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate \
+luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji \
+pam-u2f pavucontrol pciutils perl-image-exiftool playerctl polkit-gnome python-pillow \
+qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp \
+starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd ttf-dejavu \
+ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils \
+vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
 xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
@@ -337,6 +337,7 @@ backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
 directories=(
   ".config"
   ".gnupg"
+  ".local/share/bubblejail"
   ".local/share/flatpak/overrides"
   ".ssh"
   "BrowserProfiles"
@@ -518,6 +519,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 # Sync
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus
 rsync -a "$HOME"/Downloads/.config/{Kvantum,nextdns} "$HOME"/.config
+rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share
 rsync -a "$HOME"/Downloads/{.ssh,Packages,Pictures,Playlists,Videos} "$HOME"
 rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
 rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfiles "$HOME" 
