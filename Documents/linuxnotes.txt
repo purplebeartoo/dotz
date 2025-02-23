@@ -336,7 +336,6 @@ backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
 
 directories=(
   ".config"
-  ".gnupg"
   ".local/share/bubblejail"
   ".local/share/flatpak/overrides"
   ".ssh"
@@ -526,11 +525,6 @@ rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfile
 
 bat cache --build
 ya pack -a llanosrocas/yaziline
-
-mkdir "$HOME"/.gnupg
-rsync -a "$HOME"/Downloads/.gnupg/g* "$HOME"/.gnupg
-chmod 600 ~/.gnupg/*
-chmod 700 ~/.gnupg
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 EOF
