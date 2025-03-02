@@ -89,6 +89,7 @@ https://github.com/AnirudhG07/awesome-yazi
 https://devhints.io/vim
 https://github.com/yokoffing/NextDNS-Config
 https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+https://cs.lmu.edu/~ray/notes/regex/
 
 ######################################################################################
 GPG
