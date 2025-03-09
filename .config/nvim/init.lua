@@ -27,9 +27,7 @@ opt("w", "number", true) -- Print line number
 opt("w", "relativenumber", true) -- Relative line numbers
 opt("w", "wrap", false) -- Disable line wrap
 
--- Keymaps
-vim.g.maplocalleader = "\\"
-
+-- -- Keymaps
 keymap = vim.api.nvim_set_keymap
 keymap("i", "jj", "<Esc>", {})
 keymap("n", "<leader>l", "<cmd>:Lazy<CR>", {})
@@ -46,26 +44,4 @@ vim.filetype.add({
   vim.api.nvim_command("set commentstring=#\\ %s"),
 })
 
--- Install lazy.nvim if not already installed.
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-
-vim.opt.rtp:prepend(lazypath)
-
--- Use a protected call so we don't error out on first use.
-local ok, lazy = pcall(require, "lazy")
-if not ok then
-  return
-end
-
--- Load plugins from specifications.
-lazy.setup("plugins")
+require("config.lazy")
