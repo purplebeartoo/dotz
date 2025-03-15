@@ -286,6 +286,9 @@ bat cache --build
 ya pack -a llanosrocas/yaziline
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
+
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
 EOF
 
 chmod +x "$HOME"/xfer/*
