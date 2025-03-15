@@ -1,6 +1,5 @@
 -- Defaults
 local set = vim.opt
-
 set.clipboard = "unnamedplus"
 set.cursorline = true
 set.expandtab = true
