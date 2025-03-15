@@ -130,6 +130,7 @@ keymap = [
 	{ on = [ "g", "e" ],       run = "cd /etc",                     desc = "Go to the /etc directory" },
 	{ on = [ "g", "h" ],       run = "cd ~",                        desc = "Go to the Home directory" },
 	{ on = [ "g", "l" ],       run = "cd ~/.local",                 desc = "Go to the .local directory" },
+	{ on = [ "g", "m" ],       run = "cd ~/Music",                  desc = "Go to the Music directory" },
 	{ on = [ "g", "n" ],       run = "cd ~/.config/nvim",           desc = "Go to the nvim directory" },
 	{ on = [ "g", "o" ],       run = "cd ~/Downloads",              desc = "Go to the Downloads directory" },
 	{ on = [ "g", "p" ],       run = "cd ~/Pictures",               desc = "Go to the Pictures directory" },
