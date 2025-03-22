@@ -36,6 +36,7 @@ green  = "#50fa7b"
 orange = "#ffb86c"
 pink   = "#ff79c6"
 purple = "#bd93f9"
+red    = "#ff5555"
 visual = "#3e4452"
 
 [os]
@@ -153,7 +154,7 @@ disabled = false
 [character]
 disabled = false
 success_symbol = '[ ](bold fg:cyan)'
-error_symbol = '[ ](bold fg:orange)'
+error_symbol = '[ ](bold fg:red)'
 vimcmd_symbol = '[](bold fg:cyan)'
 vimcmd_replace_one_symbol = '[](bold fg:green)'
 vimcmd_replace_symbol = '[](bold fg:green'
