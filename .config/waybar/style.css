@@ -29,7 +29,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: #ff5555;
+  color: #8be9fd;
 }
 
 #workspaces button.empty {
@@ -45,7 +45,7 @@ tooltip label {
 }
 
 #workspaces button.urgent {
-  background-color: #ff5555;
+  background-color: #ff79c6;
   color: #282a36;
 }
 
@@ -68,11 +68,11 @@ tooltip label {
 }
 
 #custom-updates {
-  color: #ff5555;
+  color:#bd93f9;
 }
 
 #idle_inhibitor {
-  color: #bd93f9;
+  color: #ffb86c;
 }
 
 #keyboard-state {
@@ -80,25 +80,25 @@ tooltip label {
 }
 
 #network {
-  color: #ffb86c;
-}
-
-#temperature {
   color: #8be9fd;
 }
 
-#disk {
-  color: #ff5555;
-}
-
-#cpu {
+#temperature {
   color: #bd93f9;
 }
 
-#memory {
+#disk {
+  color: #ffb86c;
+}
+
+#cpu {
   color: #ff79c6;
 }
 
+#memory {
+  color: #8be9fd;
+}
+
 #pulseaudio {
-  color: #ffb86c;
+  color: #bd93f9;
 }
