@@ -1,4 +1,4 @@
-######################################################################################
+#####################################################################################
 MISC MAJIK
 
 escape: \^$.|?*+()[{
@@ -119,7 +119,7 @@ nmcli device wifi list
 sudo nmcli device wifi connect SSID_or_BSSID password password
 _________________
 
-hypridle hyprland hyprlang hyprlock hyprpaper 
+hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
 
 age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
 dunst eza fastfetch fd ffmpeg firejail flatpak fuzzel fzf galculator gcr ghostty \
@@ -129,8 +129,8 @@ noto-fonts noto-fonts-emoji pam-u2f pavucontrol pciutils perl-image-exiftool pla
 polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib \
 rsync slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd \
 ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard \
-usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
-xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
+usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-gtk xdg-user-dirs \
+xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
  1. backup
