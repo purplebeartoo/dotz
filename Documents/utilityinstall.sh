@@ -20,6 +20,22 @@ echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
 usermod -a -G input ck
 
+# Ollama
+usermod -a -G ollama ck
+echo '[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target' > /etc/systemd/system/ollama.service
+
 # Pacman
 cp /etc/pacman.conf /etc/pacman.conf.old
 sed -i -e '
