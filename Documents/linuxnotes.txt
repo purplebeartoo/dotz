@@ -60,6 +60,7 @@ echo /var/log/messages*(Om)    # chronological order order (descending mtime)
 ######################################################################################
 WEBSITES
 
+https://ollama.com/library
 https://github.com/AnirudhG07/awesome-yazi
 https://devhints.io/vim
 https://github.com/yokoffing/NextDNS-Config
@@ -115,13 +116,13 @@ INSTALL
 
 hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
 
-age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
-dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim \
-gvfs handlr imagemagick inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver \
+age alsa-utils amdgpu_top apparmor base-devel bat brightnessctl btop cmus cronie \
+dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty \
+git grim gvfs handlr imagemagick inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver \
 libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor \
-noto-fonts noto-fonts-emoji pam-u2f pavucontrol pciutils perl-image-exiftool playerctl \
-polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rsync slirp4netns \
-slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd \
+noto-fonts noto-fonts-emoji ollama-rocm pam-u2f pavucontrol pciutils perl-image-exiftool \
+playerctl polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep \
+rsync slirp4netns slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd \
 ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard \
 usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-gtk xdg-user-dirs \
 xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
