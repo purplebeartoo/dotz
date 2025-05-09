@@ -58,8 +58,6 @@ setopt rmstarsilent
 
 alias ad="age -d -o"
 alias ae="age -e -p -o"
-alias aic="ollama run qwen2.5-coder:7b"
-alias aid="ollama run deepseek-r1:8b"
 alias cat="bat -p"
 alias dg="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
 alias f='handlr open $(fzf) && exit'
