@@ -1,5 +1,6 @@
 -- Defaults
 local set = vim.opt
+
 set.clipboard = "unnamedplus"
 set.cursorline = true
 set.expandtab = true
@@ -19,20 +20,22 @@ set.termguicolors = true
 set.wrap = false
 
 -- Keymaps
-keymap = vim.api.nvim_set_keymap
-keymap("i", "jj", "<Esc>", {})
-keymap("n", "<leader>l", "<cmd>:Lazy<CR>", {})
-keymap("n", "<leader>r", "<cmd>setlocal relativenumber!<CR>", {})
-keymap("n", "<leader>s", "<cmd>setlocal spell!<CR>", {})
-keymap("n", "<leader>t", "<cmd>:NvimTreeToggle<CR>", {})
+local keymap = vim.api.nvim_set_keymap
 
-vim.keymap.set("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
-vim.keymap.set("n", "go", "<Cmd>call append(line('.'), repeat([''], v:count1))<CR>")
+keymap("i", "jj", "<Esc>", { noremap = true, silent = true })
+keymap("n", "<leader>l", "<cmd>:Lazy<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>r", "<cmd>setlocal relativenumber!<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>s", "<cmd>setlocal spell!<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>t", "<cmd>:NvimTreeToggle<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "go", "<Cmd>call append(line('.'), repeat([''], v:count1))<CR>", { noremap = true, silent = true })
 
 -- Hyprland
 vim.filetype.add({
   pattern = { [".*/hyprland%.conf"] = "hyprlang" },
-  vim.api.nvim_command("set commentstring=#\\ %s"),
 })
+
+vim.api.nvim_command("autocmd FileType hyprlang setlocal commentstring=#\\ %s")
 
 require("config.lazy")
