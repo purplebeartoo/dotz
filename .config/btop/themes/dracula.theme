@@ -11,7 +11,7 @@ theme[main_fg]="#f8f8f2"
 theme[title]="#f8f8f2"
 
 # Highlight color for keyboard shortcuts
-theme[hi_fg]="#8be9df"
+theme[hi_fg]="#bd93f9"
 
 # Background color of selected item in processes box
 theme[selected_bg]="#414868"
@@ -23,7 +23,7 @@ theme[selected_fg]="#f8f8f2"
 theme[inactive_fg]="#565f89"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
-theme[proc_misc]="#8be9df"
+theme[proc_misc]="#bd93f9"
 
 # Cpu box outline color
 theme[cpu_box]="#ffb86c"
@@ -36,7 +36,7 @@ theme[net_box]="#ffb86c"
 
 # Processes box outline color
 theme[proc_box]="#ffb86c"
-pestheme[process_end]="#bd93f9"
+pestheme[process_end]="#ff5555"
 
 # Box divider line and small boxes line color
 theme[div_line]="#565f89"
@@ -44,42 +44,42 @@ theme[div_line]="#565f89"
 # Temperature graph colors
 theme[temp_start]="#50fa7b"
 theme[temp_mid]="#ffb86c"
-theme[temp_end]="#bd93f9"
+theme[temp_end]="#ff5555"
 
 # CPU graph colors
 theme[cpu_start]="#50fa7b"
 theme[cpu_mid]="#ffb86c"
-theme[cpu_end]="#bd93f9"
+theme[cpu_end]="#ff5555"
 
 # Mem/Disk free meter
 theme[free_start]="#50fa7b"
 theme[free_mid]="#ffb86c"
-theme[free_end]="#bd93f9"
+theme[free_end]="#ff5555"
 
 # Mem/Disk cached meter
 theme[cached_start]="#50fa7b"
 theme[cached_mid]="#ffb86c"
-theme[cached_end]="#bd93f9"
+theme[cached_end]="#ff5555"
 
 # Mem/Disk available meter
 theme[available_start]="#50fa7b"
 theme[available_mid]="#ffb86c"
-theme[available_end]="#bd93f9"
+theme[available_end]="#ff5555"
 
 # Mem/Disk used meter
 theme[used_start]="#50fa7b"
 theme[used_mid]="#ffb86c"
-theme[used_end]="#bd93f9"
+theme[used_end]="#ff5555"
 
 # Download graph colors
 theme[download_start]="#50fa7b"
 theme[download_mid]="#ffb86c"
-theme[download_end]="#bd93f9"
+theme[download_end]="#ff5555"
 
 # Upload graph colors
 theme[upload_start]="#50fa7b"
 theme[upload_mid]="#ffb86c"
-theme[upload_end]="#bd93f9"
+theme[upload_end]="#ff5555"
 
 # Process box color gradient for threads, mem and cpu usage
 theme[process_start]="#ffb86c"

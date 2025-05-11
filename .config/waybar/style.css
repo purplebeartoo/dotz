@@ -13,7 +13,7 @@ window#waybar {
 
 tooltip {
   background: #282a36;
-  border: 1.5px solid #ff79c6;
+  border: 1.5px solid #ff5555;
   color: #f8f8f2;
 }
 
@@ -29,7 +29,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: #8be9fd;
+  color: #ff5555;
 }
 
 #workspaces button.empty {
@@ -37,11 +37,11 @@ tooltip label {
 }
 
 #workspaces button.focused {
-  color: #8be9fd;
+  color: #ff5555;
 }
 
 #workspaces button:hover {
-  color: #8be9fd;
+  color: #ff5555;
 }
 
 #workspaces button.urgent {
@@ -64,7 +64,7 @@ tooltip label {
 }
 
 #clock {
-  color: #8be9fd;
+  color: #ff5555;
 }
 
 #custom-updates {
@@ -72,15 +72,15 @@ tooltip label {
 }
 
 #idle_inhibitor {
-  color: #ffb86c;
-}
-
-#keyboard-state {
   color: #ff79c6;
 }
 
+#keyboard-state {
+  color: #ffb86c;
+}
+
 #network {
-  color: #8be9fd;
+  color: #ff5555;
 }
 
 #temperature {
@@ -88,15 +88,15 @@ tooltip label {
 }
 
 #disk {
-  color: #ffb86c;
-}
-
-#cpu {
   color: #ff79c6;
 }
 
+#cpu {
+  color: #ffb86c;
+}
+
 #memory {
-  color: #8be9fd;
+  color: #ff5555;
 }
 
 #pulseaudio {
