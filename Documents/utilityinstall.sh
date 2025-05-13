@@ -232,6 +232,7 @@ cat <<'EOF' > "$HOME"/xfer/hyprdown
 wl-copy -c < /dev/null
 rm -rf "$HOME"/.cache/chromium
 rm -rf "$HOME"/.config/chromium
+rm -rf "$HOME"/.ollama/history
 poweroff
 EOF
 
