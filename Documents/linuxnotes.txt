@@ -5,6 +5,8 @@ escape: \^$.|?*+()[{
 
 sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
+list running daemons: pgrep daemon | xargs ps -p
+
 paru -Sccdd
 sudo pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | paru -Syu --rebuild --rebuild=all --noconfirm
 
