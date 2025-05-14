@@ -125,9 +125,9 @@ libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connecti
 noto-fonts noto-fonts-emoji ollama-rocm pam-u2f pavucontrol pciutils perl-image-exiftool \
 playerctl polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep \
 rsync slirp4netns slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd \
-ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard \
-usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-gtk xdg-user-dirs \
-xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
+ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbutils \
+vimiv vulkan-radeon waybar wl-clipboard xdg-desktop-portal-gtk xdg-user-dirs xf86-video-amdgpu \
+yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
  1. backup
