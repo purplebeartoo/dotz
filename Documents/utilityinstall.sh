@@ -20,21 +20,21 @@ echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
 usermod -a -G input ck
 
-# # Ollama
-# usermod -a -G ollama ck
-# echo '[Unit]
-# Description=Ollama Service
-# After=network-online.target
-#
-# [Service]
-# ExecStart=/usr/bin/ollama serve
-# User=ollama
-# Group=ollama
-# Restart=always
-# RestartSec=3
-#
-# [Install]
-# WantedBy=default.target' > /etc/systemd/system/ollama.service
+# Ollama
+usermod -a -G ollama ck
+echo '[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target' > /etc/systemd/system/ollama.service
 
 # Pacman
 cp /etc/pacman.conf /etc/pacman.conf.old
@@ -229,9 +229,10 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/hyprdown
 #!/usr/bin/env bash
 # Hyprdown
-wl-copy -c < /dev/null
+rm "$HOME"/.ollama/history
 rm -rf "$HOME"/.cache/chromium
 rm -rf "$HOME"/.config/chromium
+wl-copy -c < /dev/null
 poweroff
 EOF
 
