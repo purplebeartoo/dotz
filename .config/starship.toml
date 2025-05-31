@@ -4,12 +4,12 @@ format = """
 [█](visual)\
 $os\
 $username\
-[](bg:red fg:visual)\
+[](bg:pink fg:visual)\
 $directory\
-[](fg:red bg:orange)\
+[](fg:pink bg:orange)\
 $git_branch\
 $git_status\
-[](fg:orange bg:green)\
+[](fg:orange bg:red)\
 $c\
 $rust\
 $golang\
@@ -19,9 +19,9 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:green bg:pink)\
+[](fg:red bg:green)\
 $docker_confg\
-[](fg:pink bg:purple)\
+[](fg:green bg:purple)\
 $time\
 [](fg:purple)\
 $line_break$character"""
@@ -71,7 +71,7 @@ style_root = "bg:visual fg:fg"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:bg bg:red"
+style = "fg:bg bg:pink"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -85,57 +85,57 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:green"
+style = "bg:red"
 format = '[[ $symbol $branch ](fg:visual bg:orange)]($style)'
 
 [git_status]
-style = "bg:green"
+style = "bg:red"
 format = '[[($all_status$ahead_behind )](fg:visual bg:orange)]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [c]
 symbol = " "
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [golang]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [php]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [java]
 symbol = " "
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [kotlin]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [haskell]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [python]
 symbol = ""
-style = "bg:green"
-format = '[[ $symbol( $version) ](fg:visual bg:green)]($style)'
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:visual bg:red)]($style)'
 
 [docker_context]
 symbol = ""
@@ -145,7 +145,7 @@ format = '[[ $symbol( $confg) ](fg:orange bg:visual)]($style)'
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:red"
+style = "bg:pink"
 format = '[[  $time ](fg:bg bg:purple)]($style)'
 
 [line_break]
@@ -156,6 +156,6 @@ disabled = false
 success_symbol = '[ ](bold fg:red)'
 error_symbol = '[ ](bold fg:cyan)'
 vimcmd_symbol = '[](bold fg:red)'
-vimcmd_replace_one_symbol = '[](bold fg:pink)'
-vimcmd_replace_symbol = '[](bold fg:pink'
-vimcmd_visual_symbol = '[](bold fg:pink)'
+vimcmd_replace_one_symbol = '[](bold fg:green)'
+vimcmd_replace_symbol = '[](bold fg:green'
+vimcmd_visual_symbol = '[](bold fg:green)'

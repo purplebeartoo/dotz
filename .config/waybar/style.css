@@ -13,12 +13,12 @@ window#waybar {
 
 tooltip {
   background: #282a36;
-  border: 1.5px solid #ff5555;
+  border: 1.5px solid #bd93f9;
   color: #f8f8f2;
 }
 
 tooltip label {
-  color: #d2d5d9;
+  color: #f8f8f2;
   padding: 2px;
 }
 
@@ -33,7 +33,7 @@ tooltip label {
 }
 
 #workspaces button.empty {
-  color: #ffb86c;
+  color: #abb2bf;
 }
 
 #workspaces button.focused {
@@ -76,7 +76,7 @@ tooltip label {
 }
 
 #keyboard-state {
-  color: #ffb86c;
+  color: #abb2bf;
 }
 
 #network {
@@ -92,7 +92,7 @@ tooltip label {
 }
 
 #cpu {
-  color: #ffb86c;
+  color: #abb2bf;
 }
 
 #memory {

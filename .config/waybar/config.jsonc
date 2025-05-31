@@ -53,7 +53,7 @@
             "on-scroll": 1,
             "on-click-right": "mode",
             "format": {
-                "months": "<span color='#ffb86c'><b>{}</b></span>",
+                "months": "<span color='#bd93f9'><b>{}</b></span>",
                 "days": "<span color='#f8f8f2'><b>{}</b></span>",
                 "weekdays": "<span color='#ff5555'><b>{}</b></span>",
                 "today": "<span color='#50fa7b'><b><u>{}</u></b></span>"

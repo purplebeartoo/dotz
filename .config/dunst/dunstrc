@@ -6,7 +6,7 @@
   dmenu = /usr/bin/wofi -p dunst:
   follow = mouse
   font = monospace 10
-  frame_color = "#ff5555"
+  frame_color = "#bd93f9"
   frame_width = 2
   hide_duplicate_count = false
   horizontal_padding = 4
