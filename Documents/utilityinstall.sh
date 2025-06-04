@@ -20,42 +20,17 @@ echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
 usermod -a -G input ck
 
-# Ollama
-usermod -a -G ollama ck
-echo '[Unit]
-Description=Ollama Service
-After=network-online.target
-
-[Service]
-ExecStart=/usr/bin/ollama serve
-User=ollama
-Group=ollama
-Restart=always
-RestartSec=3
-
-[Install]
-WantedBy=default.target' > /etc/systemd/system/ollama.service
-
-# Pacman
-cp /etc/pacman.conf /etc/pacman.conf.old
-sed -i -e '
-  s/#Color/Color/
-  s/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
-
-# Symlink
-ln -s /usr/bin/ghostty /usr/bin/xterm
-
-# Theming
-mkdir /home/ck/.themes
-cp -r /usr/share/themes/Dracula /home/ck/.themes/Dracula
-chown -R ck:ck /home/ck/.themes
-flatpak override --filesystem=/home/ck/.themes
-
 echo '[Settings]
 gtk-icon-theme-name = Tela-circle-dracula-dark
 gtk-cursor-theme-name = BreezeX-RosePine-Linux
 gtk-theme-name = Dracula
 gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
+
+# Ollama via Podman
+sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 ck
+sudo podman system migrate
+echo 'unqualified-search-registries = ["docker.io"]' >  /etc/containers/registries.conf.d/10-unqualified-search-registries.conf
+podman run --pull newer --detach --replace -v ollama:/root/.ollama -p 11434:11434 --name ollama --device=/dev/kfd --device=/dev/dri --group-add video ollama/ollama:rocm
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/backup
@@ -229,7 +204,6 @@ EOF
 cat <<'EOF' > "$HOME"/xfer/hyprdown
 #!/usr/bin/env bash
 # Hyprdown
-rm "$HOME"/.ollama/history
 rm -rf "$HOME"/.cache/chromium
 rm -rf "$HOME"/.config/chromium
 wl-copy -c < /dev/null
