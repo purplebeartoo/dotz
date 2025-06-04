@@ -329,7 +329,7 @@ rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads
 rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfiles "$HOME" 
 
 bat cache --build
-ya pack -a llanosrocas/yaziline
+ya pkg add llanosrocas/yaziline
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 
