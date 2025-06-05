@@ -214,7 +214,7 @@ cat <<'EOF' > "$HOME"/xfer/rs
 #!/usr/bin/env bash
 # https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
 # Ripgrep search
-RG_PREFIX="rg --color=always --column --glob=\!timeshift --glob=\!.var --hidden --line-number --no-heading --smart-case"
+RG_PREFIX="rg --color=always --column --glob=\!.var --glob=\!containers --glob=\!timeshift --hidden --line-number --no-heading --smart-case"
 INITIAL_QUERY="${*:-}"
 fzf --ansi --disabled --query "$INITIAL_QUERY" \
   --bind "start:reload:$RG_PREFIX {q}" \
