@@ -210,6 +210,34 @@ wl-copy -c < /dev/null
 poweroff
 EOF
 
+cat <<'EOF' > "$HOME"/xfer/og3
+#!/usr/bin/env bash
+# Ollama Gemma 3
+
+# Check if the ollama container is running
+if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+    # Start the container
+    podman start ollama
+fi
+
+# Run Gemma3
+ghostty -e podman exec -it ollama ollama run gemma3:12b-it-qat
+EOF
+
+cat <<'EOF' > "$HOME"/xfer/oqc
+#!/usr/bin/env bash
+# Ollama Qwen 2.5 Coder 
+
+# Check if the ollama container is running
+if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+    # Start the container
+    podman start ollama
+fi
+
+# Run qwen2.5-coder
+ghostty -e podman exec -it ollama ollama run qwen2.5-coder:14b
+EOF
+
 cat <<'EOF' > "$HOME"/xfer/rs
 #!/usr/bin/env bash
 # https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
