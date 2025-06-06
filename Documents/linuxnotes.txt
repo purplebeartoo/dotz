@@ -5,6 +5,8 @@ escape: \^$.|?*+()[{
 
 sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 
+show numerical file permissions: stat -c '%a' /path to file
+
 list running daemons: pgrep daemon | xargs ps -p
 
 paru -Sccdd
