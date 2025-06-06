@@ -207,34 +207,33 @@ cat <<'EOF' > "$HOME"/xfer/hyprdown
 rm -rf "$HOME"/.cache/chromium
 rm -rf "$HOME"/.config/chromium
 wl-copy -c < /dev/null
+rm "$HOME"/.local/share/containers/storage/volumes/ollama/_data/history
 poweroff
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/og3
 #!/usr/bin/env bash
 # Ollama Gemma 3
-
 # Check if the ollama container is running
 if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
-    # Start the container
-    podman start ollama
+  # Start the container
+  podman start ollama
 fi
 
-# Run Gemma3
+# Launch Gemma3
 ghostty -e podman exec -it ollama ollama run gemma3:12b-it-qat
 EOF
 
 cat <<'EOF' > "$HOME"/xfer/oqc
 #!/usr/bin/env bash
 # Ollama Qwen 2.5 Coder 
-
 # Check if the ollama container is running
 if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
-    # Start the container
-    podman start ollama
+  # Start the container
+  podman start ollama
 fi
 
-# Run qwen2.5-coder
+# Launch qwen2.5-coder
 ghostty -e podman exec -it ollama ollama run qwen2.5-coder:14b
 EOF
 
@@ -335,7 +334,6 @@ ya pkg add llanosrocas/yaziline
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 
-chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
 EOF
 
