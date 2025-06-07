@@ -37,7 +37,6 @@ cat <<'EOF' > "$HOME"/xfer/backup
 #!/usr/bin/env bash
 # Backup
 backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
-
 directories=(
   ".config"
   ".local/share/bubblejail"
@@ -264,7 +263,6 @@ cat <<'EOF' > "$HOME"/xfer/sbk
 #!/usr/bin/env bash
 # Sync backup
 backup_source="$HOME/backup-$(date +"%Y-%m-%d").tar.zst.age"
-
 backup_destinations=(
   "/run/media/ck/sanc"
   "/run/media/ck/san3"
