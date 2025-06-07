@@ -14,11 +14,11 @@ window#waybar {
 tooltip {
   background: #282a36;
   border: 1.5px solid #bd93f9;
-  color: #f8f8f2;
+  color: #abb2bf;
 }
 
 tooltip label {
-  color: #f8f8f2;
+  color: #abb2bf;
   padding: 2px;
 }
 
