@@ -14,6 +14,18 @@ cat <<'EOF' > "$temp_dir"/awc
 # Mirrors
 reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
+# Flatpak theming
+mkdir /home/ck/.themes
+cp -r /usr/share/themes/Dracula /home/ck/.themes
+sudo chown -R ck:ck /home/ck/.themes
+
+#GTK settings
+echo '[Settings]
+gtk-icon-theme-name = Tela-circle-dracula-dark
+gtk-cursor-theme-name = BreezeX-RosePine-Linux
+gtk-theme-name = Dracula
+gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
+
 # Limit logs
 cp /etc/systemd/journald.conf /etc/systemd/journald.conf.old
 sed -i -e 's/#SystemMaxUse=/SystemMaxUse=100M/' /etc/systemd/journald.conf
@@ -25,24 +37,10 @@ cp /etc/security/pam_env.conf /etc/security/pam_env.conf.old
 echo 'ZDOTDIR DEFAULT=@{HOME}/.config/zsh' >> /etc/security/pam_env.conf
 echo 'blacklist iTCO_wdt' > /etc/modprobe.d/nobeep.conf
 
-echo '[Settings]
-gtk-icon-theme-name = Tela-circle-dracula-dark
-gtk-cursor-theme-name = BreezeX-RosePine-Linux
-gtk-theme-name = Dracula
-gtk-font-name = Cantarell 11' >  /usr/share/gtk-3.0/settings.ini
-
 # Ollama via Podman
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 ck
 sudo podman system migrate
 echo 'unqualified-search-registries = ["docker.io"]' >  /etc/containers/registries.conf.d/10-unqualified-search-registries.conf
-podman run --pull newer --detach --replace \
-  -v ollama:/root/.ollama \
-  -p 11434:11434 \
-  --name ollama \
-  --device=/dev/kfd \
-  --device=/dev/dri \
-  --group-add video \
-  ollama/ollama:rocm
 EOF
 
 cat <<'EOF' > "$temp_dir"/backup
