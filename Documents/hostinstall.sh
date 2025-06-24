@@ -21,7 +21,7 @@ flatpak install -y --user --noninteractive flathub org.gimp.GIMP.Plugin.GMic
 echo "Flatpak installations complete."
 
 # AUR
-# paru -S brave-bin bubblejail chromium dracula-gtk-theme otf-apple-fonts rose-pine-cursor rose-pine-hyprcursor waybar-module-pacman-updates-git
+paru -S brave-bin bubblejail chromium dracula-gtk-theme otf-apple-fonts rose-pine-cursor rose-pine-hyprcursor waybar-module-pacman-updates-git
 
 # Rebuild git packages
 # paru -Syu --rebuild --rebuild=all hyprlang-git hyprcursor-git hyprwayland-scanner-git hyprutils-git hyprgraphics-git aquamarine-git hyprland-qtutils-git hypridle-git hyprlock-git hyprpaper-git xdg-desktop-portal-hyprland-git
