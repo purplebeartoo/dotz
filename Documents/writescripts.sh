@@ -408,11 +408,8 @@ for file in "$temp_dir"/*; do
   fi
 done
 
-# Add an extra newline at the end to ensure there's a trailing blank line
-echo >> "$output_file"
-
-# Remove leading and trailing empty lines from the final file
-sed -i '1{/^$/d;}; ${/^$/d;}' "$output_file"
+# Remove the leading empty line
+sed -i '1{/^$/d;}' "$output_file"
 
 # Remove the transfer directory
 rm -rf "$temp_dir"
