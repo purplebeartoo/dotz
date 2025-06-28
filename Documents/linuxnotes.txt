@@ -116,7 +116,8 @@ sudo systemctl restart NetworkManager
 ######################################################################################
 INSTALL
 
-hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
+* base, base-devel, linux, linux-firmware, amd-ucode
+* hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
 
 age alsa-utils apparmor base-devel bat brightnessctl btop cmus cronie dconf-editor \
 dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim \
