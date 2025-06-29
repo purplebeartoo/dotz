@@ -100,10 +100,12 @@ ccache=$HOME/.cache/chromium
 cconf=$HOME/.config/chromium
 ccont=$HOME/BrowserProfiles/chromium
 dest=$HOME/BrowserProfiles
+jcache=$HOME/.local/share/bubblejail/instances/brave/home/.cache/BraveSoftware
+jconf=$HOME/.local/share/bubblejail/instances/brave/home/.config/BraveSoftware
 
 # Check and copy Brave profile
 if [ -d "$bconf" ]; then
-  rm -rf "$bcache" "$bcont"
+  rm -rf "$bcache" "$bcont" "$jcache" "$jconf"
   cp -r "$bconf" "$dest"
   echo "Brave profile copied to control."
 else
