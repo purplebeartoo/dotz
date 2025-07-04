@@ -214,10 +214,33 @@ EOF
 cat <<'EOF' > "$temp_dir"/hyprdown
 #!/usr/bin/env bash
 # Hyprdown
-rm -rf "$HOME"/.cache/chromium
-rm -rf "$HOME"/.config/chromium
-wl-copy -c < /dev/null
-rm "$HOME"/.local/share/containers/storage/volumes/ollama/_data/history
+# Function to safely remove directories
+safe_rm_rf() {
+    local dir="$1"
+    if [ -d "$dir" ]; then
+        rm -rf "$dir"
+    fi
+}
+
+# Function to safely remove a file
+safe_rm_file() {
+    local file="$1"
+    if [ -f "$file" ]; then
+        rm "$file"
+    fi
+}
+
+# Function to clear clipboard
+clear_clipboard() {
+    wl-copy -c < /dev/null
+}
+
+# Remove Chromium cache/config and container history
+safe_rm_rf "$HOME/.cache/chromium"
+safe_rm_rf "$HOME/.config/chromium"
+safe_rm_file "$HOME/.local/share/containers/storage/volumes/ollama/_data/history"
+
+clear_clipboard
 poweroff
 EOF
 
