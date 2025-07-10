@@ -31,7 +31,7 @@ if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
 fi
 
 # Launch Magistral
-ghostty -e podman exec -it ollama ollama run magistral
+ghostty -e podman exec -it ollama ollama run qwen3:14b
 EOF
 
 cat <<'EOF' > "$temp_dir"/awc
