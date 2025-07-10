@@ -8,19 +8,6 @@ if ! temp_dir=$(mktemp -d); then
 fi
 
 # Write the utility scripts to temp
-cat <<'EOF' > "$temp_dir"/aig
-#!/usr/bin/env bash
-# AI General
-# Check if the ollama container is running
-if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
-  # Start the container
-  podman start ollama
-fi
-
-# Launch Magistral
-ghostty -e podman exec -it ollama ollama run magistral
-EOF
-
 cat <<'EOF' > "$temp_dir"/aic
 #!/usr/bin/env bash
 # AI Code
@@ -32,6 +19,19 @@ fi
 
 # Launch qwen2.5-coder
 ghostty -e podman exec -it ollama ollama run qwen2.5-coder:14b
+EOF
+
+cat <<'EOF' > "$temp_dir"/aig
+#!/usr/bin/env bash
+# AI General
+# Check if the ollama container is running
+if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+  # Start the container
+  podman start ollama
+fi
+
+# Launch Magistral
+ghostty -e podman exec -it ollama ollama run magistral
 EOF
 
 cat <<'EOF' > "$temp_dir"/awc
