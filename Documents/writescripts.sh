@@ -126,12 +126,10 @@ ccache=$HOME/.cache/chromium
 cconf=$HOME/.config/chromium
 ccont=$HOME/BrowserProfiles/chromium
 dest=$HOME/BrowserProfiles
-jcache=$HOME/.local/share/bubblejail/instances/brave/home/.cache/BraveSoftware
-jconf=$HOME/.local/share/bubblejail/instances/brave/home/.config/BraveSoftware
 
 # Check and copy Brave profile
 if [ -d "$bconf" ]; then
-  rm -rf "$bcache" "$bcont" "$jcache" "$jconf"
+  rm -rf "$bcache" "$bcont"
   cp -r "$bconf" "$dest"
   echo "Brave profile copied to control."
 else
@@ -148,18 +146,16 @@ else
 fi
 EOF
 
-cat <<'EOF' > "$temp_dir"/dap
+cat <<'EOF' > "$temp_dir"/dcp
 #!/usr/bin/env bash
-# Delete active profile
+# Delete Chromium profile
 ccache=$HOME/.cache/chromium
 cconf=$HOME/.config/chromium
 ccont=$HOME/BrowserProfiles/chromium
 dest=$HOME/.config
-jcache=$HOME/.local/share/bubblejail/instances/brave/home/.cache/BraveSoftware
-jconf=$HOME/.local/share/bubblejail/instances/brave/home/.config/BraveSoftware
 
 if [ -d "$ccont" ]; then
-  rm -rf "$ccache" "$cconf" "$jcache" "$jconf"
+  rm -rf "$ccache" "$cconf"
   cp -r "$ccont" "$dest"
   if [ -t 1 ]; then
     echo "Active Chromium profile deleted."
