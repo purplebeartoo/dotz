@@ -8,6 +8,32 @@ if ! temp_dir=$(mktemp -d); then
 fi
 
 # Write the utility scripts to temp
+cat <<'EOF' > "$temp_dir"/aig
+#!/usr/bin/env bash
+# AI General
+# Check if the ollama container is running
+if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+  # Start the container
+  podman start ollama
+fi
+
+# Launch Magistral
+ghostty -e podman exec -it ollama ollama run magistral
+EOF
+
+cat <<'EOF' > "$temp_dir"/aic
+#!/usr/bin/env bash
+# AI Code
+# Check if the ollama container is running
+if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+  # Start the container
+  podman start ollama
+fi
+
+# Launch qwen2.5-coder
+ghostty -e podman exec -it ollama ollama run qwen2.5-coder:14b
+EOF
+
 cat <<'EOF' > "$temp_dir"/awc
 #!/usr/bin/env bash
 # Admin write config
@@ -129,9 +155,11 @@ ccache=$HOME/.cache/chromium
 cconf=$HOME/.config/chromium
 ccont=$HOME/BrowserProfiles/chromium
 dest=$HOME/.config
+jcache=$HOME/.local/share/bubblejail/instances/brave/home/.cache/BraveSoftware
+jconf=$HOME/.local/share/bubblejail/instances/brave/home/.config/BraveSoftware
 
 if [ -d "$ccont" ]; then
-  rm -rf "$ccache" "$cconf"
+  rm -rf "$ccache" "$cconf" "$jcache" "$jconf"
   cp -r "$ccont" "$dest"
   if [ -t 1 ]; then
     echo "Active Chromium profile deleted."
@@ -242,32 +270,6 @@ safe_rm_file "$HOME/.local/share/containers/storage/volumes/ollama/_data/history
 
 clear_clipboard
 poweroff
-EOF
-
-cat <<'EOF' > "$temp_dir"/og3
-#!/usr/bin/env bash
-# Ollama Gemma 3
-# Check if the ollama container is running
-if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
-  # Start the container
-  podman start ollama
-fi
-
-# Launch Gemma3
-ghostty -e podman exec -it ollama ollama run gemma3:12b-it-qat
-EOF
-
-cat <<'EOF' > "$temp_dir"/oqc
-#!/usr/bin/env bash
-# Ollama Qwen 2.5 Coder 
-# Check if the ollama container is running
-if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
-  # Start the container
-  podman start ollama
-fi
-
-# Launch qwen2.5-coder
-ghostty -e podman exec -it ollama ollama run qwen2.5-coder:14b
 EOF
 
 cat <<'EOF' > "$temp_dir"/rs

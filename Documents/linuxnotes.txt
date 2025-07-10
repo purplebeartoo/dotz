@@ -1,6 +1,8 @@
 #####################################################################################
 MISC MAJIK
 
+podman exec -it ollama ollama rm gemma3:12b-it-qat
+
 escape: \^$.|?*+()[{
 
 sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln

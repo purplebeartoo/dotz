@@ -14,9 +14,9 @@ flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrep
 # flatpak install -y --user --noninteractive flathub io.gitlab.adhami3310.Impression
 flatpak install -y --user --noninteractive flathub com.github.tchx84.Flatseal
 flatpak install -y --user --noninteractive flathub io.mpv.Mpv
-flatpak install -y --user --noninteractive flathub org.gnome.Papers
 flatpak install -y --user --noninteractive flathub org.gimp.GIMP
 flatpak install -y --user --noninteractive flathub org.gimp.GIMP.Plugin.GMic
+flatpak install -y --user --noninteractive flathub org.gnome.Papers
 
 echo "Flatpak installations complete."
 
