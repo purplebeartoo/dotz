@@ -238,14 +238,6 @@ EOF
 cat <<'EOF' > "$temp_dir"/hyprdown
 #!/usr/bin/env bash
 # Hyprdown
-# Function to safely remove directories
-safe_rm_rf() {
-    local dir="$1"
-    if [ -d "$dir" ]; then
-        rm -rf "$dir"
-    fi
-}
-
 # Function to safely remove a file
 safe_rm_file() {
     local file="$1"
@@ -259,13 +251,45 @@ clear_clipboard() {
     wl-copy -c < /dev/null
 }
 
-# Remove Chromium cache/config and container history
-safe_rm_rf "$HOME/.cache/chromium"
-safe_rm_rf "$HOME/.config/chromium"
+# Remove Ollama history
 safe_rm_file "$HOME/.local/share/containers/storage/volumes/ollama/_data/history"
 
 clear_clipboard
 poweroff
+EOF
+
+cat <<'EOF' > "$temp_dir"/osp
+#!/usr/bin/env bash
+# Ollama stop
+# Check if the ollama container is running
+if podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+  # Stop the container
+  if podman stop ollama > /dev/null 2>&1; then
+    echo "Ollama stopped successfully."
+  else
+    echo "Failed to stop Ollama." >&2
+    exit 1
+  fi
+else
+  echo "Ollama is not running."
+fi
+EOF
+
+cat <<'EOF' > "$temp_dir"/ost
+#!/usr/bin/env bash
+# Ollama start
+# Check if the ollama container is running
+if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+  # Start the container
+  if podman start ollama > /dev/null 2>&1; then
+    echo "Ollama started successfully."
+  else
+    echo "Failed to start Ollama." >&2
+    exit 1
+  fi
+else
+  echo "Ollama is already running."
+fi
 EOF
 
 cat <<'EOF' > "$temp_dir"/rs
