@@ -30,7 +30,7 @@ if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
   podman start ollama
 fi
 
-# Launch Magistral
+# Launch Qwen3
 ghostty -e podman exec -it ollama ollama run qwen3:14b
 EOF
 
@@ -412,9 +412,8 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus
 rsync -a "$HOME"/Downloads/.config/{BraveSoftware,chromium,Kvantum,nextdns} "$HOME"/.config
-rsync -a "$HOME"/Downloads/{.ssh,Packages,Pictures,Playlists,Videos} "$HOME"
+rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME"
 rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
-rsync -a --exclude 'log.js' --exclude 'user.js' "$HOME"/Downloads/BrowserProfiles "$HOME" 
 
 bat cache --build
 ya pkg add llanosrocas/yaziline
