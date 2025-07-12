@@ -320,8 +320,8 @@ cat <<'EOF' > "$temp_dir"/sbk
 # Sync backup
 backup_source="$HOME/backup-$(date +"%Y-%m-%d").tar.zst.age"
 backup_destinations=(
-  "/run/media/ck/sanc"
-  "/run/media/ck/san3"
+  "/run/media/ck/sam3"
+  "/run/media/ck/samc"
   "/home/ck/Downloads"
 )
 
