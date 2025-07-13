@@ -416,7 +416,9 @@ rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Vid
 rsync -a --exclude 'hostinstall.sh' --exclude 'linuxnotes.txt' --exclude 'writescripts.sh' "$HOME"/Downloads/Documents "$HOME"
 
 bat cache --build
-ya pkg add llanosrocas/yaziline
+
+# ya pkg add llanosrocas/yaziline
+ya pkg add yazi-rs/plugins:no-status
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 
