@@ -413,7 +413,7 @@ rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus
 rsync -a "$HOME"/Downloads/.config/{BraveSoftware,chromium,Kvantum,nextdns} "$HOME"/.config
 rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME"
-rsync -a --exclude 'linuxnotes.txt' --exclude 'hostinstall.sh' "$HOME"/Downloads/Documents "$HOME" 
+rsync -a --exclude 'hostinstall.sh' --exclude 'linuxnotes.txt' --exclude 'writescripts.sh' "$HOME"/Downloads/Documents "$HOME"
 
 bat cache --build
 ya pkg add llanosrocas/yaziline
