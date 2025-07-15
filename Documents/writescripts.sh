@@ -417,8 +417,7 @@ rsync -a --exclude 'hostinstall.sh' --exclude 'linuxnotes.txt' --exclude 'writes
 
 bat cache --build
 
-# ya pkg add llanosrocas/yaziline
-ya pkg add yazi-rs/plugins:no-status
+ya pkg add llanosrocas/yaziline
 
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 
