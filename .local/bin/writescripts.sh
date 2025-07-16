@@ -75,6 +75,7 @@ cat <<'EOF' > "$temp_dir"/backup
 backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
 directories=(
   ".config"
+  ".local/bin"
   ".local/share/bubblejail"
   ".local/share/flatpak/overrides"
   ".ssh"
@@ -413,7 +414,7 @@ rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus
 rsync -a "$HOME"/Downloads/.config/{BraveSoftware,chromium,Kvantum,nextdns} "$HOME"/.config
 rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME"
-rsync -a --exclude 'hostinstall.sh' --exclude 'linuxnotes.txt' --exclude 'writescripts.sh' "$HOME"/Downloads/Documents "$HOME"
+rsync -a --exclude 'linuxnotes.txt' "$HOME"/Downloads/Documents "$HOME"
 
 bat cache --build
 
