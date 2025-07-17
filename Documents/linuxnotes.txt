@@ -142,9 +142,10 @@ _________________
  7. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
- 8. doton   
- 9. reboot & run upo
-10. harden.sh
+ 8. doton
+ 9. verify local bash permissions
+10. reboot & run upo
+11. harden.sh
 _________________
 
 git bare:
