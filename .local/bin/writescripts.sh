@@ -439,7 +439,7 @@ for file in "$temp_dir"/*; do
 done
 
 # Concatenate to a single file for error checking
-output_file="$HOME/Documents/utilityscripts.sh"
+output_file="$HOME/.local/bin/utilityscripts.sh"
 
 # Remove the output file if it already exists
 if [ -f "$output_file" ]; then
