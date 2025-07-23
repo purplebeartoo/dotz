@@ -1,6 +1,7 @@
 #!/bin/env bash
 # Update Podman Ollama, alias: upo
 
+# Exit on error
 set -e
 
 # Function to check if the ollama container is running and stop it

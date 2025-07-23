@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 # Copy to control, alias: ctc
 
+# Exit on error
+set -e
+
 # Ensure the destination directory exists
 dest="$HOME/BrowserProfiles"
 if [ ! -d "$dest" ]; then
-    echo "Destination directory $dest does not exist. Creating it."
-    mkdir -p "$dest"
-    if [ $? -ne 0 ]; then
-        echo "Failed to create destination directory. Exiting."
-        exit 1
-    fi
+  echo "Destination directory $dest does not exist. Creating it."
+  mkdir -p "$dest"
 fi
 
 # Define paths
@@ -20,44 +19,32 @@ ccache="$HOME/.cache/chromium"
 cconf="$HOME/.config/chromium"
 ccont="$HOME/BrowserProfiles/chromium"
 
+# Function to copy profile
+copy_profile() {
+  local source="$1"
+  local target="$2"
+  echo "Copying $source profile..."
+  cp -r "$source" "$target"
+}
+
 # Check and copy Brave profile
 if [ -d "$bconf" ]; then
-    echo "Removing existing Brave cache and container directories..."
-    rm -rf "$bcache" "$bcont"
-    if [ $? -ne 0 ]; then
-        echo "Failed to remove existing Brave cache or container directories. Exiting."
-        exit 1
-    fi
+  echo "Removing existing Brave cache and container directories..."
+  rm -rf "$bcache" "$bcont"
 
-    echo "Copying Brave profile..."
-    cp -r "$bconf" "$dest"
-    if [ $? -ne 0 ]; then
-        echo "Failed to copy Brave profile. Exiting."
-        exit 1
-    fi
-
-    echo "Brave profile copied to control."
+  copy_profile "$bconf" "$dest"
+  echo "Brave profile copied to control."
 else
-    echo "Brave source directory not present!"
+  echo "Brave source directory not present!"
 fi
 
 # Check and copy Chromium profile
 if [ -d "$cconf" ]; then
-    echo "Removing existing Chromium cache and container directories..."
-    rm -rf "$ccache" "$ccont"
-    if [ $? -ne 0 ]; then
-        echo "Failed to remove existing Chromium cache or container directories. Exiting."
-        exit 1
-    fi
+  echo "Removing existing Chromium cache and container directories..."
+  rm -rf "$ccache" "$ccont"
 
-    echo "Copying Chromium profile..."
-    cp -r "$cconf" "$dest"
-    if [ $? -ne 0 ]; then
-        echo "Failed to copy Chromium profile. Exiting."
-        exit 1
-    fi
-
-    echo "Chromium profile copied to control."
+  copy_profile "$cconf" "$dest"
+  echo "Chromium profile copied to control."
 else
-    echo "Chromium source directory not present!"
+  echo "Chromium source directory not present!"
 fi

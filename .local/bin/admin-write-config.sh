@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Admin write config
 
+# Exit on error
 set -e
 
 # Mirrors

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Ollama stop, alias: osp
 
+# Exit on error
 set -e
+
 container_name="ollama"
 
 # Check if the ollama container is running

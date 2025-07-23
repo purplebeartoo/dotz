@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # AI general
 
+# Exit on error
+set -e
+
 # Check if the ollama container exists
 if ! podman ps -a --format '{{.Names}}' | grep -q '^ollama$'; then
   echo "Container 'ollama' does not exist. Please create it first."

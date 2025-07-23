@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Hyprdown
 
+# Function to safely remove a file
 safe_rm_file() {
   local file="$1"
   if [ -f "$file" ]; then
@@ -16,6 +17,7 @@ safe_rm_file() {
   fi
 }
 
+# Function to clear clipboard
 clear_clipboard() {
   if command -v wl-copy > /dev/null; then
     wl-copy -c < /dev/null

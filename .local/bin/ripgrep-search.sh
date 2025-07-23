@@ -2,6 +2,7 @@
 # Ripgrep search, alias: rs
 # https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
 
+# Enable strict mode for error handling
 set -euo pipefail
 
 # Ensure required commands are available

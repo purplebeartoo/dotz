@@ -1,6 +1,7 @@
 #!/bin/bash
 # Host install
 
+# Exit on error
 set -e
 
 # Pacman install

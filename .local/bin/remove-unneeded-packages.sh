@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
-# Remove unneeded packages, alias: rup
+# Remove any unneeded packages, alias: rup
 
-# Remove orphaned packages
-pacman -Qtdq | sudo xargs -r pacman -Rns 2>/dev/null
-if [ $? -ne 0 ]; then
-  echo "Error occurred while removing orphaned packages. Exiting."
-  exit 1
+# Enable strict mode for error handling
+set -euo pipefail
+
+echo "Removing orphaned packages..."
+if orphans=$(pacman -Qtdq 2>/dev/null) && [[ -n "$orphans" ]]; then
+  echo "$orphans" | sudo xargs -r pacman -Rns --noconfirm -- 2>/dev/null
+else
+  echo "No orphaned packages found."
 fi
 
-# Remove packages not needed by any user
-pacman -Qqd | sudo xargs -r pacman -Rsu 2>/dev/null
-if [ $? -ne 0 ]; then
-  echo "Error occurred while removing unused packages. Exiting."
-  exit 1
+echo "Removing explicitly installed packages not required by any package..."
+if unused=$(pacman -Qqd 2>/dev/null) && [[ -n "$unused" ]]; then
+  echo "$unused" | sudo xargs -r pacman -Rsu --noconfirm -- 2>/dev/null
+else
+  echo "No unused explicitly installed packages found."
 fi
 
-echo "Removed any unneeded packages."
+echo "Cleanup complete: removed any unneeded packages."
