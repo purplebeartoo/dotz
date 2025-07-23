@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Enable DNS over TLS
+# Enable DNS over TLS, alias: doton
 
 set -e
 

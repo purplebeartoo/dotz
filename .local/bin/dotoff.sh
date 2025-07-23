@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Disable DNS over TLS
+# Disable DNS over TLS, alias: dotoff
 
 systemd_resolved_conf="/etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf"
 resolved_conf="/etc/systemd/resolved.conf"
