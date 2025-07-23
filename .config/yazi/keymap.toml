@@ -125,6 +125,7 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "a" ],       run = "cd ~/.local/state/nvim/swap", desc = "Go to the swap directory" },
+	{ on = [ "g", "b" ],       run = "cd ~/.local/bin",             desc = "Go to the local bin directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",                desc = "Go to the .config directory" },
 	{ on = [ "g", "d" ],       run = "cd ~/Documents",              desc = "Go to the Documents directory" },
 	{ on = [ "g", "e" ],       run = "cd /etc",                     desc = "Go to the /etc directory" },
