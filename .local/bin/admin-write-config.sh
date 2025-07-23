@@ -4,7 +4,7 @@
 set -e
 
 # Mirrors
-# sudo reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Theming
 mkdir -p /home/"$USER"/.themes
