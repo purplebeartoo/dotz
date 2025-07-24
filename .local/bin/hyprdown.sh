@@ -20,19 +20,29 @@ safe_rm_file() {
 # Function to clear clipboard
 clear_clipboard() {
   if command -v wl-copy > /dev/null; then
-    wl-copy -c < /dev/null
+    if ! wl-copy -c < /dev/null; then
+      echo "Failed to clear clipboard." >&2
+      return 1
+    fi
   else
     echo "wl-copy not found; clipboard not cleared." >&2
+    return 1
   fi
 }
 
 # Validate Ollama history path
 ollama_history="$HOME/.local/share/containers/storage/volumes/ollama/_data/history"
 if [ -f "$ollama_history" ]; then
-  safe_rm_file "$ollama_history"
+  if ! safe_rm_file "$ollama_history"; then
+    echo "Failed to remove the Ollama history file. Exiting." >&2
+    exit 1
+  fi
 else
-  echo "Ollama history file not found: $ollama_history" >&2
+  echo "Ollama history file not found: $ollama_history"
 fi
 
-clear_clipboard
+if ! clear_clipboard; then
+  echo "Failed to clear clipboard. Proceeding with shutdown anyway..." >&2
+fi
+
 poweroff

@@ -41,6 +41,9 @@ if ! age -e -p -o "${backup_file}.age" "$backup_file"; then
 fi
 
 # Remove unencrypted backup
-rm "$backup_file"
+if ! rm "$backup_file"; then
+  echo "Error: Failed to remove unencrypted backup file."
+  exit 1
+fi
 
 echo "Backup complete."
