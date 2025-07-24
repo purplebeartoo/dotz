@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # User write config
 
-# Exit on error
-set -e
-
 # Trap any unexpected errors and print a message
 trap 'echo "Error occurred on line $LINENO" >&2; exit 1' ERR
 

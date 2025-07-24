@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # Ollama start, alias: ost
 
-# Exit on error
-set -e
-
 # Check if the ollama container exists (running or stopped)
 if ! podman ps -a --format '{{.Names}}' | grep -q '^ollama$'; then
   echo "Container 'ollama' does not exist." >&2

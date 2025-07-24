@@ -1,13 +1,12 @@
 #!/bin/bash
 # Host install
 
-# Exit on error
-set -e
-
 # Pacman install
 echo "Installing Pacman packages..."
-sudo pacman -S age alsa-utils apparmor base-devel bat brightnessctl btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim gvfs handlr imagemagick inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji pam-u2f pavucontrol pciutils playerctl podman polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rocminfo rsync slirp4netns slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-user-dirs xf86-video-amdgpu zip zsh zsh-autosuggestions zsh-syntax-highlighting
-echo "Pacman packages installed successfully."
+sudo pacman -S age alsa-utils apparmor base-devel bat brightnessctl btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim gvfs handlr imagemagick inotify-tools keepassxc kvantum kvantum-qt5 libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji pam-u2f pavucontrol pciutils playerctl podman polkit-gnome python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rocminfo rsync slirp4netns slurp starship tela-circle-icon-theme-dracula timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-font-awesome ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vimiv vulkan-radeon waybar wl-clipboard xdg-user-dirs xf86-video-amdgpu zip zsh zsh-autosuggestions zsh-syntax-highlighting  || {
+  echo "Pacman packages failed to install."
+  exit 1
+}
 
 # Flatpak setup
 echo "Adding Flatpak repository..."

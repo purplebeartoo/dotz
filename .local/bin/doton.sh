@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # Enable DNS over TLS, alias: doton
 
-# Exit on error
-set -e
-
 # Set paths
 config_dir="$HOME/.config/nextdns"
 age_file="$config_dir/nxtdot.zip.age"

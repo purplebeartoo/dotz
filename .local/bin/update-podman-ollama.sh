@@ -1,9 +1,6 @@
 #!/bin/env bash
 # Update Podman Ollama, alias: upo
 
-# Exit on error
-set -e
-
 # Function to check if the ollama container is running and stop it
 stop_ollama_if_running() {
   if podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
