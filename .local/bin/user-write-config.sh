@@ -48,6 +48,12 @@ ya pkg add llanosrocas/yaziline || {
   exit 1
 }
 
+# Install Yazi Dracula flavor
+ya pkg add yazi-rs/flavors:dracula || {
+  echo "Failed to install package 'yazi-rs/flavors:dracula'" >&2
+  exit 1
+}
+
 # Enable user services
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber || {
   echo "Failed to enable user services" >&2
