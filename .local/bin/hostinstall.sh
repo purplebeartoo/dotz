@@ -35,9 +35,16 @@ flatpak install -y --user --noninteractive flathub org.gnome.Papers || {
 echo "Flatpak installations complete."
 
 # AUR install
-echo "Installing AUR packages with Paru..."
+echo "Installing AUR packages..."
 paru -S brave-bin bubblejail dracula-gtk-theme otf-apple-fonts rose-pine-cursor rose-pine-hyprcursor waybar-module-pacman-updates-git yazi-git || {
   echo "Error: Failed to install AUR packages. Check Paru logs."
+  exit 1
+}
+
+# Hyprland AUR package install
+echo "Installing Hyprland AUR packages..."
+paru -S ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git glaze hyprgraphics-git aquamarine-git re2 hyprland-qtutils-git hypridle-git hyprlock-git hyprpaper-git xdg-desktop-portal-hyprland-git || {
+  echo "Error: Failed to install Hyprland AUR packages. Check Paru logs."
   exit 1
 }
 
