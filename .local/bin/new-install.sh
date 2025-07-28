@@ -15,7 +15,7 @@ download_file() {
     exit 1
   fi
 
-  # Make the downloaded file executable
+  # Make the downloaded files executable
   chmod +x "$destination"
 }
 
