@@ -15,10 +15,8 @@ download_file() {
     exit 1
   fi
 
-  # Make the script executable (only for scripts)
-  if [[ "${url##*.}" == "sh" ]]; then
-    chmod +x "$destination"
-  fi
+  # Make the downloaded file executable
+  chmod +x "$destination"
 }
 
 # Download and install the scripts
@@ -26,8 +24,5 @@ download_file https://raw.githubusercontent.com/purplebeartoo/dotz/master/.local
 download_file https://raw.githubusercontent.com/purplebeartoo/dotz/master/.local/bin/hyprland-from-source.sh ~/tmpscripts/hfs
 download_file https://raw.githubusercontent.com/purplebeartoo/dotz/master/.local/bin/package-install.sh ~/tmpscripts/pkginstall
 download_file https://raw.githubusercontent.com/purplebeartoo/dotz/master/.local/bin/user-write-config.sh ~/tmpscripts/uwc
-
-# Download the notes file (without making it executable)
-download_file https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes.txt ~/linuxnotes
 
 echo "Download and installation completed successfully."
