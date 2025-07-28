@@ -1,5 +1,5 @@
 #!/bin/bash
-# Host install
+# Package install
 
 # Pacman install
 echo "Installing Pacman packages..."
