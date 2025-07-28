@@ -1,8 +1,6 @@
 #####################################################################################
 MISC MAJIK
 
-curl -L raw.githubusercontent.com/purplebeartoo/dotz/master/.local/bin/new-install.sh > newinstall
-
 podman exec -it ollama ollama rm gemma3:12b-it-qat
 
 escape: \^$.|?*+()[{
