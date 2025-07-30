@@ -137,6 +137,7 @@ keymap = [
 	{ on = [ "g", "p" ],       run = "cd ~/Pictures",               desc = "Go to the Pictures directory" },
 	{ on = [ "g", "s" ],       run = "cd ~/Pictures/ScreenShots",   desc = "Go to the ScreenShots directory" },
 	{ on = [ "g", "t" ],       run = "cd ~/.local/share/Trash",     desc = "Go to the Trash directory" },
+	{ on = [ "g", "u" ],       run = "cd /run/media/ck",            desc = "Go to USB directories" },
 	{ on = [ "g", "v" ],       run = "cd ~/Videos",                 desc = "Go to the Videos directory" },
 	{ on = [ "g", "y" ],       run = "cd ~/.config/yazi",           desc = "Go to the yazi directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive",            desc = "Go to a directory interactively" },
