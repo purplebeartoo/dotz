@@ -35,7 +35,7 @@ sudo sed -i 's/rotate 4/rotate 2/' /etc/logrotate.conf
 # PAM configuration
 sudo cp /etc/security/pam_env.conf /etc/security/pam_env.conf.old
 sudo tee -a /etc/security/pam_env.conf <<EOF
-ZDOTDIR DEFAULT=@{HOME}/.config/zsh
+ZDOTDIR DEFAULT=$HOME/.config/zsh
 EOF
 
 # Podman configuration
