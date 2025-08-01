@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Update Podman Ollama, alias: upo
 
 # Strict bash execution mode

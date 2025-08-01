@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Package install
 
 # Strict bash execution mode

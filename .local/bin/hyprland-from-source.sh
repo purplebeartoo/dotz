@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Hyprland from source, alias: hfs
 
 # Strict bash execution mode

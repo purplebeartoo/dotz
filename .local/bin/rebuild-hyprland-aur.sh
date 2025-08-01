@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Rebuild Hyprland AUR, alias: rha
 
 # Strict bash execution mode
