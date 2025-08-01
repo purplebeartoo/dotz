@@ -1,6 +1,9 @@
 #!/bin/bash
 # Hyprland from source, alias: hfs
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Go home
 cd "$HOME" || { echo "Error: Failed to change directory to $HOME"; exit 1; }
 

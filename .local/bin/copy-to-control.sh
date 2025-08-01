@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Copy to control, alias: ctc
 
-# Exit on error
-set -e
+# Strict bash execution mode
+set -euo pipefail
 
 # Ensure the destination directory exists
 dest="$HOME/BrowserProfiles"

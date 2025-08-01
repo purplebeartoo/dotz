@@ -1,6 +1,9 @@
 #!/bin/env bash
 # Update Podman Ollama, alias: upo
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Function to check if the ollama container is running and stop it
 stop_ollama_if_running() {
   if podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
@@ -15,7 +18,6 @@ stop_ollama_if_running() {
 
 # Trap for unexpected errors to provide clean exit
 trap 'echo "Error occurred. Exiting." >&2; exit 1' ERR
-
 
 # Stop the ollama container if it's running
 stop_ollama_if_running
@@ -47,4 +49,10 @@ if ! podman run --pull newer --detach --replace \
   exit 1
 fi
 
-echo "Ollama container has been updated and started."
+# Verify that the container started successfully
+echo "Verifying container startup..."
+if podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
+  echo "Ollama container has been updated and started successfully."
+else
+  echo "Warning: Ollama container may not be running properly"
+fi

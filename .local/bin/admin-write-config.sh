@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Admin write config
 
-# Exit on error
-set -e
+# Strict bash execution mode
+set -euo pipefail
 
 # Mirrors
 sudo reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist

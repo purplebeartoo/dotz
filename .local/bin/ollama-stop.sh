@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Ollama stop, alias: osp
 
+# Strict bash execution mode
+set -euo pipefail
+
 container_name="ollama"
 
 # Check if the ollama container is running

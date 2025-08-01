@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Hyprdown
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Function to safely remove a file
 safe_rm_file() {
   local file="$1"

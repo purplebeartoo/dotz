@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Ollama start, alias: ost
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Check if the ollama container exists (running or stopped)
 if ! podman ps -a --format '{{.Names}}' | grep -q '^ollama$'; then
   echo "Container 'ollama' does not exist." >&2

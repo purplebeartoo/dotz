@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # New install
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Create a directory for the downloaded files
 mkdir -p ~/tmpscripts
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # User write config
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Trap any unexpected errors and print a message
 trap 'echo "Error occurred on line $LINENO" >&2; exit 1' ERR
 

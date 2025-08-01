@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # AI Code
 
-# Exit on error
-set -e
+# Strict bash execution mode
+set -euo pipefail
 
 # Check if the ollama container exists
 if ! podman ps -a --format '{{.Names}}' | grep -q '^ollama$'; then
@@ -17,4 +17,4 @@ if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
 fi
 
 # Launch qwen2.5-coder inside the ollama container
-ghostty -e podman exec -it ollama ollama run qwen2.5-coder:14b
+ghostty -e podman exec -it ollama ollama run hf.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:UD-Q3_K_XL

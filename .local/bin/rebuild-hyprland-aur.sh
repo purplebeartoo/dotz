@@ -1,9 +1,12 @@
 #!/bin/bash
 # Rebuild Hyprland AUR, alias: rha
 
+# Strict bash execution mode
+set -euo pipefail
+
 # Clean up cache, unused sync repositories, all AUR packages, and saved diffs
 echo "Cleaning up before rebuilding..."
-if ! yes | paru -Sccdd; then
+if ! yes | paru -Scc; then
   echo "Error: Failed to clean up."
   exit 1
 fi

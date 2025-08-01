@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Remove any unneeded packages, alias: rup
 
-# Enable strict mode for error handling
+# Strict bash execution mode
 set -euo pipefail
 
 echo "Removing orphaned packages..."

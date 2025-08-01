@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Backup, alias: backup
 
+# Strict bash execution mode
+set -euo pipefail
+
 backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
 directories=(
   ".config"

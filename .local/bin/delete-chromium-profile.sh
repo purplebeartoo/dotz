@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Delete Chromium profile, alias: dcp
 
+# Strict bash execution mode
+set -euo pipefail
+
 ccache=$HOME/.cache/chromium
 cconf=$HOME/.config/chromium
 ccont=$HOME/BrowserProfiles/chromium

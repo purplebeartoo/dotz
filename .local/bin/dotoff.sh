@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Disable DNS over TLS, alias: dotoff
 
+# Strict bash execution mode
+set -euo pipefail
+
 systemd_resolved_conf="/etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf"
 resolved_conf="/etc/systemd/resolved.conf"
 

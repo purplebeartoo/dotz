@@ -2,7 +2,7 @@
 # Ripgrep search, alias: rs
 # https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-interative-ripgrep-launcher
 
-# Enable strict mode for error handling
+# Strict bash execution mode
 set -euo pipefail
 
 # Ensure required commands are available
@@ -14,7 +14,7 @@ for cmd in rg fzf bat nvim; do
 done
 
 # Sanitize INITIAL_QUERY by disallowing unsafe characters
-INITIAL_QUERY="${*:-}"
+INITIAL_QUERY="$*"
 if [[ "$INITIAL_QUERY" =~ [\'\"\$\(\)\;\|\&\`\\] ]]; then
   echo "Error: Query contains potentially unsafe characters." >&2
   exit 1
