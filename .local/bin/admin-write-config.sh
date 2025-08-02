@@ -4,7 +4,7 @@
 # Strict bash execution mode
 set -euo pipefail
 
-# Mirrors
+# Choose mirrors
 sudo reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Theming
@@ -73,4 +73,4 @@ else
   exit 1
 fi
 
-echo "Admin settings configured successfully."
+echo "System settings configured successfully."

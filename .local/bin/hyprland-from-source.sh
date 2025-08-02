@@ -42,4 +42,4 @@ sudo cmake --install ./build || {
   exit 1
 }
 
-echo "Hyprland has been successfully built and installed."
+echo "Hyprland was successfully built and installed."

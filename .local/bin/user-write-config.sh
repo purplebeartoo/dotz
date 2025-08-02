@@ -7,7 +7,7 @@ set -euo pipefail
 # Trap any unexpected errors and print a message
 trap 'echo "Error occurred on line $LINENO" >&2; exit 1' ERR
 
-# User write config
+# Write theme and icon settings
 gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark' || {
   echo "Failed to set icon theme 'Tela-circle-dracula-dark'" >&2
   exit 1
@@ -17,7 +17,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Dracula' || {
   exit 1
 }
 
-# Sync
+# Sync settings from a backup
 rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share || {
   echo "Failed to sync bubblejail directory" >&2
   exit 1
@@ -68,3 +68,5 @@ chmod 700 ~/.gnupg || {
   echo "Failed to set permissions on ~/.gnupg" >&2
   exit 1
 }
+
+echo "User configuration successful"
