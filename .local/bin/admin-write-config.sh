@@ -72,3 +72,5 @@ else
   echo "Failed to add user 'ck' to the group 'input'."
   exit 1
 fi
+
+echo "Admin settings configured successfully."
