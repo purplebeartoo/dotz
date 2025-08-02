@@ -50,6 +50,7 @@ sync_backup() {
     exit 1
   fi
 }
+
 # Execute sync
 sync_backup "$backup_source" "${backup_destinations[@]}"
 echo "Backup sync complete."
