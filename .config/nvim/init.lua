@@ -19,14 +19,15 @@ set.tabstop = 2
 set.termguicolors = true
 set.wrap = false
 
--- Keymaps
-local keymap = vim.api.nvim_set_keymap
+-- Leader key setup
+vim.g.mapleader = "\\"
 
-keymap("i", "jj", "<Esc>", { noremap = true, silent = true })
-keymap("n", "<leader>l", "<cmd>:Lazy<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>r", "<cmd>setlocal relativenumber!<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>s", "<cmd>setlocal spell!<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>t", "<cmd>:NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- Keymaps
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>r", "<cmd>setlocal relativenumber!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>s", "<cmd>setlocal spell!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>t", "<cmd>:NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "go", "<Cmd>call append(line('.'), repeat([''], v:count1))<CR>", { noremap = true, silent = true })
