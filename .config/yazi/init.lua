@@ -15,7 +15,6 @@ end
 
 require("yatline"):setup({
   show_background = true,
-
   header_line = {
     left = {
       section_a = {
