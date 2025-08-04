@@ -51,6 +51,18 @@ ya pkg add yazi-rs/flavors:dracula || {
   exit 1
 }
 
+echo "Install Yatline from GitHub..."
+git clone https://github.com/imsi32/yatline.yazi.git ~/.config/yazi/plugins/yatline.yazi || {
+  echo "Error: Failed to clone the Yatline repository."
+  exit 1
+}
+
+# Install Yatline Dracula
+ya pkg add wakaka6/yatline-dracula || {
+  echo "Failed to install package 'wakaka6/yatline-dracula'" >&2
+  exit 1
+}
+
 # Enable user services
 systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber || {
   echo "Failed to enable user services" >&2
