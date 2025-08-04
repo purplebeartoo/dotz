@@ -45,12 +45,6 @@ bat cache --build || {
   exit 1
 }
 
-# Install Yaziline plugin
-ya pkg add llanosrocas/yaziline || {
-  echo "Failed to install package 'llanosrocas/yaziline'" >&2
-  exit 1
-}
-
 # Install Yazi Dracula flavor
 ya pkg add yazi-rs/flavors:dracula || {
   echo "Failed to install package 'yazi-rs/flavors:dracula'" >&2

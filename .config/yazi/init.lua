@@ -12,9 +12,3 @@ function Linemode:size_and_mtime()
   local size = self._file:size()
   return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
-
-require("yaziline"):setup({
-  filename_max_length = 48,
-  filename_truncate_length = 12,
-  filename_truncate_separator = "..."
-})
