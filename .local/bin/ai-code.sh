@@ -17,4 +17,4 @@ if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
 fi
 
 # Launch qwen2.5-coder inside the ollama container
-ghostty -e podman exec -it ollama ollama run hf.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:UD-Q3_K_XL
+ghostty -e podman exec -it ollama ollama run hf.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:UD-Q3_K_XL --verbose
