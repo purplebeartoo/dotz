@@ -14,7 +14,7 @@ if [ -d "Hyprland" ]; then
 fi
 
 echo "Cloning Hyprland from GitHub..."
-git clone --recursive https://github.com/hyprwm/Hyprland || {
+git clone --depth 1 --recursive https://github.com/hyprwm/Hyprland || {
   echo "Error: Failed to clone Hyprland repository."
   exit 1
 }
