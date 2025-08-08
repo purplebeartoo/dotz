@@ -35,6 +35,9 @@ export SUDO_EDITOR="nvim"
 export TERM="ghostty"
 export VISUAL="nvim"
 
+# Vi key binding
+bindkey -v
+
 # auto/tab completion:
 autoload -U compinit
 zstyle ":completion:*" menu select
@@ -89,6 +92,10 @@ alias wo="nmcli radio wifi on"
 function rr() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
+  if [[ $? -ne 0 ]]; then
+    echo "Error running yazi"
+    return 1
+  fi
   IFS= read -r -d '' cwd < "$tmp"
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
