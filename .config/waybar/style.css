@@ -53,7 +53,7 @@ tooltip label {
 #tray,
 #custom-updates,
 #idle_inhibitor,
-#keyboard-state,
+#systemd-failed-units,
 #network,
 #temperature,
 #disk,
@@ -75,7 +75,7 @@ tooltip label {
   color: #ff79c6;
 }
 
-#keyboard-state {
+#systemd-failed-units {
   color: #abb2bf;
 }
 

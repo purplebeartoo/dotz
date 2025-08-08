@@ -13,7 +13,7 @@
         "tray",
         "custom/updates",
         "idle_inhibitor",
-        "keyboard-state",
+        "systemd-failed-units",
         "network",
         "temperature",
         "disk",
@@ -90,13 +90,12 @@
         },
         "on-click-right": "hyprlock"
     },
-    "keyboard-state": {
-        "numlock": true,
-        "format": "{icon} {name}",
-        "format-icons": {
-            "locked": "  ",
-            "unlocked": "  "
-        }
+    "systemd-failed-units": {
+        "hide-on-ok": false,
+        "format": " {nr_failed}",
+        "format-ok": "",
+        "system": true,
+        "user": false
     },
     "network": {
         "format-wifi": "󰖩  {essid}",
