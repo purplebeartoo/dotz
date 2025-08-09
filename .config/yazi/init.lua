@@ -62,4 +62,6 @@ require("yatline"):setup({
 local dracula_theme = require("yatline-dracula"):setup()
 require("yatline"):setup({
   theme = dracula_theme,
+  section_separator = { open = "", close = "" },
+  inverse_separator = { open = "", close = "" },
 })
