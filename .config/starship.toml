@@ -19,9 +19,9 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:green bg:pink)\
+[](fg:green bg:yellow)\
 $docker_confg\
-[](fg:pink bg:purple)\
+[](fg:yellow bg:purple)\
 $time\
 [](fg:purple)\
 $line_break$character"""
@@ -38,6 +38,7 @@ pink   = "#ff79c6"
 purple = "#bd93f9"
 red    = "#ff5555"
 visual = "#3e4452"
+yellow = "#f1fa8c"
 
 [os]
 disabled = false
@@ -156,6 +157,6 @@ disabled = false
 success_symbol = '[ ](bold fg:orange)'
 error_symbol = '[ ](bold fg:cyan)'
 vimcmd_symbol = '[](bold fg:orange)'
-vimcmd_replace_one_symbol = '[](bold fg:pink)'
-vimcmd_replace_symbol = '[](bold fg:pink'
-vimcmd_visual_symbol = '[](bold fg:pink)'
+vimcmd_replace_one_symbol = '[](bold fg:yellow)'
+vimcmd_replace_symbol = '[](bold fg:yellow'
+vimcmd_visual_symbol = '[](bold fg:yellow)'
