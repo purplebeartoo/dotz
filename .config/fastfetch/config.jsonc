@@ -1,11 +1,11 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "~/Pictures/Icons/pinkbear.png",
+    "source": "~/Pictures/Icons/littlenerdxs.png",
     "type": "kitty",
     "width": 14,
     "padding": {
-      "right": 2
+      "right": 1
     }
   },
   "modules": [
