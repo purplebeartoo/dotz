@@ -83,12 +83,11 @@ alias rs="$HOME/.local/bin/ripgrep-search.sh"
 alias rup="$HOME/.local/bin/remove-unneeded-packages.sh"
 alias sbk="$HOME/.local/bin/sync-backup.sh"
 alias tp="watch -n 1 sensors"
-alias ud="paru"
 alias uom="$HOME/.local/bin/update-ollama-models.sh"
 alias upo="$HOME/.local/bin/update-podman-ollama.sh"
 alias v="nvim"
-alias wf="nmcli radio wifi off"
-alias wo="nmcli radio wifi on"
+alias wf="sudo systemctl stop NetworkManager.service"
+alias wo="sudo systemctl start NetworkManager.service"
 
 function rr() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
