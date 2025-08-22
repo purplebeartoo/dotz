@@ -4,7 +4,7 @@
 # Strict bash execution mode
 set -euo pipefail
 
-# Check NumLock state in a "pure" Wayland session
+# Check NumLock state in a Wayland only session
 numlock_enabled=false
 
 if [[ -d "/sys/class/leds" ]]; then
