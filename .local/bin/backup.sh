@@ -4,6 +4,35 @@
 # Strict bash execution mode
 set -euo pipefail
 
+# Check NumLock state in a "pure" Wayland session
+numlock_enabled=false
+
+if [[ -d "/sys/class/leds" ]]; then
+  found_led=0
+  shopt -s nullglob
+  for led_path in /sys/class/leds/*:numlock; do
+    found_led=1
+    if [[ -f "$led_path/brightness" ]] && [[ "$(cat "$led_path/brightness" 2>/dev/null)" == "1" ]]; then
+      numlock_enabled=true
+      break
+    fi
+  done
+  shopt -u nullglob
+  # If there were no :numlock LED devices, we cannot reliably check state.
+  if (( ! found_led )); then
+    numlock_enabled=unknown
+  fi
+else
+  numlock_enabled=unknown
+fi
+
+if [[ "${numlock_enabled}" == false ]] && [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+  echo "Error: NumLock is required and must be enabled in this Wayland session." >&2
+  exit 1
+elif [[ "${numlock_enabled}" == unknown ]]; then
+  echo "Warning: Unable to detect NumLock state. Proceeding anyway." >&2
+fi
+
 backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
 directories=(
   ".config"
