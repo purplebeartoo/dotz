@@ -1,5 +1,6 @@
 [Context]
 sockets=!fallback-x11;!x11
+filesystems=!~/.themes/Dracula;~/.themes/Gruvbox-Material-Dark
 
 [Environment]
 ICON_THEME=

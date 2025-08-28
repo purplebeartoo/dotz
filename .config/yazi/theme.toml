@@ -10,8 +10,8 @@
 # : Flavor {{{
 
 [flavor]
-dark  = "dracula"
-light = "dracula"
+dark  = "gruvbox-dark"
+light = "gruvbox-dark"
 
 # : }}}
 

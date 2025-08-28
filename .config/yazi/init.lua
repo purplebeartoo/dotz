@@ -58,10 +58,9 @@ require("yatline"):setup({
     }
   },
 })
-
-local dracula_theme = require("yatline-dracula"):setup()
+local gruvbox_theme = require("yatline-gruvbox"):setup("dark")
 require("yatline"):setup({
-  theme = dracula_theme,
+  theme = gruvbox_theme,
   section_separator = { open = "", close = "" },
   inverse_separator = { open = "", close = "" },
 })

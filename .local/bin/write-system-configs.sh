@@ -10,8 +10,8 @@ err() { echo -e "\033[1;31mError: $*\033[0m" >&2; exit 1; }
 
 # User theming and GNOME settings 
 log "Applying GNOME interface preferences..."
-gsettings set org.gnome.desktop.interface icon-theme 'Tela-circle-dracula-dark' || err "Failed to set icon theme."
-gsettings set org.gnome.desktop.interface gtk-theme 'Dracula' || err "Failed to set GTK theme."
+gsettings set org.gnome.desktop.interface icon-theme 'gruvbox-dark-icons-gtk' || err "Failed to set icon theme."
+gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Material-Dark' || err "Failed to set GTK theme."
 
 # Sync configuration from backup 
 log "Syncing configuration from backup..."
@@ -26,15 +26,13 @@ log "Building 'bat' syntax cache..."
 bat cache --build || err "Failed to build bat cache."
 
 # Install Yazi flavors and plugins 
-log "Installing Yazi Dracula flavor..."
-ya pkg add yazi-rs/flavors:dracula || err "Yazi Dracula flavor install failed."
+log "Installing Yazi Gruvbox flavor..."
+ya pack -a bennyyip/gruvbox-dark || err "Yazi Gruvbox Dark flavor install failed."
 
 log "Installing Yatline plugin for Yazi..."
 if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
-  git clone --depth 1 https://github.com/imsi32/yatline.yazi.git ~/.config/yazi/plugins/yatline.yazi || err "Yatline clone failed."
+  git clone https://github.com/imsi32/yatline-gruvbox.yazi.git ~/.config/yazi/plugins/yatline-gruvbox.yazi || err "Yatline clone failed."
 fi
-
-ya pkg add wakaka6/yatline-dracula || err "Yatline Dracula flavor install failed."
 
 # Enable user services 
 log "Enabling Pipewire and Wireplumber user services..."
@@ -50,22 +48,22 @@ log "User configuration successful!"
 log "Choosing fastest mirrors with reflector..."
 sudo reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist || err "Reflector failed."
 
-# Theming (GTK/Dracula) 
-log "Copying Dracula GTK theme to user directory..."
+# Theming (GTK/Gruvbox) 
+log "Copying Gruvbox GTK theme to user directory..."
 mkdir -p "$HOME/.themes"
-if [ -d "/usr/share/themes/Dracula" ]; then
-  rsync -a /usr/share/themes/Dracula "$HOME/.themes/"
-  sudo chown -R "$USER:$USER" "$HOME/.themes/Dracula"
+if [ -d "/usr/share/themes/Gruvbox-Material-Dark" ]; then
+  rsync -a /usr/share/themes/Gruvbox-Material-Dark "$HOME/.themes/"
+  sudo chown -R "$USER:$USER" "$HOME/.themes/Gruvbox-Material-Dark"
 else
-  log "Dracula theme not found in /usr/share/themes. Skipping copy."
+  log "Gruvbox theme not found in /usr/share/themes. Skipping copy."
 fi
 
 log "Setting GTK global preferences..."
 sudo tee /usr/share/gtk-3.0/settings.ini >/dev/null <<EOF
 [Settings]
-gtk-icon-theme-name = Tela-circle-dracula-dark
+gtk-icon-theme-name = gruvbox-dark-icons-gtk
 gtk-cursor-theme-name = BreezeX-RosePine-Linux
-gtk-theme-name = Dracula
+gtk-theme-name = Gruvbox-Material-Dark
 gtk-font-name = Cantarell 11
 EOF
 
@@ -93,4 +91,4 @@ sudo tee /etc/containers/registries.conf.d/10-unqualified-search-registries.conf
 unqualified-search-registries = ["docker.io"]
 EOF
 
-log "System configuration complete!"
+log "System configuration complete
