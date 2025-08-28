@@ -8,22 +8,18 @@ export FZF_ALT_C_COMMAND="fd -H --type d"
 export FZF_CTRL_T_COMMAND="fd -H --type f"
 export FZF_DEFAULT_COMMAND="fd -H --type f"
 export FZF_DEFAULT_OPTS="\
-  --color=bg+:#282828 \
-  --color=bg:#282828 \
-  --color=border:#458588 \
-  --color=fg:#fbf1c7 \
-  --color=gutter:#282828 \
-  --color=header:#ffb86c \
-  --color=hl+:#458588 \
-  --color=hl:#458588 \
-  --color=info:#a89984\
-  --color=marker:#cc241d \
-  --color=pointer:#cc241d \
-  --color=prompt:#458588 \
-  --color=query:#fbf1c7:regular \
-  --color=scrollbar:#458588 \
-  --color=separator:#ffb86c \
-  --color=spinner:#cc241d \
+  --color bg+:#3c3836 \
+  --color bg:#282828 \
+  --color fg+:#ebdbb2 \
+  --color fg:#ebdbb2 \
+  --color header:#665c54 \
+  --color hl+:#d65d0e \
+  --color hl:#d65d0e \
+  --color info:#458588 \
+  --color marker:#d65d0e \
+  --color pointer:#458588 \
+  --color prompt:#bdae93 \
+  --color spinner:#d65d0e \
   --height 75% \
   --layout=default"
 export LANG="en_US"
