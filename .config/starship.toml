@@ -1,6 +1,10 @@
 [line_break]
 disabled = true
 
+[character]
+success_symbol = '[៚](bold yellow) '
+error_symbol = '[៚](bold red) '
+
 [aws]
 symbol = "  "
 
