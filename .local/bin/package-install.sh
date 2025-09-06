@@ -6,7 +6,7 @@ set -euo pipefail
 
 # Pacman install
 echo "Installing Pacman packages..."
-sudo pacman -S age alsa-utils apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim gvfs handlr imagemagick keepassxc libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol pciutils playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rocminfo rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vimiv vulkan-radeon waybar wget wl-clipboard xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting || {
+sudo pacman -S age alsa-utils apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr ghostty git grim gvfs handlr imagemagick keepassxc kvantum libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim nm-connection-editor noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol pciutils playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rocminfo rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vimiv vulkan-radeon waybar wget wl-clipboard xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting || {
   echo "Pacman packages failed to install."
   exit 1
 }
@@ -39,7 +39,7 @@ echo "Flatpak installations complete."
 
 # AUR install
 echo "Installing AUR packages..."
-paru -S brave-bin bubblejail otf-apple-fonts rose-pine-cursor gruvbox-dark-icons-gtk gruvbox-material-gtk-theme-git rose-pine-hyprcursor waybar-module-pacman-updates-git || {
+paru -S brave-bin bubblejail kvantum-theme-gruvbox-git otf-apple-fonts rose-pine-cursor gruvbox-dark-icons-gtk gruvbox-material-gtk-theme-git rose-pine-hyprcursor waybar-module-pacman-updates-git || {
   echo "Error: Failed to install AUR packages. Check Paru logs."
   exit 1
 }
