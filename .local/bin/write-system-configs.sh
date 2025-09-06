@@ -27,14 +27,16 @@ bat cache --build || err "Failed to build bat cache."
 
 # Install Yazi plugins and flavors
 log "Installing Yazi Yatline plugin..."
-ya pkg add imsi32/yatline || err "Yazi Yatline plugin install failed."
+if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
+  git clone https://github.com/imsi32/yatline.yazi.git ~/.config/yazi/plugins/yatline.yazi || err "Yatline clone failed."
+fi
 
 log "Installing Yazi Gruvbox flavor..."
 ya pack -a bennyyip/gruvbox-dark || err "Yazi Gruvbox Dark flavor install failed."
 
 log "Installing Yatline Gruvbox plugin for Yazi..."
 if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
-  git clone https://github.com/imsi32/yatline-gruvbox.yazi.git ~/.config/yazi/plugins/yatline-gruvbox.yazi || err "Yatline clone failed."
+  git clone https://github.com/imsi32/yatline-gruvbox.yazi.git ~/.config/yazi/plugins/yatline-gruvbox.yazi || err "Yatline Gruvbox clone failed."
 fi
 
 # Enable user services
