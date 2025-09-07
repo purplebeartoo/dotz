@@ -37,6 +37,7 @@ edit = [
 ]
 open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
+	{ run = 'org.gimp.GIMP -s "$1"',        desc = "Gimp", for = "linux" },
 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 	{ run = 'termux-open "$1"',             desc = "Open", for = "android" },
