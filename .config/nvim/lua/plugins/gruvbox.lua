@@ -1,13 +1,11 @@
 return {
-  "ellisonleao/gruvbox.nvim",
+  'sainnhe/gruvbox-material',
+  lazy = false,
   priority = 1000,
   config = function()
-    require("gruvbox").setup({
-      palette_overrides = {
-        bright_blue = "#458588",
-        neutral_blue = "#83a598",
-      }
-    })
-    vim.cmd("colorscheme gruvbox")
+    -- Optionally configure and load the colorscheme
+    -- directly inside the plugin declaration.
+    vim.g.gruvbox_material_enable_italic = true
+    vim.cmd("colorscheme gruvbox-material")
   end,
 }
