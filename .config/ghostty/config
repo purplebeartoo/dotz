@@ -1,6 +1,5 @@
 # Cursor
 cursor-color = "#ebdbb2"
-cursor-invert-fg-bg
 cursor-style-blink = false
 
 # Fonts
@@ -16,10 +15,11 @@ shell-integration-features = no-cursor
 working-directory = home
 
 # Theme
-theme = GruvboxDark
+theme = Gruvbox Dark Hard
+background = #282828
 
 # Windows
 gtk-tabs-location = bottom
-window-decoration = false
+window-decoration = none
 window-padding-x = 11
-window-padding-y = 10
+window-padding-y = 11
