@@ -28,7 +28,7 @@ export LESSHISTFILE=-
 export MANPAGER="nvim +Man!"
 export PATH="$HOME/.local/bin:$PATH"
 export SUDO_EDITOR="nvim"
-export TERM="ghostty"
+export TERM="kitty"
 export VISUAL="nvim"
 
 # Vi key binding
