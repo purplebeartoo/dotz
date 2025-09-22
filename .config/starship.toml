@@ -7,7 +7,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = 'on [$hostname](green bold) '
+format = "on [$hostname](green bold) "
 trim_at = "."
 disabled = false
 ssh_symbol = " "
@@ -26,7 +26,7 @@ read_only = " 󰌾"
 min_time = 600
 show_milliseconds = false
 disabled = false
-style = "cyan italic"
+style = "blue italic"
 
 [aws]
 symbol = "  "
@@ -80,7 +80,7 @@ symbol = "  "
 symbol = " "
 
 [git_commit]
-tag_symbol = '  '
+tag_symbol = "  "
 
 [golang]
 symbol = " "
