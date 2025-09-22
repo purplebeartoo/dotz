@@ -1,9 +1,32 @@
-[line_break]
-disabled = true
+[username]
+style_user = "yellow bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = 'on [$hostname](green bold) '
+trim_at = "."
+disabled = false
+ssh_symbol = " "
 
 [character]
-success_symbol = '[󰘍](bold yellow) '
-error_symbol = '[󰘍](bold red) '
+success_symbol = "[󰘍](yellow bold) "
+error_symbol = "[󰘍](red bold) "
+
+[directory]
+truncation_length = 10
+truncate_to_repo = true
+style = "blue bold italic"
+read_only = " 󰌾"
+
+[cmd_duration]
+min_time = 600
+show_milliseconds = false
+disabled = false
+style = "cyan italic"
 
 [aws]
 symbol = "  "
@@ -34,9 +57,6 @@ symbol = " "
 
 [deno]
 symbol = " "
-
-[directory]
-read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
@@ -76,9 +96,6 @@ symbol = " "
 
 [hg_branch]
 symbol = " "
-
-[hostname]
-ssh_symbol = " "
 
 [java]
 symbol = " "
