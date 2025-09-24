@@ -53,7 +53,7 @@ find files larger than 5M: find /where -size +5M -ls
 
 find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
 
-vimiv --slideshow --slideshow-delay 3 ~/Pictures/202508-202601/*.jpg(om) ~/Pictures/202502-202507/*.jpg(om) \
+imv -t 3  ~/Pictures/202508-202601/*.jpg(om) ~/Pictures/202502-202507/*.jpg(om) \
 ~/Pictures/202408-202501/*.jpg(om) ~/Pictures/202402-202407/*.jpg(om) ~/Pictures/202308-202401/*.jpg(om)
 
 echo /var/log/messages*        # usual lexicographic order
@@ -121,14 +121,15 @@ INSTALL
 * hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
 
 age alsa-utils apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch \
-fd ffmpeg flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick keepassxc \
-kitty kvantum libva-mesa-driver libzip linux-headers logrotate luarocks man-db \
-meld mesa nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol \
-pciutils playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland \
-reflector ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd \
-ttf-dejavu ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vimiv \
-vulkan-radeon waybar wget wl-clipboard xdg-user-dirs xf86-video-amdgpu yazi zip \
-zsh zsh-autosuggestions zsh-syntax-highlighting
+fd ffmpeg flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick imv \
+keepassxc kitty kvantum libva-mesa-driver libzip linux-headers logrotate luarocks \
+man-db meld mesa nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f \
+pavucontrol pciutils playerctl podman polkit-gnome poppler python-pillow qt5-wayland \
+qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift \
+ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
+ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar \
+wget wl-clipboard xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions \
+zsh-syntax-highlighting
 _________________
 
  1. backup
