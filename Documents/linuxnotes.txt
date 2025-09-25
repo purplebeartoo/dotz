@@ -53,8 +53,7 @@ find files larger than 5M: find /where -size +5M -ls
 
 find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
 
-imv -t 3  ~/Pictures/202508-202601/*.jpg(om) ~/Pictures/202502-202507/*.jpg(om) \
-~/Pictures/202408-202501/*.jpg(om) ~/Pictures/202402-202407/*.jpg(om) ~/Pictures/202308-202401/*.jpg(om)
+imv -t 3  ~/Pictures/202*/*.jpg(om)
 
 echo /var/log/messages*        # usual lexicographic order
 echo /var/log/messages*(On)    # reverse lexicographic order
