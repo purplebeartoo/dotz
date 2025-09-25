@@ -6,7 +6,7 @@ set -euo pipefail
 
 # Pacman install
 echo "Installing Pacman packages..."
-sudo pacman -S age alsa-utils apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick imv keepassxc kitty kvantum libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol pciutils playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wget wl-clipboard xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting || {
+sudo pacman -S age alsa-utils apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick imv kitty kvantum libva-mesa-driver libzip linux-headers logrotate luarocks man-db meld mesa nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol pciutils playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wget wl-clipboard xdg-user-dirs xf86-video-amdgpu yazi zip zsh zsh-autosuggestions zsh-syntax-highlighting || {
   echo "Pacman packages failed to install."
   exit 1
 }
@@ -15,6 +15,12 @@ sudo pacman -S age alsa-utils apparmor bat btop chromium cmus cronie dconf-edito
 echo "Adding Flatpak repository..."
 flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo || {
   echo "Error: Failed to add Flatpak repository. Check your internet connection."
+  exit 1
+}
+
+echo "Installing Flatpak applications..."
+flatpak install -y --user --noninteractive flathub com.bitwarden.desktop || {
+  echo "Error: Failed to install com.bitwarden.desktop."
   exit 1
 }
 
