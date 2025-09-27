@@ -32,7 +32,7 @@ if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
 fi
 
 log "Installing Yazi Gruvbox flavor..."
-ya pack -a bennyyip/gruvbox-dark || err "Yazi Gruvbox Dark flavor install failed."
+ya pkg add bennyyip/gruvbox-dark || err "Yazi Gruvbox Dark flavor install failed."
 
 log "Installing Yatline Gruvbox plugin for Yazi..."
 if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
