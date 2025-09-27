@@ -1,10 +1,4 @@
 [Context]
 shared=!network
 sockets=!fallback-x11;!x11
-filesystems=xdg-download;xdg-pictures;!host
-
-[Session Bus Policy]
-org.kde.kwin.Screenshot=none
-org.gtk.vfs.*=none
-org.gnome.Shell.Screenshot=none
-org.freedesktop.FileManager1=none
+filesystems=xdg-pictures;xdg-download;!host

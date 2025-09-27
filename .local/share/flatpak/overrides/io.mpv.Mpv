@@ -1,8 +1,4 @@
 [Context]
 shared=!network
 sockets=!x11
-filesystems=!xdg-pictures;xdg-download
-
-[Session Bus Policy]
-org.gnome.SessionManager=none
-org.mpris.MediaPlayer2.mpv.*=none
+filesystems=xdg-download
