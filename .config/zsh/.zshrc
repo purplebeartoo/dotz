@@ -89,10 +89,12 @@ alias wo="sudo systemctl start NetworkManager.service"
 function rr() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
+
   if [[ $? -ne 0 ]]; then
     echo "Error running yazi"
     return 1
   fi
+
   IFS= read -r -d '' cwd < "$tmp"
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
