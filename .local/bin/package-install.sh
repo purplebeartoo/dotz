@@ -11,6 +11,13 @@ sudo pacman -S age alsa-utils apparmor bat btop chromium cmus cronie dconf-edito
   exit 1
 }
 
+# Hyprland repo install
+echo "Installing Pacman packages..."
+sudo pacman -S hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland || {
+  echo "Hyprland repo packages failed to install."
+  exit 1
+}
+
 # Flatpak setup
 echo "Adding Flatpak repository..."
 flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo || {
@@ -44,11 +51,11 @@ paru -S brave-bin bubblejail kvantum-theme-gruvbox-git otf-apple-fonts rose-pine
   exit 1
 }
 
-# Hyprland AUR package install
-echo "Installing Hyprland AUR packages..."
-paru -S gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git glaze hyprgraphics-git aquamarine-git re2 hyprland-qtutils-git hypridle-git hyprlock-git hyprpaper-git xdg-desktop-portal-hyprland-git || {
-  echo "Error: Failed to install Hyprland AUR packages. Check Paru logs."
-  exit 1
-}
+# # Hyprland AUR package install
+# echo "Installing Hyprland AUR packages..."
+# paru -S gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git glaze hyprgraphics-git aquamarine-git re2 hyprland-qtutils-git hypridle-git hyprlock-git hyprpaper-git xdg-desktop-portal-hyprland-git || {
+#   echo "Error: Failed to install Hyprland AUR packages. Check Paru logs."
+#   exit 1
+# }
 
 echo "Host package installation complete."
