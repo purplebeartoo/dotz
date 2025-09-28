@@ -55,6 +55,8 @@ find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
 
 imv -t 3  ~/Pictures/202*/*.jpg(om)
 
+/etc/fstab fmask=0137,dmask=0027
+
 echo /var/log/messages*        # usual lexicographic order
 echo /var/log/messages*(On)    # reverse lexicographic order
 echo /var/log/messages*(om)    # reverse chronological order (ascending mtime)
