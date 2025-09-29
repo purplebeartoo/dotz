@@ -27,16 +27,16 @@ bat cache --build || err "Failed to build bat cache."
 
 # Install Yazi plugins and flavors
 log "Installing Yazi Yatline plugin..."
-if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
-  git clone https://github.com/imsi32/yatline.yazi.git ~/.config/yazi/plugins/yatline.yazi || err "Yatline clone failed."
+if [ ! -d "$HOME"/.config/yazi/plugins/yatline.yazi ]; then
+  git clone https://github.com/imsi32/yatline.yazi.git "$HOME"/.config/yazi/plugins/yatline.yazi || err "Yatline clone failed."
 fi
 
 log "Installing Yazi Gruvbox flavor..."
 ya pkg add bennyyip/gruvbox-dark || err "Yazi Gruvbox Dark flavor install failed."
 
 log "Installing Yatline Gruvbox plugin for Yazi..."
-if [ ! -d ~/.config/yazi/plugins/yatline.yazi ]; then
-  git clone https://github.com/imsi32/yatline-gruvbox.yazi.git ~/.config/yazi/plugins/yatline-gruvbox.yazi || err "Yatline Gruvbox clone failed."
+if [ ! -d "$HOME"/.config/yazi/plugins/yatline-gruvbox.yazi ]; then
+  git clone https://github.com/imsi32/yatline-gruvbox.yazi.git "$HOME"/.config/yazi/plugins/yatline-gruvbox.yazi || err "Yatline Gruvbox clone failed."
 fi
 
 # Enable user services
@@ -58,7 +58,6 @@ log "Copying Gruvbox GTK theme to user directory..."
 mkdir -p "$HOME/.themes"
 if [ -d "/usr/share/themes/Gruvbox-Material-Dark" ]; then
   rsync -a /usr/share/themes/Gruvbox-Material-Dark "$HOME/.themes/"
-  sudo chown -R "$USER:$USER" "$HOME/.themes/Gruvbox-Material-Dark"
 else
   log "Gruvbox theme not found in /usr/share/themes. Skipping copy."
 fi
@@ -68,26 +67,19 @@ log "Copying Gruvbox icon theme to user directory..."
 mkdir -p "$HOME/.icons"
 if [ -d "/usr/share/icons/gruvbox-dark-icons-gtk" ]; then
   rsync -a /usr/share/icons/gruvbox-dark-icons-gtk "$HOME/.icons/"
-  sudo chown -R "$USER:$USER" "$HOME/.icons/gruvbox-dark-icons-gtk"
 else
   log "Gruvbox icons not found in /usr/share/icons. Skipping copy."
 fi
 
-log "Setting GTK global preferences..."
-sudo tee /usr/share/gtk-3.0/settings.ini >/dev/null <<EOF
+log "Setting local GTK preferences..."
+mkdir -p "$HOME/.config/gtk-3.0"
+cat > "$HOME/.config/gtk-3.0/settings.ini" <<EOF
 [Settings]
+gtk-theme-name = Gruvbox-Material-Dark
 gtk-icon-theme-name = gruvbox-dark-icons-gtk
 gtk-cursor-theme-name = BreezeX-RosePine-Linux
-gtk-theme-name = Gruvbox-Material-Dark
-gtk-font-name = Cantarell 11
+gtk-font-name = Adwaita Sans 11
 EOF
-
-# Flatpak overrides
-sudo flatpak override --filesystem="$HOME/.themes" || err "Failed to set flatpak override for ~/.themes"
-sudo flatpak override --filesystem="$HOME/.local/share/themes" || err "Failed to set flatpak override for ~/.local/share/themes"
-sudo flatpak override --env=GTK_THEME=Gruvbox-Material-Dark || err "Failed to set flatpak override for GTK_THEME"
-sudo flatpak override --filesystem="$HOME/.icons" || err "Failed to set flatpak override for ~/.icons"
-sudo flatpak override --env=ICON_THEME=gruvbox-dark-icons-gtk || err "Failed to set flatpak override for ICON_THEME"
 
 # Logging configuration
 log "Tweaking system logging settings..."
