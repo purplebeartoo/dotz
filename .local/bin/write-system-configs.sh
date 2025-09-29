@@ -71,16 +71,6 @@ else
   log "Gruvbox icons not found in /usr/share/icons. Skipping copy."
 fi
 
-log "Setting local GTK preferences..."
-mkdir -p "$HOME/.config/gtk-3.0"
-cat > "$HOME/.config/gtk-3.0/settings.ini" <<EOF
-[Settings]
-gtk-theme-name = Gruvbox-Material-Dark
-gtk-icon-theme-name = gruvbox-dark-icons-gtk
-gtk-cursor-theme-name = BreezeX-RosePine-Linux
-gtk-font-name = Adwaita Sans 11
-EOF
-
 # Logging configuration
 log "Tweaking system logging settings..."
 sudo cp /etc/systemd/journald.conf /etc/systemd/journald.conf.old
