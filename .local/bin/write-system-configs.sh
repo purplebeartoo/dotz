@@ -8,18 +8,13 @@ set -euo pipefail
 log() { echo -e "\033[1;32m==> $*\033[0m"; }
 err() { echo -e "\033[1;31mError: $*\033[0m" >&2; exit 1; }
 
-# User theming and GNOME settings
-log "Applying GNOME interface preferences..."
-gsettings set org.gnome.desktop.interface icon-theme 'gruvbox-dark-icons-gtk' || err "Failed to set icon theme."
-gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Material-Dark' || err "Failed to set GTK theme."
-
 # Sync configuration from backup
 log "Syncing configuration from backup..."
 rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share || err "Bubblejail sync failed."
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus || err "Cmus playlists sync failed."
 rsync -a "$HOME"/Downloads/.config/{BraveSoftware,chromium,Kvantum,nextdns} "$HOME"/.config || err "Config directories sync failed."
 rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME" || err "User directories sync failed."
-rsync -a --exclude 'linuxnotes.txt' "$HOME"/Downloads/Documents "$HOME" || err "Documents sync failed."
+rsync -a --exclude "linuxnotes.txt" "$HOME"/Downloads/Documents "$HOME" || err "Documents sync failed."
 
 # Build bat cache
 log "Building 'bat' syntax cache..."
@@ -51,7 +46,8 @@ log "User configuration successful!"
 
 # Pacman mirrors
 log "Choosing fastest mirrors with reflector..."
-sudo reflector --country 'united states' --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist || err "Reflector failed."
+sudo cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.bak || err "Failed to create Mirrorlist backup"
+sudo reflector --country "United States" --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist || err "Reflector failed."
 
 # Theming (GTK theme/Gruvbox)
 log "Copying Gruvbox GTK theme to user directory..."
@@ -71,17 +67,17 @@ else
   log "Gruvbox icons not found in /usr/share/icons. Skipping copy."
 fi
 
-# Logging configuration
-log "Tweaking system logging settings..."
-sudo cp /etc/systemd/journald.conf /etc/systemd/journald.conf.old
-sudo sed -i 's/#Storage=auto/Storage=volatile/' /etc/systemd/journald.conf
-
-sudo cp /etc/logrotate.conf /etc/logrotate.conf.old
-sudo sed -i 's/rotate 4/rotate 2/' /etc/logrotate.conf
+# Create journal size configuration
+log "Setting journal size limit to 50M"
+sudo mkdir -p /etc/systemd/journald.conf.d/ || err "Failed to create directory"
+sudo tee /etc/systemd/journald.conf.d/99-journal-size.conf << EOF || err "Failed to write configuration"
+[Journal]
+SystemMaxUse=50M
+EOF
 
 # PAM configuration
 log "Appending ZDOTDIR to pam_env.conf..."
-sudo cp /etc/security/pam_env.conf /etc/security/pam_env.conf.old
+sudo cp /etc/security/pam_env.conf /etc/security/pam_env.conf.bak
 sudo tee -a /etc/security/pam_env.conf <<EOF
 ZDOTDIR DEFAULT=$HOME/.config/zsh
 EOF
@@ -91,7 +87,7 @@ log "Configuring user subuids/subgids for Podman..."
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
 
 log "Setting container registry search order..."
-sudo tee /etc/containers/registries.conf.d/10-unqualified-search-registries.conf >/dev/null <<EOF
+sudo tee /etc/containers/registries.conf.d/99-unqualified-search-registries.conf >/dev/null <<EOF
 unqualified-search-registries = ["docker.io"]
 EOF
 
