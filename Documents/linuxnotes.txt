@@ -175,11 +175,11 @@ paru -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
 sudo sysctl -a | grep ptrace
 pacman -Qtdq | pacman -Rns -
 pacman -Qqd | pacman -Rsu -
-sudo journalctl --vacuum-time=1m
 
 pacman -Qm (list aur packages)
 sudo systemctl --failed
 sudo journalctl -p 3 -xb
+sudo journalctl -p err..alert
 _________________
 
 firefox:
