@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Update all Ollama models, alias: uom
 
-#!/usr/bin/env bash
+# Strict bash execution mode
 set -euo pipefail
 
 # Verify container exists
