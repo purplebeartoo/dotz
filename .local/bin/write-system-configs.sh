@@ -67,6 +67,9 @@ else
   log "Gruvbox icons not found in /usr/share/icons. Skipping copy."
 fi
 
+# Theme GTK file chooser 
+gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
+
 # Create journal size configuration
 log "Setting journal size limit to 50M"
 sudo mkdir -p /etc/systemd/journald.conf.d/ || err "Failed to create directory"
