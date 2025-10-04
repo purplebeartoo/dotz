@@ -10,7 +10,7 @@ err() { echo -e "\033[1;31mError: $*\033[0m" >&2; exit 1; }
 
 # Sync configuration from backup
 log "Syncing configuration from backup..."
-rsync -a "$HOME"/Downloads/.local/share/bubblejail "$HOME"/.local/share || err "Bubblejail sync failed."
+rsync -a "$HOME"/Downloads/.local/share/{bubblejail,zoxide} "$HOME"/.local/share || err "User share directories sync failed."
 rsync -a "$HOME"/Downloads/.config/cmus/playlists "$HOME"/.config/cmus || err "Cmus playlists sync failed."
 rsync -a "$HOME"/Downloads/.config/{BraveSoftware,chromium,Kvantum,nextdns} "$HOME"/.config || err "Config directories sync failed."
 rsync -a "$HOME"/Downloads/{.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME" || err "User directories sync failed."

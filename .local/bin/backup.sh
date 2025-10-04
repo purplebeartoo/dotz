@@ -39,6 +39,7 @@ directories=(
   ".local/bin"
   ".local/share/bubblejail"
   ".local/share/flatpak/overrides"
+  ".local/share/zoxide"
   ".ssh"
   "BrowserProfiles"
   "Documents"
