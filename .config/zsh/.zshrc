@@ -45,7 +45,6 @@ HISTFILE=$HOME/.config/zsh/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
 
-setopt autocd
 setopt extendedglob
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
@@ -85,6 +84,8 @@ alias upo="$HOME/.local/bin/update-podman-ollama.sh"
 alias v="nvim"
 alias wf="sudo systemctl stop NetworkManager.service"
 alias wo="sudo systemctl start NetworkManager.service"
+
+eval "$(zoxide init zsh)"
 
 function rr() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
