@@ -38,6 +38,10 @@ flatpak install -y --user --noninteractive flathub org.gimp.GIMP || {
   echo "Error: Failed to install org.gimp.GIMP."
   exit 1
 }
+flatpak install -y --user --noninteractive flathub org.gimp.GIMP.Plugin.GMic || {
+  echo "Error: Failed to install org.gimp.GIMP.Plugin.GMic."
+  exit 1
+}
 flatpak install -y --user --noninteractive flathub org.gnome.Papers || {
   echo "Error: Failed to install org.gnome.Papers."
   exit 1
