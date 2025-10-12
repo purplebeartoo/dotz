@@ -121,9 +121,9 @@ INSTALL
 * base, base-devel, linux, linux-firmware, amd-ucode
 * hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
 
-age apparmor bat btop chromium cronie dconf-editor dunst eza fastfetch fd ffmpeg \
-flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick imv keepassxc \
-kitty kvantum libva-mesa-driver libzip linux-headers luarocks man-db meld mesa \
+age apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd \
+ffmpeg flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick imv keepassxc \
+kitty kvantum libmad libva-mesa-driver libzip linux-headers luarocks man-db meld mesa \
 nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol pciutils \
 playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector \
 ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd \
