@@ -39,4 +39,5 @@ vim.filetype.add({
 
 vim.api.nvim_command("autocmd FileType hyprlang setlocal commentstring=#\\ %s")
 
+-- Initialize lazy.nvim plugin manager configuration
 require("config.lazy")

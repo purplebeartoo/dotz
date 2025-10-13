@@ -13,6 +13,7 @@ function Linemode:size_and_mtime()
   return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
 
+-- Setup yatline plugin
 require("yatline"):setup({
   show_background = true,
   header_line = {
@@ -59,6 +60,7 @@ require("yatline"):setup({
   },
 })
 
+-- Setup yatline with gruvbox theme
 local gruvbox_theme = require("yatline-gruvbox"):setup("dark")
 require("yatline"):setup({
   theme = gruvbox_theme,
