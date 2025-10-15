@@ -60,7 +60,7 @@ require("yatline"):setup({
   },
 })
 
--- Setup yatline with gruvbox theme
+-- Setup gruvbox theme for yatline
 local gruvbox_theme = require("yatline-gruvbox"):setup("dark")
 require("yatline"):setup({
   theme = gruvbox_theme,
