@@ -50,7 +50,7 @@ echo "Flatpak installations complete."
 
 # AUR install
 echo "Installing AUR packages..."
-paru -S brave-bin bubblejail kvantum-theme-gruvbox-git otf-apple-fonts rose-pine-cursor gruvbox-dark-icons-gtk gruvbox-material-gtk-theme-git rose-pine-hyprcursor waybar-module-pacman-updates-git || {
+paru -S brave-bin bubblejail otf-apple-fonts rose-pine-cursor rose-pine-hyprcursor waybar-module-pacman-updates-git yaru-colors-icon-theme || {
   echo "Error: Failed to install AUR packages. Check Paru logs."
   exit 1
 }

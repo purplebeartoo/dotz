@@ -60,10 +60,10 @@ require("yatline"):setup({
   },
 })
 
--- Setup gruvbox theme for yatline
-local gruvbox_theme = require("yatline-gruvbox"):setup("dark")
+-- Setup Tokyo Night theme for yatline
+local tokyo_night_theme = require("yatline-tokyo-night"):setup("night")
 require("yatline"):setup({
-  theme = gruvbox_theme,
-  section_separator = { open = "", close = "" },
-  inverse_separator = { open = "", close = "" },
+  theme = tokyo_night_theme,
+  -- section_separator = { open = "", close = "" },
+  -- inverse_separator = { open = "", close = "" },
 })

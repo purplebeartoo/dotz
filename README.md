@@ -1,4 +1,4 @@
 Personal dotfiles, nothing to see here...
 
-![Tiles](/Pictures/Desktops/gruvtile.jpg?raw=true "Four Tui Tile")
-![Wallpaper](/Pictures/Desktops/gruvpaper.jpg?raw=true "Wallpaper")
+![Tiles](/Pictures/Desktops/tokyotile.jpg?raw=true "Four Tui Tile")
+![Wallpaper](/Pictures/Desktops/tokyopaper.jpg?raw=true "Wallpaper")

@@ -12,41 +12,41 @@ window#waybar {
 }
 
 tooltip {
-  background: #282828;
-  border: 1.5px solid #d79921;
-  color: #d79921;
+  background: #1a1b26;
+  border: 2px solid #e0af68;
+  color: #e0af68;
 }
 
 tooltip label {
-  color: #d79921;
+  color: #e0af68;
   padding: 2px;
 }
 
 #workspaces button {
-  background: #282828;
-  color: #d79921;
+  background: #1a1b26;
+  color: #bb9af7;
   margin: 5px 10px;
 }
 
 #workspaces button.active {
-  color: #458588;
+  color: #f7768e;
 }
 
 #workspaces button.empty {
-  color: #a89984;
+  color: #2ac3de;
 }
 
 #workspaces button.focused {
-  color: #458588;
+  color: #bb9af7;
 }
 
 #workspaces button:hover {
-  color: #458588;
+  color: #bb9af7;
 }
 
 #workspaces button.urgent {
-  background-color: #458588;
-  color: #282828;
+  background-color: #2ac3de;
+  color: #1a1b26;
 }
 
 #clock,
@@ -64,41 +64,41 @@ tooltip label {
 }
 
 #clock {
-  color: #458588;
+  color: #bb9af7;
 }
 
 #custom-updates {
-  color:#a89984;
+  color:#e0af68;
 }
 
 #idle_inhibitor {
-  color: #d79921;
+  color: #2ac3de;
 }
 
 #systemd-failed-units {
-  color: #98971a;
+  color: #f7768e;
 }
 
 #network {
-  color: #458588;
+  color: #bb9af7;
 }
 
 #temperature {
-  color: #a89984;
+  color: #e0af68;
 }
 
 #disk {
-  color: #d79921;
+  color: #2ac3de;
 }
 
 #cpu {
-  color: #98971a;
+  color: #f7768e;
 }
 
 #memory {
-  color: #458588;
+  color: #bb9af7;
 }
 
 #pulseaudio {
-  color: #a89984;
+  color: #e0af68;
 }

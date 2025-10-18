@@ -140,7 +140,7 @@ _________________
  6. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
-    /org/gnome/interface/icon-theme/gruvbox-dark-icons-gtk
+    /org/gnome/interface/icon-theme/Tokyonight-Dark
  7. doton
  8. verify local bash permissions
  9. reboot & run upo

@@ -4,22 +4,23 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export BAT_THEME="tokyonight_night"
 export FZF_ALT_C_COMMAND="fd -H --type d"
 export FZF_CTRL_T_COMMAND="fd -H --type f"
 export FZF_DEFAULT_COMMAND="fd -H --type f"
 export FZF_DEFAULT_OPTS="\
-  --color bg+:#3c3836 \
-  --color bg:#282828 \
-  --color fg+:#ebdbb2 \
-  --color fg:#ebdbb2 \
-  --color header:#665c54 \
-  --color hl+:#d65d0e \
-  --color hl:#d65d0e \
-  --color info:#458588 \
-  --color marker:#d65d0e \
-  --color pointer:#458588 \
-  --color prompt:#bdae93 \
-  --color spinner:#d65d0e \
+  --color bg+:#414868 \
+  --color bg:#1a1b26 \
+  --color fg+:#c0caf5 \
+  --color fg:#c0caf5 \
+  --color header:#9ece6a \
+  --color hl+:#f7768e \
+  --color hl:#f7768e \
+  --color info:#2ac3de \
+  --color marker:#f7768e \
+  --color pointer:#2ac3de \
+  --color prompt:#cfc9c2 \
+  --color spinner:#f7768e \
   --height 75% \
   --layout=default"
 export LANG="en_US"
