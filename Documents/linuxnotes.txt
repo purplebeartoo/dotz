@@ -134,13 +134,13 @@ _________________
 
  1. backup
  2. git checkout
- 3. chsh -s $(which zsh)
- 4. write system configs (wsc)
+ 3. write system configs (wsc)
+ 4. chsh -s $(which zsh)
  5. TSInstall hyprlang
  6. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
-    /org/gnome/interface/icon-theme/Tokyonight-Dark
+    /org/gnome/desktop/interface/icon-theme/Yaru-Blue
  7. doton
  8. verify local bash permissions
  9. reboot & run upo
