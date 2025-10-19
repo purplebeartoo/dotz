@@ -16,5 +16,5 @@ if ! podman ps --format '{{.Names}}' | grep -q '^ollama$'; then
   podman start ollama
 fi
 
-# Launch Qwen3-Thinking via Ghostty 
-ghostty -e podman exec -it ollama ollama run hf.co/unsloth/Qwen3-30B-A3B-Thinking-2507-GGUF:Q3_K_XL --verbose
+# Launch Qwen3-Thinking via Wezterm
+wezterm -e podman exec -it ollama ollama run hf.co/unsloth/Qwen3-30B-A3B-Thinking-2507-GGUF:Q3_K_XL --verbose
