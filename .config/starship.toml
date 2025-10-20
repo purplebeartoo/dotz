@@ -13,8 +13,8 @@ disabled = false
 ssh_symbol = " "
 
 [character]
-success_symbol = "[󰘍](yellow bold) "
-error_symbol = "[󰘍](red bold) "
+success_symbol = "[](yellow bold) "
+error_symbol = "[](red bold) "
 
 [directory]
 truncation_length = 10

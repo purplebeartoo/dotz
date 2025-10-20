@@ -128,8 +128,8 @@ nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol pla
 podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep \
 rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd \
 ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono \
-tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wezterm wget wl-clipboard \
-xdg-user-dirs yazi zip zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
+tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wget wl-clipboard xdg-user-dirs \
+yazi zip zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
 _________________
 
  1. backup
