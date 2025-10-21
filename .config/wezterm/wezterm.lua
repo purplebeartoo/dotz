@@ -4,7 +4,7 @@ return {
   color_scheme = 'tokyonight_night',
   default_cursor_style = 'SteadyUnderline',
   enable_tab_bar = false,
-  font = wezterm.font('CaskaydiaCove Nerd Font'), -- Corrected font assignment
+  font = wezterm.font('CaskaydiaCove Nerd Font'),
   font_size = 11.0,
   window_close_confirmation = 'NeverPrompt',
   colors = {
