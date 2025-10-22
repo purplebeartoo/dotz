@@ -54,7 +54,7 @@
             "on-click-right": "mode",
             "format": {
                 "months": "<span color='#bb9af7'><b>{}</b></span>",
-                "days": "<span color='#c0caf5'><b>{}</b></span>",
+                "days": "<span color='#cfc9c2'><b>{}</b></span>",
                 "weekdays": "<span color='#e0af68'><b>{}</b></span>",
                 "today": "<span color='#2ac3de'><b><u>{}</u></b></span>"
             }
