@@ -1,11 +1,13 @@
 local wezterm = require('wezterm')
 
 return {
+  check_for_updates = false,
   color_scheme = 'tokyonight_night',
   default_cursor_style = 'SteadyUnderline',
   enable_tab_bar = false,
   font = wezterm.font('CaskaydiaCove Nerd Font'),
   font_size = 11.0,
+  warn_about_missing_glyphs=false,
   window_close_confirmation = 'NeverPrompt',
   colors = {
     cursor_bg = '#e0af68',
