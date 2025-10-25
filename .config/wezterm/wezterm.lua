@@ -1,7 +1,6 @@
 local wezterm = require('wezterm')
 
 return {
-  check_for_updates = false,
   color_scheme = 'tokyonight_night',
   default_cursor_style = 'SteadyUnderline',
   enable_tab_bar = false,
