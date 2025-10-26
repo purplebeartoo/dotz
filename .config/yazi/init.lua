@@ -64,6 +64,6 @@ require("yatline"):setup({
 local tokyo_night_theme = require("yatline-tokyo-night"):setup("night")
 require("yatline"):setup({
   theme = tokyo_night_theme,
-  -- section_separator = { open = "", close = "" },
-  -- inverse_separator = { open = "", close = "" },
+    -- section_separator = { open = "", close = "" },
+    -- inverse_separator = { open = "", close = "" },
 })
