@@ -8,11 +8,6 @@ return {
   font_size = 11.0,
   warn_about_missing_glyphs=false,
   window_close_confirmation = 'NeverPrompt',
-  colors = {
-    cursor_bg = '#e0af68',
-    cursor_fg = '#1a1b26',
-    cursor_border = '#e0af68',
-  },
   window_padding = {
     top = 10,
     right = 15,
