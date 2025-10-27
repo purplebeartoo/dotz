@@ -29,7 +29,7 @@ export LESSHISTFILE=-
 export MANPAGER="nvim +Man!"
 export PATH="$HOME/.local/bin:$PATH"
 export SUDO_EDITOR="nvim"
-export TERM="foot"
+export TERM="wezterm"
 export VISUAL="nvim"
 
 # Vi key binding
