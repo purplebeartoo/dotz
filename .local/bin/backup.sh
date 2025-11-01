@@ -4,9 +4,8 @@
 # Strict bash execution mode
 set -euo pipefail
 
-# Check NumLock state in a Wayland only session
+# Check NumLock state in a Wayland‑only session
 numlock_enabled=false
-
 if [[ -d "/sys/class/leds" ]]; then
   found_led=0
   shopt -s nullglob
@@ -34,6 +33,7 @@ elif [[ "${numlock_enabled}" == unknown ]]; then
 fi
 
 backup_file="backup-$(date +"%Y-%m-%d").tar.zst"
+
 directories=(
   ".config"
   ".local/bin"
@@ -50,32 +50,32 @@ directories=(
 )
 
 # Go home
-cd "$HOME" || { echo "Error: Failed to change directory to $HOME"; exit 1; }
+cd "$HOME" || { echo "Error: Failed to change directory to $HOME" >&2; exit 1; }
 
 # Check source directories
 for dir in "${directories[@]}"; do
   if [ ! -d "$dir" ]; then
-    echo "Warning: Directory $dir does not exist."
+    echo "Warning: Directory $dir does not exist." >&2
     exit 1
   fi
 done
 
 # Create backup
 if ! tar -I 'zstdmt --fast=10' -vcf "$backup_file" "${directories[@]}"; then
-  echo "Error: Failed to create tar archive."
+  echo "Error: Failed to create tar archive." >&2
   exit 1
 fi
 
 # Encrypt backup
 if ! age -e -p -o "${backup_file}.age" "$backup_file"; then
-  echo "Error: Failed to encrypt the backup."
+  echo "Error: Failed to encrypt the backup." >&2
   rm "$backup_file"
   exit 1
 fi
 
 # Remove unencrypted backup
 if ! rm "$backup_file"; then
-  echo "Error: Failed to remove unencrypted backup file."
+  echo "Error: Failed to remove unencrypted backup file." >&2
   exit 1
 fi
 
