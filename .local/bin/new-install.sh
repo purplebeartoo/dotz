@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# temporary installation bootstrapper
-# downloads necessary scripts into a temporary directory for a new system setup
+# System setup bootstrapper
 
 set -euo pipefail
 

@@ -41,7 +41,7 @@ log "User configuration successful!"
 
 # Pacman mirrors
 log "Choosing fastest mirrors with reflector..."
-sudo cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.bak || err "Failed to create Mirrorlist backup"
+sudo cp /etc/pacman.d/mirrorlist  /etc/pacman.d/mirrorlist.bak || err "Failed to create Mirrorlist backup."
 sudo reflector --country "United States" --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist || err "Reflector failed."
 
 # Theming (GTK theme/Tokyonight Dark)
@@ -63,35 +63,46 @@ else
 fi
 
 # Theme GTK file chooser 
-gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
+gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark || err "Failed to set GTK file chooser theme." 
 
 # Create journal size configuration
 log "Setting journal size limit to 50M"
-sudo mkdir -p /etc/systemd/journald.conf.d/ || err "Failed to create directory"
-sudo tee /etc/systemd/journald.conf.d/99-journal-size.conf << EOF || err "Failed to write configuration"
+sudo mkdir -p /etc/systemd/journald.conf.d/ || err "Failed to create directory."
+sudo tee /etc/systemd/journald.conf.d/99-journal-size.conf << EOF || err "Failed to write journal size config."
 [Journal]
 SystemMaxUse=50M
 EOF
 
 # PAM configuration
 log "Appending ZDOTDIR to pam_env.conf..."
-sudo cp /etc/security/pam_env.conf /etc/security/pam_env.conf.bak
-sudo tee -a /etc/security/pam_env.conf <<EOF
+if ! sudo cp /etc/security/pam_env.conf /etc/security/pam_env.conf.bak; then
+  err "Failed to backup pam_env.conf."
+fi
+
+if ! sudo tee -a /etc/security/pam_env.conf <<EOF
 ZDOTDIR DEFAULT=$HOME/.config/zsh
 EOF
+then
+  err "Failed to append ZDOTDIR to pam_env.conf."
+fi
 
 # Podman configuration
 log "Configuring user subuids/subgids for Podman..."
-sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
+if ! sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"; then
+  err "Failed to configure user subuids/subgids for Podman."
+fi
 
 log "Setting container registry search order..."
-sudo tee /etc/containers/registries.conf.d/99-unqualified-search-registries.conf >/dev/null <<EOF
+if ! sudo tee /etc/containers/registries.conf.d/99-unqualified-search-registries.conf >/dev/null <<EOF
 unqualified-search-registries = ["docker.io"]
 EOF
+then
+  err "Failed to set container registry search order."
+fi
 
 # Create Chromium policies directory and configuration files
 log "Creating Chromium policy configuration..."
-sudo mkdir -p /etc/chromium/policies/managed || err "Failed to create Chromium policies directory"
+sudo mkdir -p /etc/chromium/policies/managed || err "Failed to create Chromium policies directory."
 
 # Create 99-doh.json
 if ! sudo tee /etc/chromium/policies/managed/99-doh.json > /dev/null << 'EOF'
@@ -100,7 +111,7 @@ if ! sudo tee /etc/chromium/policies/managed/99-doh.json > /dev/null << 'EOF'
 }
 EOF
 then
-  err "Failed to create /etc/chromium/policies/managed/99-doh.json"
+  err "Failed to create /etc/chromium/policies/managed/99-doh.json."
 fi
 
 # Create 99-dohserver.json
@@ -110,7 +121,7 @@ if ! sudo tee /etc/chromium/policies/managed/99-dohserver.json > /dev/null << 'E
 }
 EOF
 then
-  err "Failed to create /etc/chromium/policies/managed/99-dohserver.json"
+  err "Failed to create /etc/chromium/policies/managed/99-dohserver.json."
 fi
 
 # Create 99-genai.json
@@ -120,9 +131,9 @@ if ! sudo tee /etc/chromium/policies/managed/99-genai.json > /dev/null << 'EOF'
 }
 EOF
 then
-  err "Failed to create /etc/chromium/policies/managed/99-genai.json"
+  err "Failed to create /etc/chromium/policies/managed/99-genai.json."
 fi
 
-log "Chromium policy configuration complete"
+log "Chromium policy configuration complete."
 
-log "System configuration complete"
+log "System configuration complete."

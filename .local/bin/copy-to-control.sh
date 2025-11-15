@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copy Firefox browser profiles to a control location, alias: ctc
+# Copy Chromium and Firefox browser configs to a control location, alias: ctc
 
 set -euo pipefail
 
