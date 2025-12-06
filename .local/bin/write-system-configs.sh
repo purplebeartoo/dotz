@@ -20,9 +20,8 @@ log "Rebuilding bat syntax cache..."
 run bat cache --build
 
 # Install Yazi plugins and flavors
-log "Ensuring Yazi Yatline plugin is installed..."
-[ -d "$HOME/.config/yazi/plugins/yatline.yazi" ] || \
-  run git clone https://github.com/imsi32/yatline.yazi.git "$HOME/.config/yazi/plugins/yatline.yazi"
+log "Installing Yazi Yatline plugin..."
+run ya pkg add imsi32/yatline
 
 log "Installing Yazi Tokyo Night flavor..."
 run ya pkg add BennyOe/tokyo-night
@@ -79,7 +78,7 @@ backup /etc/security/pam_env.conf
 echo -e "\nZDOTDIR DEFAULT=$HOME/.config/zsh" | sudo tee -a /etc/security/pam_env.conf > /dev/null \
   || err "Failed to append ZDOTDIR."
 
-# Podman user subuids/subgids and registry
+# Set Podman user subuids and Docker registry search
 log "Configuring Podman user subuids/subgids..."
 run sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
 
