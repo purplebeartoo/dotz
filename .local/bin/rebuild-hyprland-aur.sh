@@ -33,6 +33,7 @@ packages=(
   hypridle-git
   hyprlock-git
   hyprpaper-git
+  hyprwire-git
   xdg-desktop-portal-hyprland-git
 )
 
