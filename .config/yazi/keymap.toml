@@ -140,6 +140,7 @@ keymap = [
 	{ on = [ "g", "u" ],       run = "cd /run/media/ck",            desc = "Go to USB directories" },
 	{ on = [ "g", "v" ],       run = "cd ~/Videos",                 desc = "Go to the Videos directory" },
 	{ on = [ "g", "y" ],       run = "cd ~/.config/yazi",           desc = "Go to the yazi directory" },
+	{ on = [ "g", "z" ],       run = "cd ~/.config/zsh",            desc = "Go to the zsh directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive",            desc = "Go to a directory interactively" },
 
 	# Tabs
