@@ -42,16 +42,12 @@ download_file() {
   fi
 }
 
-echo ""
 echo "starting downloads..."
-echo ""
 for src in "${!files_to_download[@]}"; do
   url="$base_url/$src"
   dest="$tmpscripts_dir/${files_to_download[$src]}"
   download_file "$url" "$dest"
 done
 
-echo ""
 echo "all downloads complete!"
 echo "scripts available in: $tmpscripts_dir"
-echo ""

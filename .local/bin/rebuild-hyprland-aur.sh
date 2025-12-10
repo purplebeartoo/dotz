@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-# Rebuild Hyprland AUR, alias: rha
+# Rebuild Hyprland AUR packages, alias: rha
 
 set -euo pipefail
+
+# Check if paru is available
+if ! command -v paru &> /dev/null; then
+    echo "Error: paru not found. Please install paru first."
+    exit 1
+fi
 
 # Clean up cache, unused sync repositories, all AUR packages, and saved diffs
 echo "Cleaning up before rebuilding..."
@@ -13,6 +19,13 @@ fi
 rebuild_package() {
   local pkg=$1
   echo "Rebuilding $pkg..."
+
+  # Validate package exists in repositories
+  if ! paru -Sl | grep -q "^$pkg "; then
+    echo "Warning: $pkg not found in repositories, skipping..."
+    return 1
+  fi
+
   if paru --noconfirm -S --rebuild "$pkg"; then
     echo "Successfully rebuilt $pkg."
   else
@@ -21,7 +34,7 @@ rebuild_package() {
   fi
 }
 
-# Required packages
+# AUR Git packages
 packages=(
   hyprlang-git
   hyprcursor-git
@@ -31,7 +44,6 @@ packages=(
   aquamarine-git
   hyprland-guiutils-git
   hyprwire-git
-# Installed packages
   hypridle-git
   hyprlock-git
   hyprpaper-git
@@ -43,4 +55,4 @@ for pkg in "${packages[@]}"; do
   rebuild_package "$pkg"
 done
 
-echo "All packages have been rebuilt successfully."
+echo "Package rebuilds completed successfully."
