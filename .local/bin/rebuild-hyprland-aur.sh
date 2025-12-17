@@ -3,15 +3,15 @@
 
 set -euo pipefail
 
-# Check if paru is available
-if ! command -v paru &> /dev/null; then
-    echo "Error: paru not found. Please install paru first."
+# Check if yay is available
+if ! command -v yay &> /dev/null; then
+    echo "Error: yay not found. Please install paru first."
     exit 1
 fi
 
 # Clean up cache, unused sync repositories, all AUR packages, and saved diffs
 echo "Cleaning up before rebuilding..."
-if ! paru --noconfirm -Scc; then
+if ! yay --noconfirm -Scc; then
   echo "Error: Failed to clean up."
   exit 1
 fi
@@ -21,12 +21,12 @@ rebuild_package() {
   echo "Rebuilding $pkg..."
 
   # Validate package exists in repositories
-  if ! paru -Sl | grep -q "^$pkg "; then
+  if ! yay -Sl | grep -q "^$pkg "; then
     echo "Warning: $pkg not found in repositories, skipping..."
     return 1
   fi
 
-  if paru --noconfirm -S --rebuild "$pkg"; then
+  if yay --noconfirm -S --rebuild "$pkg"; then
     echo "Successfully rebuilt $pkg."
   else
     echo "Failed to rebuild $pkg. Please check the error messages above."
