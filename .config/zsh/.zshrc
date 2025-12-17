@@ -58,9 +58,9 @@ setopt rmstarsilent
 
 alias ad="age -d -o"
 alias ae="age -e -p -o"
-alias backup="$HOME/.local/bin/backup.sh"
 alias aic="$HOME/.local/bin/ai-code.sh"
 alias aig="$HOME/.local/bin/ai-general.sh"
+alias backup="$HOME/.local/bin/backup.sh"
 alias cat="bat -p"
 alias cc="wl-copy -c"
 alias ctc="$HOME/.local/bin/copy-to-control.sh"
@@ -68,7 +68,6 @@ alias dg="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
 alias dotoff="$HOME/.local/bin/dotoff.sh"
 alias doton="$HOME/.local/bin/doton.sh"
 alias f='handlr open $(fzf) && exit'
-alias hfs="$HOME/.local/bin/hyprland-from-source.sh"
 alias ls="eza -l -g --hyperlink --group-directories-first --icons -t modified"
 alias lsa="eza -a -l -g --hyperlink --group-directories-first --icons -t modified"
 alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
@@ -76,7 +75,6 @@ alias mpv='io.mpv.Mpv'
 alias nt="nvim $HOME/Documents/linuxnotes.txt"
 alias osp="$HOME/.local/bin/ollama-stop.sh"
 alias ost="$HOME/.local/bin/ollama-start.sh"
-alias rha="$HOME/.local/bin/rebuild-hyprland-aur.sh"
 alias rs="$HOME/.local/bin/ripgrep-search.sh"
 alias rup="$HOME/.local/bin/remove-unneeded-packages.sh"
 alias sbk="$HOME/.local/bin/sync-backup.sh"
@@ -90,6 +88,7 @@ alias wo="sudo systemctl start NetworkManager.service"
 
 eval "$(zoxide init zsh)"
 
+# change to current working directory when exiting yazi
 function rr() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
