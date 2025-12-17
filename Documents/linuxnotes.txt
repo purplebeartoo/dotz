@@ -1,0 +1,278 @@
+#####################################################################################
+MISC MAJIK
+
+podman exec -it ollama ollama rm gemma3:12b-it-qat
+
+escape: \^$.|?*+()[{
+
+sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
+
+show numerical file permissions: stat -c '%a' ~/.local/bin/*
+
+list running daemons: pgrep daemon | xargs ps -p
+
+paru -Sccdd
+sudo pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | paru -Syu --rebuild --rebuild=all --noconfirm
+
+sudo kill -9 pid
+
+gpg --keyserver-options auto-key-retrieve --verify archlinux-*-x86_64.iso.sig
+
+nvim reformat columns: %!column -t 
+nvim sort by the 12th column  :sort f /\v^(.{-},){12}/
+
+grep -i upgraded /var/log/pacman.log
+
+sudo btrfs fi usage /mnt
+
+pacman -Qq | wc -l
+
+MOZ_LOG="FFmpegVideo:5"
+
+sudo libinput list-devices
+
+eza -a --bytes -l -g --group-directories-first --icons -t modified -s name
+
+sudo journalctl --since "2020-12-10 17:15:00"
+
+count lines recursively in a directory: wc -l ~/path
+
+burn iso to USB: sudo dd bs=4M if=input.iso of=/dev/sd<?>
+overwrite USB with random: dd if=/dev/urandom of=/dev/sdg1
+
+find lines in file1 that are not present in file2
+diff --new-line-format="" --unchanged-line-format="" <(sort file1) <(sort file2) > output
+
+du -h --max-depth=1 ~/ | sort -h
+
+list packages by install/unpdate date: expac --timefmt='%F %T' '%l %n' | sort -n
+
+print files modified today: find / -mtime -1 > test
+
+find files larger than 5M: find /where -size +5M -ls
+
+find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
+
+imv -t 3  ~/Pictures/202*/*.jpg(om)
+
+/etc/fstab fmask=0137,dmask=0027
+
+echo /var/log/messages*        # usual lexicographic order
+echo /var/log/messages*(On)    # reverse lexicographic order
+echo /var/log/messages*(om)    # reverse chronological order (ascending mtime)
+echo /var/log/messages*(Om)    # chronological order order (descending mtime)
+
+######################################################################################
+WEBSITES
+
+https://github.com/AnirudhG07/awesome-yazi
+https://devhints.io/vim
+https://github.com/yokoffing/NextDNS-Config
+https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+https://cs.lmu.edu/~ray/notes/regex/
+
+######################################################################################
+GPG
+         
+s2k-cipher-algo AES256
+s2k-count 65011712
+s2k-digest-algo SHA512
+
+gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo TWOFISH --s2k-digest-algo SHA512
+gpg --symmetric --s2k-mode 3 --s2k-count 65011712 --s2k-cipher-algo AES256 --s2k-digest-algo SHA512
+
+######################################################################################
+LUKS
+
+sudo cryptsetup luksAddKey /dev/sda5
+sudo cryptsetup luksDump /dev/nvme0n1p2
+sudo cryptsetup luksDump /dev/nvme0n1p2  | grep "Version\|KDF"
+sudo cryptsetup luksRemoveKey /dev/sda5
+
+######################################################################################
+RNG
+
+</dev/random tr -dc "[:print:]" | fold -w26 | head -n10
+</dev/random tr -dc "[:alnum:]" | fold -w30 | head -n10
+</dev/random tr -dc "1-6" | fold -w6 | head -n10
+
+######################################################################################
+WIFI
+
+iwd:
+station wlan0 disconnect
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect mynet
+
+network manager:
+sudo nmcli device wifi connect SSID -ask
+sudo systemctl start NetworkManager.service
+nmcli device wifi list
+sudo nmcli device wifi connect SSID_or_BSSID password password
+_________________
+
+nmcli radio wifi off
+sudo systemctl restart NetworkManager
+
+######################################################################################
+INSTALL
+
+* base, base-devel, linux, linux-firmware, amd-ucode
+* hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland
+* podman rocm-smi-lib
+
+age apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd \
+ffmpeg firefox flatpak fuzzel fzf galculator gcr git grim gvfs handlr hypridle \
+hyprland hyprlang hyprlock hyprpaper imagemagick imv kvantum libmad libva-mesa-driver \
+libzip linux-headers luarocks man-db meld mesa nemo neovim noto-fonts noto-fonts-emoji \
+otf-font-awesome pam-u2f pavucontrol playerctl podman polkit-gnome poppler python-pillow \
+qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp \
+starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common \
+ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar \
+wget wl-clipboard xdg-desktop-portal-hyprland xdg-user-dirs yazi zip zoxide zsh \
+zsh-autosuggestions zsh-syntax-highlighting
+_________________
+
+ 1. backup
+ 2. git checkout
+ 3. write system configs (wsc)
+ 4. reboot
+ 5. chsh -s $(which zsh)
+ 6. TSInstall hyprlang
+ 7. /org/cinnamon/desktop/privacy
+    /org/gnome/desktop/privacy 
+    /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
+    /org/gnome/desktop/interface/icon-theme/Yaru-Blue
+ 8. doton
+ 9. verify local bash permissions
+ 9. run upo
+10. harden.sh
+_________________
+
+git bare:
+alias dg='/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME'
+git clone --bare https://github.com/purplebeartoo/dotz.git $HOME/.dotz
+dg checkout
+dg config --local status.showUntrackedFiles no
+
+dg add /path/to/file
+dg commit -m "A short message"
+dg push https://github.com/purplebeartoo/dotz.git
+dg push git@github.com:purplebeartoo/dotz.git
+
+git clone --recursive https://github.com/hyprwm/Hyprland
+git reset --hard <commit#>
+
+######################################################################################
+MAINTENANCE
+
+cat /proc/cmdline
+cat /sys/kernel/security/lockdown
+grep . /sys/devices/system/cpu/vulnerabilities/*
+modprobe -c | grep 'blacklist\|install'
+
+dg ls-tree --full-tree -r HEAD > ~/Documents/git-bare-tracked-"$(date +"%Y%m%d").txt"
+pacman -Qqe > ~/Documents/pkglist-"$(date +"%Y%m%d")"
+paru -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
+
+sudo sysctl -a | grep ptrace
+pacman -Qtdq | pacman -Rns -
+pacman -Qqd | pacman -Rsu -
+
+pacman -Qm (list aur packages)
+sudo systemctl --failed
+sudo journalctl -p 3 -xb
+sudo journalctl -p err..alert
+_________________
+
+Browsers:
+firefox:
+light theme with dark system theme, create:
+ui.systemUsesDarkTheme (Number) with value 0
+
+browser.compactmode.show
+browser.search.serpEventTelemetryCategorization.enabled
+browser.tabs.tabmanager.enabled
+browser.translations.enable
+browser.urlbar.suggest.trending
+extensions.pocket.enabled
+media.ffmpeg.vaapi.enabled
+browser.tabs.maxOpenBeforeWarn
+
+*toolkit.legacyUserProfileCustomizations.stylesheets
+
+brave:
+brave://settings/extensions/v2
+
+chromium:
+chrome://flags/#optimization-guide-on-device-model = Enabled BypassPrefRequirement
+chrome://flags/#ai-mode-omnibox-entry-point = disabled
+_________________
+
+grub:
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+_________________
+
+images:
+orientation
+paru -S fbida
+exiftran -ai *.jpg
+
+exiftool -all= *.*
+exiftool -r -gps:all= directory
+exiftool -r "-gps*="  directory
+
+gmic: normalize brightness
+_________________
+
+openrgb:
+openrgb --mode static --color FF0000
+_________________
+usbguard:
+sudo usbguard list-devices -b #list blocked
+sudo usbguard allow-device {device_ID} #temporarily allow
+sudo usbguard allow-device {device_ID} -p #permanently allow
+_________________
+
+vpn:
+sudo nmcli connection import type wireguard file /home/ck/Downloads/wg0.conf
+nmcli c up wg0
+sudo nmcli connection delete wg0
+
+######################################################################################
+REG/SED/TR
+
+[^-_#. a-zA-Z0-9]      - any character that is not a hyphen, underscore, hash, period, space, or alphanumeric
+%s/pattern//gn         - count number of matches
+'s/[[:space:]]*#.*//'  - delete a hash, any preceding spaces, and the characters that follow it
+'s/string//g'          - delete a string
+'s/^.*toad/toad/'      - delete any characters before toad
+'/^$/d'                - delete empty lines
+'/^\s*$/d'             - delete empty lines with whitespace characters 
+'1d'                   - delete first line in a file
+'/[ #]/d'              - delete lines containing a pace or a hash
+'/pattern to match/d'  - delete lines containing a pattern
+'/!/d'                 - delete lines containing an exclamation
+ '/^f$/d'              - delete lines containing only an f
+'/\[[^]]*\]/d'         - delete lines containing text within brackets
+'\?^/?d'               - delete lines that begin with a forward slash
+'/^#/d'                - delete lines that begin with a hash
+'/string$/d'           - delete lines that end with a string
+'/\./!d'               - delete lines without a dot 
+'/[a-zA-Z]/!d'         - delete lines without letters
+%s/foo/bar/gc          - find and replace with confirmation
+s/foo/bar/g            - find and replace within selection
+g/[^-_#. a-zA-Z0-9]    - find unacceptable hosts characters
+%s/#!/\r#!/gc          - place a new line before #!
+'s/^/0.0.0.0 /'        - prepend 0.0.0.0 to lines followed by a space
+$.*[\^                 - quote, except inside character sets ([…])
+%s/\r//g               - remove new line ^M
+'s/[[:space:]]\+/ /g'  - replace all tabs and spaces with a single space
+'s/foo/bar/g'          - replace foo with bar
+'%s/\t/  /g'           - replace tab with 2 spaces
+\%V                    - search block selection - /searchterm\%V 
+
+replace | with newline:
+cat test | tr "\n" " "> catted

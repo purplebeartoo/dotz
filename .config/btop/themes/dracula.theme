@@ -1,0 +1,85 @@
+# Theme: modded to Dracula
+# By: Pascal Jaeger
+
+# Main bg
+theme[main_bg]="#282a36"
+
+# Main text color
+theme[main_fg]="#f8f8f2"
+
+# Title color for boxes
+theme[title]="#f8f8f2"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#bd93f9"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#414868"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#f8f8f2"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#565f89"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#bd93f9"
+
+# Cpu box outline color
+theme[cpu_box]="#ffb86c"
+
+# Memory/disks box outline color
+theme[mem_box]="#ffb86c"
+
+# Net up/down box outline color
+theme[net_box]="#ffb86c"
+
+# Processes box outline color
+theme[proc_box]="#ffb86c"
+pestheme[process_end]="#bd93f9"
+
+# Box divider line and small boxes line color
+theme[div_line]="#565f89"
+
+# Temperature graph colors
+theme[temp_start]="#50fa7b"
+theme[temp_mid]="#ffb86c"
+theme[temp_end]="#bd93f9"
+
+# CPU graph colors
+theme[cpu_start]="#50fa7b"
+theme[cpu_mid]="#ffb86c"
+theme[cpu_end]="#bd93f9"
+
+# Mem/Disk free meter
+theme[free_start]="#50fa7b"
+theme[free_mid]="#ffb86c"
+theme[free_end]="#bd93f9"
+
+# Mem/Disk cached meter
+theme[cached_start]="#50fa7b"
+theme[cached_mid]="#ffb86c"
+theme[cached_end]="#bd93f9"
+
+# Mem/Disk available meter
+theme[available_start]="#50fa7b"
+theme[available_mid]="#ffb86c"
+theme[available_end]="#bd93f9"
+
+# Mem/Disk used meter
+theme[used_start]="#50fa7b"
+theme[used_mid]="#ffb86c"
+theme[used_end]="#bd93f9"
+
+# Download graph colors
+theme[download_start]="#50fa7b"
+theme[download_mid]="#ffb86c"
+theme[download_end]="#bd93f9"
+
+# Upload graph colors
+theme[upload_start]="#50fa7b"
+theme[upload_mid]="#ffb86c"
+theme[upload_end]="#bd93f9"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#ffb86c"

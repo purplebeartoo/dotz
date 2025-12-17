@@ -1,0 +1,153 @@
+{
+    "layer": "top",
+    "margin-top": 14,
+    "position": "top",
+    "width": 2800,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/updates",
+        "idle_inhibitor",
+        "systemd-failed-units",
+        "network",
+        "temperature",
+        "disk",
+        "cpu",
+        "memory",
+        "pulseaudio"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "active": "",
+            "default": "",
+            "special": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "active-only": false,
+        "all-outputs": true,
+        "show-special": true,
+        "sort-by-number": true
+    },
+    "clock": {
+        "format": "  {:%a, %b %d, %I:%M %p}",
+        "format-alt": "  {:%a, %b %d, %I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#e0af68'><b>{}</b></span>",
+                "days": "<span color='#cfc9c2'><b>{}</b></span>",
+                "weekdays": "<span color='#bb9af7'><b>{}</b></span>",
+                "today": "<span color='#2ac3de'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "tray": {
+        "icon-size": 26,
+        "spacing": 10
+    },
+    "custom/updates": {
+        "format": "{icon} {0}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates":"󱍷 ",
+            "updated":"󰂪 "
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 900"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": true,
+        "format-icons": {
+            "activated": "󰅶  Wake",
+            "deactivated": "󰾪  Idle"
+        },
+        "on-click-right": "hyprlock"
+    },
+    "systemd-failed-units": {
+        "hide-on-ok": false,
+        "format": " {nr_failed}",
+        "format-ok": "",
+        "system": true,
+        "user": false
+    },
+    "network": {
+        "format-wifi": "󰖩  {essid}",
+        "format-ethernet": "  {ipaddr}/{cidr}",
+        "tooltip-format": "  {ifname} via {gwaddr} {signalStrength}%",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "󰖪  Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 85,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            " ",
+            "",
+            " "
+        ],
+        "tooltip": false
+    },
+    "disk": {
+        "interval": 30,
+        "format": "   {percentage_free}%",
+        "tooltip": false,
+        "path": "/"
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "  {}%",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                " ",
+                " ",
+                " "
+            ],
+            "format-muted": "ﱝ Muted"
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 3,
+        "tooltip": true
+    }
+}

@@ -1,0 +1,5 @@
+[General]
+theme=Kvantum-Tokyo-Night
+
+[Applications]
+Kvantum-Tokyo-Night=keepassxc
