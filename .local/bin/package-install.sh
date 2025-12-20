@@ -62,4 +62,4 @@ yay -S bubblejail rose-pine-cursor rose-pine-hyprcursor tokyonight-gtk-theme-git
   exit 1
 }
 
-echo "AUR package installation complete."
+echo "Package installation complete."
