@@ -68,6 +68,7 @@ alias dg="/usr/bin/git --git-dir=$HOME/.dotz/ --work-tree=$HOME"
 alias dotoff="$HOME/.local/bin/dotoff.sh"
 alias doton="$HOME/.local/bin/doton.sh"
 alias f='handlr open $(fzf) && exit'
+alias hfs="$HOME/.local/bin/hyprland-from-source.sh"
 alias ls="eza -l -g --hyperlink --group-directories-first --icons -t modified"
 alias lsa="eza -a -l -g --hyperlink --group-directories-first --icons -t modified"
 alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
@@ -75,6 +76,7 @@ alias mpv='io.mpv.Mpv'
 alias nt="nvim $HOME/Documents/linuxnotes.txt"
 alias osp="$HOME/.local/bin/ollama-stop.sh"
 alias ost="$HOME/.local/bin/ollama-start.sh"
+alias rha="$HOME/.local/bin/rebuild-hyprland-aur.sh"
 alias rs="$HOME/.local/bin/ripgrep-search.sh"
 alias rup="$HOME/.local/bin/remove-unneeded-packages.sh"
 alias sbk="$HOME/.local/bin/sync-backup.sh"
