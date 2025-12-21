@@ -50,6 +50,7 @@ fi
 
 # Define mapping of source filenames to destination name
 declare -A files_to_download=(
+  [hyprland-from-source.sh]="hfs"
   [manual-build-install.sh]="mbinst"
   [package-install.sh]="packinst"
   [write-system-configs.sh]="wsc"
