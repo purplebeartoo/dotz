@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Install pacman packages
 echo "Installing Pacman packages..."
-sudo pacman -S age apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg firefox flatpak fuzzel fzf galculator gcr git grim gvfs handlr hypridle hyprland hyprlang hyprlock hyprpaper imagemagick imv kvantum libmad libva-mesa-driver libzip linux-headers luarocks man-db meld mesa nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wget wl-clipboard xdg-desktop-portal-hyprland xdg-user-dirs yazi zip zoxide zsh zsh-autosuggestions zsh-syntax-highlighting || {
+sudo pacman -S age apparmor bat btop chromium cmus cronie dconf-editor dunst eza fastfetch fd ffmpeg firefox flatpak fuzzel fzf galculator gcr git grim gvfs handlr imagemagick imv kvantum libmad libva-mesa-driver libzip linux-headers luarocks man-db meld mesa nemo neovim noto-fonts noto-fonts-emoji otf-font-awesome pam-u2f pavucontrol playerctl podman polkit-gnome poppler python-pillow qt5-wayland qt6-wayland reflector ripgrep rocm-smi-lib rsync slirp4netns slurp starship timeshift ttf-cascadia-code-nerd ttf-dejavu ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono tumbler ufw unzip usbguard usbutils vulkan-radeon waybar wget wl-clipboard xdg-user-dirs yazi zip zoxide zsh zsh-autosuggestions zsh-syntax-highlighting || {
   echo "Pacman packages failed to install."
   exit 1
 }
