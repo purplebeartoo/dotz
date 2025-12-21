@@ -10,6 +10,13 @@ sudo pacman -S age apparmor bat btop chromium cmus cronie dconf-editor dunst eza
   exit 1
 }
 
+ # Uncomment for Hyprland stable install
+ # echo "Installing Pacman packages..."
+ # sudo pacman -S hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland || {
+ #   echo "Hyprland repo packages failed to install."
+ #   exit 1
+ # }
+
 # Flatpak setup and installation
 echo "Adding Flatpak repository..."
 flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo || {
