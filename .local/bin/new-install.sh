@@ -79,11 +79,21 @@ for src in "${!files_to_download[@]}"; do
 done
 
 # Download linuxnotes.txt to root directory
-echo -n "downloading https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes.txt ... "
+echo -n "downloading https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes.txt... "
 if wget --quiet -O "$HOME/linuxnotes" "https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes.txt"; then
   echo "done."
 else
   echo "linuxnotes download failed!"
+  exit 1
+fi
+
+# Download hyprland.conf to .config/hypr
+mkdir -p "$HOME/.config/hypr"
+echo -n "downloading https://raw.githubusercontent.com/purplebeartoo/dotz/master/.config/hypr/hyprland.conf... "
+if wget --quiet -O "$HOME/.config/hypr/hyprland.conf" "https://raw.githubusercontent.com/purplebeartoo/dotz/master/.config/hypr/hyprland.conf"; then
+  echo "done."
+else
+  echo "hyprland.conf download failed!"
   exit 1
 fi
 
