@@ -13,7 +13,7 @@ log "Syncing configuration from backup..."
 run rsync -a "$HOME"/Downloads/.local/share/{bubblejail,zoxide} "$HOME"/.local/share
 run rsync -a "$HOME"/Downloads/.config/{chromium,bat,Kvantum,nextdns} "$HOME"/.config
 run rsync -a "$HOME"/Downloads/{.mozilla,.ssh,BrowserProfiles,Packages,Pictures,Playlists,Videos} "$HOME"
-run rsync -a --exclude "linuxnotes.txt" "$HOME"/Downloads/Documents "$HOME"
+run rsync -a --exclude "linuxnotes" "$HOME"/Downloads/Documents "$HOME"
 
 # Build bat cache
 log "Rebuilding bat syntax cache..."

@@ -79,9 +79,9 @@ for src in "${!files_to_download[@]}"; do
   download_file "$url" "$dest"
 done
 
-# Download linuxnotes.txt to root directory
-echo -n "downloading https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes.txt... "
-if wget --quiet -O "$HOME/linuxnotes" "https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes.txt"; then
+# Download linuxnotes to root directory
+echo -n "downloading https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes..."
+if wget --quiet -O "$HOME/linuxnotes" "https://raw.githubusercontent.com/purplebeartoo/dotz/master/Documents/linuxnotes"; then
   echo "done."
 else
   echo "linuxnotes download failed!"
