@@ -107,5 +107,5 @@ function rr() {
 
 if [[ "$(tty)" =~ "/pts/" ]]; then
   eval "$(starship init zsh)"
-  sleep 0.05 && fastfetch
+  fastfetch
 fi
