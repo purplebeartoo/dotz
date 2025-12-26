@@ -28,4 +28,4 @@ echo "Cleaning up package cache..."
 sudo pacman -Scc --noconfirm
 echo "Package cache cleaned successfully."
 
-echo "System cleanup completed successfully."
+echo "Package cleanup completed successfully."
