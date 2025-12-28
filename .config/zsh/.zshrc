@@ -58,8 +58,6 @@ setopt rmstarsilent
 
 alias ad="age -d -o"
 alias ae="age -e -p -o"
-alias aic="$HOME/.local/bin/ai-code.sh"
-alias aig="$HOME/.local/bin/ai-general.sh"
 alias backup="$HOME/.local/bin/backup.sh"
 alias cat="bat -p"
 alias cc="wl-copy -c"

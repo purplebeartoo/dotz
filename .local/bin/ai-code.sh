@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run the coding AI, alias: aic
+# Run the coding AI, launches AI terminal client via Ctrl+numpad4
 
 set -euo pipefail
 
@@ -17,7 +17,7 @@ fi
 
 # Check if the container is running, if not start it
 if ! podman ps --format '{{.Names}}' | grep -qx "$container"; then
-  podman start "$container" || { err "Failed to start $container"; exit 1; }
+  podman start "$container" >/dev/null 2>&1 || { err "Failed to start $container"; exit 1; }
 fi
 
 # Check if the specified model is available in the container, if not pull it
