@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run the coding AI, launches AI terminal client via Ctrl+numpad4
+# Run the coding AI, launches AI terminal client via Ctrl+Numpad 4
 
 set -euo pipefail
 

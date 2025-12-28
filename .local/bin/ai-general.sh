@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run the general use AI, launches AI terminal client via Ctrl+numpad5
+# Run the general use AI, launches AI terminal client via Ctrl+Numpad 5
 
 set -euo pipefail
 
