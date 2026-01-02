@@ -1,57 +1,71 @@
 #!/usr/bin/env bash
-# Remove unneeded packages and clean package cache, alias: rup
+# rup – Remove unneeded packages and clean caches
 
 set -euo pipefail
+IFS=$'\n\t'
 
-# Function to check if a command was successful
-check_command_success() {
-    if [[ $? -ne 0 ]]; then
-        echo "Error occurred during the last operation. Exiting."
-        exit 1
+# Helper: formatted log messages
+log() {
+    local level="$1"
+    shift
+    printf '[%s] %s\n' "$level" "$*"
+}
+
+# Prompt for sudo once (so we don’t keep asking for a password)
+if ! sudo -v; then
+    log "ERROR" "Cannot obtain sudo privileges – aborting."
+    exit 1
+fi
+
+# Wrapper to run a command and report success / failure
+run_clean() {
+    local description="$1"
+    shift
+    if "$@"; then
+        log "OK" "$description"
+    else
+        log "WARN" "Failed to $description"
     fi
 }
 
-# Remove orphaned packages
-echo "Removing orphaned packages..."
-orphaned=$(pacman -Qdtq || true)  # Allow command to fail if no orphans found
-if [[ -n "$orphaned" ]]; then
-  sudo pacman -Rns --noconfirm "$orphaned"
-  check_command_success
-  echo "Orphaned packages removed successfully."
+# Remove orphaned packages (those not required by any installed pkg)
+log "INFO" "Scanning for orphaned packages…"
+mapfile -t orphaned < <(pacman -Qdtq || true)   # Capture list; ignore error if none
+
+if (( ${#orphaned[@]} )); then
+    run_clean "remove orphaned packages" \
+        sudo pacman -Rns --noconfirm "${orphaned[@]}"
 else
-  echo "No orphaned packages found."
+    log "INFO" "No orphaned packages found."
 fi
 
-# Remove debug packages
-echo "Removing packages ending with .debug..."
-debug_packages=$(pacman -Qq | grep '\.debug$' || true)  # Allow grep to fail if no .debug packages found
-if [[ -n "$debug_packages" ]]; then
-  sudo pacman -Rns --noconfirm "$debug_packages"
-  check_command_success
-  echo "Packages ending with .debug removed successfully."
+# Remove packages whose names end with `.debug`
+log "INFO" "Scanning for *.debug packages…"
+mapfile -t debug_pkgs < <(pacman -Qq | grep '\.debug$' || true)
+
+if (( ${#debug_pkgs[@]} )); then
+    run_clean "remove *.debug packages" \
+        sudo pacman -Rns --noconfirm "${debug_pkgs[@]}"
 else
-  echo "No .debug packages found."
+    log "INFO" "No *.debug packages found."
 fi
 
-# Clean up package cache by removing all cached packages
-echo "Cleaning up package cache..."
-if sudo rm -rf /var/cache/pacman/pkg/*; then
-    echo "Cache directory cleared."
+# Delete everything under Pacman’s cache directory
+run_clean "clear Pacman package cache directory" \
+    sudo rm -rf /var/cache/pacman/pkg/*
+
+# Run pacman’s own cache‑cleaner (also wipes sync DB files)
+run_clean "clean Pacman cache via pacman -Scc" \
+    sudo pacman -Scc --noconfirm
+
+# Clean yay’s cache
+yay_cache="${HOME}/.cache/yay"
+if [[ -d "$yay_cache" ]]; then
+    run_clean "clear yay cache directory" \
+        rm -rf "${yay_cache:?}"/*
 else
-    echo "Failed to clean the cache directory. Proceeding with pacman cleanup anyway."
+    log "INFO" "Yay cache directory not found at $yay_cache."
 fi
 
-# Remove all cached packages from pacman
-sudo pacman -Scc --noconfirm
-check_command_success
-echo "Package cache cleaned successfully."
-
-# Clean up Yay cache
-echo "Cleaning up Yay cache..."
-if [[ -d "$HOME/.cache/yay" ]]; then
-  rm -rf "$HOME/.cache/yay"/*
-  check_command_success
-  echo "Yay cache cleaned successfully."
-else
-  echo "Yay cache directory not found."
-fi
+# Done!
+log "INFO" "All clean‑up steps completed successfully."
