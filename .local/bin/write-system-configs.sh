@@ -20,14 +20,11 @@ log "Rebuilding bat syntax cache..."
 run bat cache --build
 
 # Install Yazi plugins and flavors
-log "Installing Yazi Yatline plugin..."
-run ya pkg add imsi32/yatline
+log "Installing Yaziline plugin..."
+run ya pkg add llanosrocas/yaziline
 
 log "Installing Yazi Tokyo Night flavor..."
 run ya pkg add BennyOe/tokyo-night
-
-log "Installing Yatline Tokyo Night plugin for Yazi..."
-run ya pkg add wekauwau/yatline-tokyo-night
 
 # Enable Pipewire and Wireplumber user services
 log "Enabling Pipewire & Wireplumber user services..."
