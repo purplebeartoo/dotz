@@ -1,6 +1,8 @@
 #####################################################################################
 MISC MAJIK
 
+replace newline with space: paste -sd ' ' in > out
+
 podman exec -it ollama ollama rm gemma3:12b-it-qat
 
 escape: \^$.|?*+()[{
@@ -271,7 +273,4 @@ $.*[\^                 - quote, except inside character sets ([…])
 's/[[:space:]]\+/ /g'  - replace all tabs and spaces with a single space
 's/foo/bar/g'          - replace foo with bar
 '%s/\t/  /g'           - replace tab with 2 spaces
-\%V                    - search block selection - /searchterm\%V 
-
-replace | with newline:
-cat test | tr "\n" " "> catted
+\%V                    - search block selection - /searchterm\%V
