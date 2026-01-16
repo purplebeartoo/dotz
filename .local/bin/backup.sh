@@ -46,7 +46,6 @@ directories=(
   ".local/share/bubblejail"
   ".local/share/flatpak/overrides"
   ".local/share/zoxide"
-  ".mozilla"
   ".ssh"
   "BrowserProfiles"
   "Documents"
