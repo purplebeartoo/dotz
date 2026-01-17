@@ -64,7 +64,7 @@ fi
 
 # Install AUR packages
 echo "Installing AUR packages..."
-yay -S bubblejail rose-pine-cursor rose-pine-hyprcursor tokyonight-gtk-theme-git waybar-module-pacman-updates-git yaru-colors-icon-theme || {
+yay -S bubblejail rose-pine-cursor rose-pine-hyprcursor tokyonight-gtk-theme-git waybar-module-pacman-updates-git || {
   echo "Error: Failed to install AUR packages. Check yay logs."
   exit 1
 }

@@ -144,7 +144,7 @@ _________________
  7. /org/cinnamon/desktop/privacy
     /org/gnome/desktop/privacy 
     /org/gnome/desktop/wm/preferences/button-layout/custom-value/appmenu
-    /org/gnome/desktop/interface/icon-theme/Yaru-Blue
+    /org/gnome/desktop/interface/icon-theme/Tokyonight-Dark-Cyan
  8. doton
  9. verify local bash permissions
  9. run upo

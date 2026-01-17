@@ -50,12 +50,12 @@ else
   log "Tokyonight Dark theme not found. Skipping."
 fi
 
-log "Copying Yaru Blue icon theme to ~/.icons..."
+log "Copying Tokyonight-Dark-Cyan icon theme to ~/.icons..."
 mkdir -p "$HOME/.icons"
-if [ -d "/usr/share/icons/Yaru-Blue" ]; then
-  run rsync -a /usr/share/icons/Yaru-Blue "$HOME/.icons/"
+if [ -d "/usr/share/icons/Tokyonight-Dark-Cyan" ]; then
+  run rsync -a /usr/share/icons/Tokyonight-Dark-Cyan "$HOME/.icons/"
 else
-  log "Yaru Blue icons not found. Skipping."
+  log "Tokyonight-Dark-Cyan icons not found. Skipping."
 fi
 
 log "Setting GTK theme to Tokyonight-Dark..."
