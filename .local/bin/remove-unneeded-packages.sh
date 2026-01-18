@@ -4,14 +4,14 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Helper: formatted log messages
+# Format log messages
 log() {
     local level="$1"
     shift
     printf '[%s] %s\n' "$level" "$*"
 }
 
-# Prompt for sudo once (so we don’t keep asking for a password)
+# Prompt for sudo
 if ! sudo -v; then
     log "ERROR" "Cannot obtain sudo privileges – aborting."
     exit 1
@@ -28,7 +28,7 @@ run_clean() {
     fi
 }
 
-# Remove orphaned packages (those not required by any installed pkg)
+# Remove orphaned packages
 log "INFO" "Scanning for orphaned packages…"
 mapfile -t orphaned < <(pacman -Qdtq || true)   # Capture list; ignore error if none
 
@@ -50,7 +50,7 @@ else
     log "INFO" "No *.debug packages found."
 fi
 
-# Delete everything under Pacman’s cache directory
+# Delete everything under pacman’s cache directory
 run_clean "clear Pacman package cache directory" \
     sudo rm -rf /var/cache/pacman/pkg/*
 

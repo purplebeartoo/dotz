@@ -14,7 +14,7 @@ if [ "$(podman inspect -f '{{.State.Running}}' ollama)" != "true" ]; then
   podman start ollama
 fi
 
-# Wait for Ollama service to initialize (max 10s)
+# Wait for ollama service to initialize (max 10s)
 for _ in {1..10}; do
   if podman exec ollama ollama list >/dev/null 2>&1; then
     break

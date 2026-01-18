@@ -11,20 +11,20 @@ sudo pacman -S age apparmor bat btop chromium cmus cronie dconf-editor dunst eza
 }
 
  # Uncomment for Hyprland stable install
- # echo "Installing Pacman packages..."
+ # echo "Installing Hyprland packages..."
  # sudo pacman -S hypridle hyprland hyprlang hyprlock hyprpaper xdg-desktop-portal-hyprland || {
  #   echo "Hyprland repo packages failed to install."
  #   exit 1
  # }
 
 # Flatpak setup and installation
-echo "Adding Flatpak repository..."
+echo "Adding Flathub flatpak repository..."
 flatpak remote-add --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo || {
   echo "Error: Failed to add Flatpak repository. Check your internet connection."
   exit 1
 }
 
-echo "Installing Flatpak applications..."
+echo "Installing flatpak applications..."
 flatpak install -y --user --noninteractive flathub com.github.tchx84.Flatseal || {
   echo "Error: Failed to install com.github.tchx84.Flatseal."
   exit 1
@@ -54,7 +54,7 @@ echo "Creating user directories"
   exit 1
 }
 
-echo "Pacman and Flatpak installation complete."
+echo "Pacman and flatpak installations complete."
 
 # Check if yay is available
 if ! command -v yay &> /dev/null; then
@@ -69,4 +69,4 @@ yay -S bubblejail gtk-engine-murrine rose-pine-cursor rose-pine-hyprcursor tokyo
   exit 1
 }
 
-echo "Package installation complete."
+echo "Package installations complete."

@@ -7,11 +7,11 @@ container="${1:-ollama}"
 model="${2:-hf.co/unsloth/Qwen3-30B-A3B-Thinking-2507-GGUF:Q3_K_XL}"
 
 # Error handling function that outputs to stderr
-err() { echo "error: $*" >&2; }
+err() { echo "Error: $*" >&2; }
 
 # Check if the specified container exists
 if ! podman container exists "$container"; then
-  err "container '$container' does not exist. Please create it first."
+  err "Container '$container' does not exist. Please create it first."
   exit 1
 fi
 

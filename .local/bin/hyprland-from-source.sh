@@ -6,7 +6,7 @@ set -euo pipefail
 # Go home
 cd "$HOME" || { echo "Error: Failed to change directory to $HOME"; exit 1; }
 
-# Check if Hyprland directory exists and delete it
+# If an existing Hyprland directory exists, delete it
 if [ -d "Hyprland" ]; then
   echo "Hyprland directory found. Deleting it..."
   rm -rf "Hyprland"

@@ -17,7 +17,7 @@ check_numlock() {
       fi
     done
     shopt -u nullglob
-    # If there were no :numlock LED devices, we cannot reliably check state.
+    # If there are no NumLock LED devices, we cannot reliably check state
     if (( ! found_led )); then
       numlock_state=unknown
     fi
@@ -58,7 +58,7 @@ directories=(
 # Change to home directory and check for errors
 cd "$HOME" || { echo "Error: Failed to change directory to $HOME" >&2; exit 1; }
 
-# Check if all source directories exist. Fail if any are missing.
+# Check if all source directories exist - fail if any are missing
 for dir in "${directories[@]}"; do
   if [ ! -d "$dir" ]; then
     echo "Error: Directory $dir does not exist. Exiting." >&2

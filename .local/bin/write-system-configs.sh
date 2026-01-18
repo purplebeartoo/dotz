@@ -19,14 +19,14 @@ run rsync -a --exclude "linuxnotes" "$HOME"/Downloads/Documents "$HOME"
 log "Rebuilding bat syntax cache..."
 run bat cache --build
 
-# Install Yazi plugins and flavors
+# Install yazi plugins and flavors
 log "Installing Yaziline plugin..."
 run ya pkg add llanosrocas/yaziline
 
 log "Installing Yazi Tokyo Night flavor..."
 run ya pkg add BennyOe/tokyo-night
 
-# Enable Pipewire and Wireplumber user services
+# Enable pipewire and wireplumber user services
 log "Enabling Pipewire & Wireplumber user services..."
 run systemctl --user enable pipewire-pulse pipewire-pulse.socket pipewire.socket wireplumber
 
@@ -41,7 +41,7 @@ log "Selecting fastest mirrors with reflector..."
 backup /etc/pacman.d/mirrorlist
 run sudo reflector --country "United States" --age 12 --n 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-# GTK & Icon Theming
+# GTK & icon theming
 log "Copying Tokyonight Dark GTK theme to ~/.themes..."
 mkdir -p "$HOME/.themes"
 if [ -d "/usr/share/themes/Tokyonight-Dark" ]; then
@@ -75,7 +75,7 @@ backup /etc/security/pam_env.conf
 echo -e "\nZDOTDIR DEFAULT=$HOME/.config/zsh" | sudo tee -a /etc/security/pam_env.conf > /dev/null \
   || err "Failed to append ZDOTDIR."
 
-# Set Podman user subuids and Docker registry search
+# Set podman user subuids and docker registry search
 log "Configuring Podman user subuids/subgids..."
 run sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
 
