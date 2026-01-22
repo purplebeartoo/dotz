@@ -2,54 +2,81 @@
 # Sync backup, alias: sbk
 
 set -euo pipefail
+IFS=$'\n\t'
 
-# Source file (today’s backup)
-backup_source="${HOME}/backup-$(date +%F).tar.zst.age"
+log() {
+  printf '[%(%F %T)T] %s\n' -1 "$*"
+}
 
-# Destination directories
+die() {
+  log "ERROR: $*"
+  exit 1
+}
+
+# Configuration
+backup_date="$(date +%F)"
+backup_source="${HOME}/backup-${backup_date}.tar.zst.age"
+
 backup_destinations=(
   "/run/media/ck/sam3"
   "/run/media/ck/samc"
   "/home/ck/Downloads"
 )
 
-# Ensure a directory exists and is writable
+dry_run="${dry_run:-0}"
+
 ensure_writable_dir() {
   local dir="$1"
-  if [[ ! -d "$dir" ]]; then
-    echo "Destination directory does not exist: $dir" >&2
-    exit 1
-  elif [[ ! -w "$dir" ]]; then
-    echo "Destination directory is not writable: $dir" >&2
-    exit 1
-  fi
+
+  [[ -d "$dir" ]] || die "Destination directory does not exist: $dir"
+  [[ -w "$dir" ]] || die "Destination directory is not writable: $dir"
 }
 
-# Copy the source file to each destination, then delete the source
-sync_backup() {
-  local src="$1"
-  shift
-  local dests=("$@")
+verify_prerequisites() {
+  [[ -f "$backup_source" ]] || die "Source file not found: $backup_source"
 
-  # Verify source file exists
-  if [[ ! -f "$src" ]]; then
-    echo "Source file not found: $src" >&2
-    exit 1
-  fi
+  for dir in "${backup_destinations[@]}"; do
+    ensure_writable_dir "$dir"
+  done
+}
 
-  # Copy to each destination
-  for dst in "${dests[@]}"; do
-    ensure_writable_dir "$dst"
-    echo "Copying $src → $dst"
-    cp -p "$src" "$dst"
+copy_backup() {
+  local failures=0
+
+  for dst in "${backup_destinations[@]}"; do
+    log "Copying → $dst"
+
+    if [[ "$dry_run" -eq 1 ]]; then
+      log "DRY-RUN: install -p \"$backup_source\" \"$dst/\""
+      continue
+    fi
+
+    if ! install -p "$backup_source" "$dst/"; then
+      log "Copy failed for destination: $dst"
+      failures=$((failures + 1))
+    fi
   done
 
-  # Delete source after successful copies
-  echo "Removing source file $src"
-  rm -f "$src"
-  echo "Source file deleted."
+  return "$failures"
 }
 
-# Run the sync
-sync_backup "$backup_source" "${backup_destinations[@]}"
-echo "Backup sync complete."
+cleanup_source() {
+  log "Removing source file: $backup_source"
+  rm -f -- "$backup_source"
+  log "Source file deleted."
+}
+
+main() {
+  log "Starting backup sync"
+
+  verify_prerequisites
+
+  if copy_backup; then
+    [[ "$dry_run" -eq 1 ]] || cleanup_source
+    log "Backup sync completed successfully"
+  else
+    die "One or more copies failed — source file preserved"
+  fi
+}
+
+main "$@"
