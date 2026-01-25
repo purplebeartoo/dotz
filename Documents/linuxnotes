@@ -1,6 +1,8 @@
 #####################################################################################
 MISC MAJIK
 
+rm .config/mozilla/firefox/g0fmxcec.default-release/favicons.sqlite
+
 replace newline with space: paste -sd ' ' in > out
 
 podman exec -it ollama ollama rm gemma3:12b-it-qat
