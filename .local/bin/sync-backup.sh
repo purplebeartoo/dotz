@@ -48,7 +48,7 @@ copy_backup() {
   [[ "$dry_run" -eq 1 ]] && rsync_opts+=(--dry-run --verbose)
 
   for dst in "${backup_destinations[@]}"; do
-    log "Syncing → $dst"
+    log "Syncing to $dst"
 
     if ! rsync "${rsync_opts[@]}" "$backup_source" "$dst/"; then
       log "Copy failed for destination: $dst"
