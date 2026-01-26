@@ -34,6 +34,7 @@ ensure_writable_dir() {
 
 verify_prerequisites() {
   [[ -f "$backup_source" ]] || die "Source file not found: $backup_source"
+  command -v rsync >/dev/null 2>&1 || die "rsync not found"
 
   for dir in "${backup_destinations[@]}"; do
     ensure_writable_dir "$dir"
@@ -42,16 +43,14 @@ verify_prerequisites() {
 
 copy_backup() {
   local failures=0
+  local rsync_opts=(-a --checksum)
+
+  [[ "$dry_run" -eq 1 ]] && rsync_opts+=(--dry-run --verbose)
 
   for dst in "${backup_destinations[@]}"; do
-    log "Copying → $dst"
+    log "Syncing → $dst"
 
-    if [[ "$dry_run" -eq 1 ]]; then
-      log "DRY-RUN: install -p \"$backup_source\" \"$dst/\""
-      continue
-    fi
-
-    if ! install -p "$backup_source" "$dst/"; then
+    if ! rsync "${rsync_opts[@]}" "$backup_source" "$dst/"; then
       log "Copy failed for destination: $dst"
       failures=$((failures + 1))
     fi
