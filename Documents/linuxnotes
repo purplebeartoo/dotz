@@ -177,7 +177,7 @@ modprobe -c | grep 'blacklist\|install'
 
 dg ls-tree --full-tree -r HEAD > ~/Documents/git-bare-tracked-"$(date +"%Y%m%d").txt"
 pacman -Qqe > ~/Documents/pkglist-"$(date +"%Y%m%d")"
-paru -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
+yay -Qe > ~/Documents/installed-"$(date +"%Y%m%d").txt"
 
 sudo sysctl -a | grep ptrace
 pacman -Qtdq | pacman -Rns -
