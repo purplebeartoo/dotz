@@ -1,29 +1,58 @@
 #!/usr/bin/env bash
-# Run the coding AI, launches AI terminal client via Ctrl+Numpad 4
+# Run the coding AI inside a Podman container, launches via Ctrl+Numpad 4
 
-set -euo pipefail
+set -Eeuo pipefail
 
-container="${1:-ollama}"
-model="${2:-hf.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:UD-Q3_K_XL}"
+# Configuration
+DEFAULT_CONTAINER="ollama"
+DEFAULT_MODEL="hf.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:UD-Q3_K_XL"
 
-# Error handling function that outputs to stderr
-err() { echo "Error: $*" >&2; }
+container="${1:-$DEFAULT_CONTAINER}"
+model="${2:-$DEFAULT_MODEL}"
 
-# Ensure container exists
-if ! podman container exists "$container"; then
-  err "Container '$container' does not exist. Please create it first."
+# Helpers
+err() {
+  echo "Error: $*" >&2
+}
+
+die() {
+  err "$@"
   exit 1
+}
+
+require_cmd() {
+  command -v "$1" >/dev/null 2>&1 || die "Required command not found: $1"
+}
+
+# Preconditions
+require_cmd podman
+
+# Container checks
+if ! podman container exists "$container"; then
+  die "Container '$container' does not exist. Create it first."
 fi
 
-# Ensure container is running
-if ! podman ps --format '{{.Names}}' | grep -qx "$container"; then
-  podman start "$container" >/dev/null 2>&1 || { err "Failed to start $container"; exit 1; }
+if ! podman ps --format '{{.Names}}' | grep -qxF "$container"; then
+  echo "Starting container '$container'..."
+  podman start "$container" >/dev/null \
+    || die "Failed to start container '$container'"
 fi
 
-# Ensure model exists within container
-if ! podman exec "$container" ollama list | grep -Fq "$model"; then
-  podman exec "$container" ollama pull "$model" || { err "Failed to pull $model"; exit 1; }
+# Ensure ollama exists inside the container
+if ! podman exec "$container" sh -c '[ -x "$(command -v ollama)" ]'; then
+  die "ollama not found inside container '$container'"
 fi
 
-# Launch the coding AI
-podman exec -it "$container" ollama run "$model" --verbose
+# Model checks
+if ! podman exec "$container" ollama list \
+  | awk '{print $1}' \
+  | grep -qxF "$model"; then
+
+  echo "Pulling model '$model'..."
+  podman exec "$container" ollama pull "$model" \
+    || die "Failed to pull model '$model'"
+fi
+
+# Launch
+echo "Launching the coding AI ($model) in container '$container'..."
+exec podman exec -it "$container" ollama run "$model" --verbose
