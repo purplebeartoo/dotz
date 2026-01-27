@@ -1,12 +1,6 @@
 #####################################################################################
 MISC MAJIK
 
-rm .config/mozilla/firefox/g0fmxcec.default-release/favicons.sqlite
-
-replace newline with space: paste -sd ' ' in > out
-
-podman exec -it ollama ollama rm gemma3:12b-it-qat
-
 escape: \^$.|?*+()[{
 
 sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
@@ -14,9 +8,6 @@ sed -i -e ':a;N;$!ba;s/\n//g' -e 's/\\//g' frln
 show numerical file permissions: stat -c '%a' ~/.local/bin/*
 
 list running daemons: pgrep daemon | xargs ps -p
-
-paru -Sccdd
-sudo pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | paru -Syu --rebuild --rebuild=all --noconfirm
 
 sudo kill -9 pid
 
@@ -55,11 +46,13 @@ print files modified today: find / -mtime -1 > test
 
 find files larger than 5M: find /where -size +5M -ls
 
-find ~/hosts/data -name 'hosts' -exec cat {} \; > catted
+rm .config/mozilla/firefox/g0fmxcec.default-release/favicons.sqlite
 
-imv -t 3  ~/Pictures/202*/*.jpg(om)
+replace newline with space: paste -sd ' ' in > out
 
 /etc/fstab fmask=0137,dmask=0027
+
+imv -t 3  ~/Pictures/202*/*.jpg(om)
 
 echo /var/log/messages*        # usual lexicographic order
 echo /var/log/messages*(On)    # reverse lexicographic order
@@ -220,7 +213,7 @@ _________________
 
 images:
 orientation
-paru -S fbida
+yay -S fbida
 exiftran -ai *.jpg
 
 exiftool -all= *.*
@@ -245,7 +238,7 @@ nmcli c up wg0
 sudo nmcli connection delete wg0
 
 ######################################################################################
-REG/SED/TR
+REG/SED
 
 [^-_#. a-zA-Z0-9]      - any character that is not a hyphen, underscore, hash, period, space, or alphanumeric
 %s/pattern//gn         - count number of matches
