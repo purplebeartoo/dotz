@@ -64,7 +64,7 @@ tooltip label {
 }
 
 #clock {
-  color: #bb9af7;
+  color: #f7768e;
 }
 
 #custom-updates {
@@ -76,11 +76,11 @@ tooltip label {
 }
 
 #systemd-failed-units {
-  color: #f7768e;
+  color: #bb9af7;
 }
 
 #network {
-  color: #bb9af7;
+  color: #f7768e;
 }
 
 #temperature {
@@ -92,11 +92,11 @@ tooltip label {
 }
 
 #cpu {
-  color: #f7768e;
+  color: #bb9af7;
 }
 
 #memory {
-  color: #bb9af7;
+  color: #f7768e;
 }
 
 #pulseaudio {
