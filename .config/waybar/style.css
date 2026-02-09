@@ -72,11 +72,11 @@ tooltip label {
 }
 
 #idle_inhibitor {
-  color: #2ac3de;
+  color: #bb9af7;
 }
 
 #systemd-failed-units {
-  color: #bb9af7;
+  color: #2ac3de;
 }
 
 #network {
@@ -88,11 +88,11 @@ tooltip label {
 }
 
 #disk {
-  color: #2ac3de;
+  color: #bb9af7;
 }
 
 #cpu {
-  color: #bb9af7;
+  color: #2ac3de;
 }
 
 #memory {
