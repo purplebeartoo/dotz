@@ -76,13 +76,13 @@ echo -e "\nZDOTDIR DEFAULT=$HOME/.config/zsh" | sudo tee -a /etc/security/pam_en
   || err "Failed to append ZDOTDIR."
 
 # Set podman user subuids and docker registry search
-log "Configuring Podman user subuids/subgids..."
-run sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
+# log "Configuring Podman user subuids/subgids..."
+# run sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$USER"
 
-log "Setting unqualified container registry search to docker.io..."
-run sudo tee /etc/containers/registries.conf.d/99-unqualified-search-registries.conf > /dev/null <<EOF
-unqualified-search-registries = ["docker.io"]
-EOF
+# # log "Setting unqualified container registry search to docker.io..."
+# # run sudo tee /etc/containers/registries.conf.d/99-unqualified-search-registries.conf > /dev/null <<EOF
+# unqualified-search-registries = ["docker.io"]
+# EOF
 
 # Chromium policies
 log "Writing Chromium policies..."
