@@ -54,6 +54,8 @@ replace newline with space: paste -sd ' ' in > out
 
 imv -t 3  ~/Pictures/202*/*.jpg(om)
 
+terminus-font /etc/vconsole.conf FONT=ter-128b
+
 echo /var/log/messages*        # usual lexicographic order
 echo /var/log/messages*(On)    # reverse lexicographic order
 echo /var/log/messages*(om)    # reverse chronological order (ascending mtime)
