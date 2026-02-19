@@ -88,7 +88,7 @@ alias wo="sudo systemctl start NetworkManager.service"
 eval "$(zoxide init zsh)"
 
 # change to current working directory when exiting yazi
-function rr() {
+function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
 
