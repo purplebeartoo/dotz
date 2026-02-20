@@ -84,25 +84,25 @@ alias upo="$HOME/.local/bin/update-podman-ollama.sh"
 alias v="nvim"
 alias wf="sudo systemctl stop NetworkManager.service"
 alias wo="sudo systemctl start NetworkManager.service"
+alias yazi='y'
 
 eval "$(zoxide init zsh)"
 
 # change to current working directory when exiting yazi
 function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-
-  if [[ $? -ne 0 ]]; then
-    echo "Error running yazi"
-    return 1
-  fi
-
-  IFS= read -r -d '' cwd < "$tmp"
-  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-  rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
 }
 
-if [[ "$(tty)" =~ "/pts/" ]]; then
+if [[ $SHLVL -eq 1 && "$(tty)" =~ "/pts/" ]]; then
   eval "$(starship init zsh)"
   fastfetch
+fi
+
+if [[ -n "$LAUNCH_YAZI" ]]; then
+  unset LAUNCH_YAZI
+  yazi
 fi
