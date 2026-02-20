@@ -97,6 +97,7 @@ function y() {
   rm -f -- "$tmp"
 }
 
+# Prevent unnecessary initialization in subshells
 if [[ $SHLVL -eq 1 && "$(tty)" =~ "/pts/" ]]; then
   eval "$(starship init zsh)"
   fastfetch
