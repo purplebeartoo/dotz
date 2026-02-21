@@ -53,6 +53,7 @@ replace newline with space: paste -sd ' ' in > out
 /etc/fstab fmask=0137,dmask=0027
 
 imv -f -t 3  ~/Pictures/202*/*.jpg(om)
+imv -f -t 3 $(print -l ~/Pictures/202*/*.jpg(om) | shuf)
 
 video=1920x1080@60
 

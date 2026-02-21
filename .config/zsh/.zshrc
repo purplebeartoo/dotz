@@ -70,7 +70,6 @@ alias ls="eza -l -g --hyperlink --group-directories-first --icons -t modified"
 alias lsa="eza -a -l -g --hyperlink --group-directories-first --icons -t modified"
 alias mc='watch -n 1 "cat /proc/cpuinfo | grep \"^[c]pu MHz\""'
 alias mpv='io.mpv.Mpv'
-alias nt="nvim $HOME/Documents/linuxnotes"
 alias osp="$HOME/.local/bin/ollama-stop.sh"
 alias ost="$HOME/.local/bin/ollama-start.sh"
 alias rha="$HOME/.local/bin/rebuild-hyprland-aur.sh"
